@@ -5,7 +5,7 @@ const Header = () => {
 
   const handleDonateClick = () => {
     setIsClicked(true);
-    setTimeout(() => setIsClicked(false), 300); // Reset after zoom animation
+    setTimeout(() => setIsClicked(false), 300); // Reset animation
   };
 
   return (
@@ -17,7 +17,7 @@ const Header = () => {
           <img 
             src="/images/header-logo.png" 
             alt="United Ummah Logo" 
-            className="h-12 w-auto"
+            className="h-16 w-auto" // increased height for bigger logo
           />
         </div>
 
@@ -27,24 +27,19 @@ const Header = () => {
             <a
               key={index}
               href="#"
-              className="text-[#f0bc7a] hover:opacity-80 transition-opacity text-sm tracking-wide"
+              className="text-[#ffffff] hover:opacity-80 transition-opacity text-sm tracking-wide"
             >
               {item}
             </a>
           ))}
         </nav>
 
-        {/* Prayer Time and Donate Section */}
-        <div className="flex items-center space-x-4">
-          {/* Prayer Time Box */}
-          <div 
-            className="px-4 py-2 rounded-full text-sm flex flex-col justify-center"
-            style={{ backgroundColor: '#90BC5D' }}
-          >
-            <div className="text-white leading-tight">
-              <div className="text-xs">Islamic Centre of Canada (ICC)</div>
-              <div className="font-semibold text-sm">NEXT PRAYER: FAJR</div>
-            </div>
+        {/* Prayer + Donate Button */}
+        <div className="flex items-center bg-[#90BC5D] rounded-full pl-5 pr-2 py-2 space-x-4">
+          {/* Prayer Info */}
+          <div className="text-white leading-tight">
+            <div className="text-xs">Islamic Centre of Canada (ICC)</div>
+            <div className="font-semibold text-sm">NEXT PRAYER: FAJR</div>
             <div className="flex items-center space-x-2 mt-1">
               {["00", "00", "49"].map((val, i) => (
                 <div key={i} className="flex space-x-1">
@@ -55,18 +50,20 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Donate Now Button */}
+          {/* Donate Button */}
           <button 
             onClick={handleDonateClick}
-            className={`px-6 py-3 rounded-full font-semibold text-white transition-all duration-300 ease-in-out transform ${
-              isClicked ? 'scale-110 bg-[#bf8c4b]' : 'bg-[#F1E8DA] text-[#002726] hover:bg-[#bf8c4b] hover:text-white'
+            className={`ml-2 h-full px-6 py-5 font-semibold text-sm tracking-wide transition-all duration-300 ease-in-out transform rounded-full ${
+              isClicked
+                ? 'scale-105 bg-[#bf8c4b] text-white'
+                : 'bg-[#f1e8da] text-[#002726] hover:bg-[#bf8c4b] hover:text-white'
             }`}
           >
             DONATE NOW
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Toggle */}
         <div className="md:hidden">
           <button className="text-white">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
