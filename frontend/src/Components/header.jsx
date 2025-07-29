@@ -5,62 +5,64 @@ const Header = () => {
 
   const handleDonateClick = () => {
     setIsClicked(true);
-    setTimeout(() => setIsClicked(false), 300); // Reset animation
+    setTimeout(() => setIsClicked(false), 300);
   };
 
   return (
-    <header className="w-full" style={{ backgroundColor: '#002726' }}>
-      <div className="flex items-center justify-between px-6 py-4 rounded-full mx-4 shadow-md" style={{ backgroundColor: '#002726' }}>
+    <header className="w-full bg-[#002726]">
+      <div className="flex items-center justify-between px-6 py-4 mx-4 rounded-full shadow-md bg-[#002726]">
         
-        {/* Logo Section */}
-        <div className="flex items-center">
+        {/* Logo + Navigation Container */}
+        <div className="flex items-center space-x-12">
           <img 
             src="/images/header-logo.png" 
             alt="United Ummah Logo" 
-            className="h-16 w-auto" // increased height for bigger logo
+            className="h-20 w-auto"
           />
+          <nav className="hidden md:flex items-center space-x-8">
+            {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => (
+              <a key={index} href="#" className="text-white hover:opacity-80 transition-opacity text-base tracking-wide">
+                {item}
+              </a>
+            ))}
+          </nav>
         </div>
 
-        {/* Navigation Menu */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => (
-            <a
-              key={index}
-              href="#"
-              className="text-[#ffffff] hover:opacity-80 transition-opacity text-sm tracking-wide"
-            >
-              {item}
-            </a>
-          ))}
-        </nav>
+        {/* Prayer + Donate Container */}
+        <div className="relative flex items-center">
+          {/* Green Rounded Background */}
+          <div className="absolute right-0 left-0 h-[60px] bg-[#90BC5D] rounded-full z-0"></div>
 
-        {/* Prayer + Donate Button */}
-        <div className="flex items-center bg-[#90BC5D] rounded-full pl-5 pr-2 py-2 space-x-4">
-          {/* Prayer Info */}
-          <div className="text-white leading-tight">
-            <div className="text-xs">Islamic Centre of Canada (ICC)</div>
-            <div className="font-semibold text-sm">NEXT PRAYER: FAJR</div>
-            <div className="flex items-center space-x-2 mt-1">
+          {/* Content */}
+          <div className="relative flex items-center bg-transparent pl-6 pr-2 h-[60px] z-10">
+            {/* Prayer Info */}
+            <div className="text-black leading-tight whitespace-nowrap mr-5">
+              <div className="text-[13px] font-medium">Islamic Centre of Canada (ICC)</div>
+              <div className="font-bold text-[16px]">NEXT PRAYER: FAJR</div>
+            </div>
+
+            {/* Timer */}
+            <div className="flex mr-6">
               {["00", "00", "49"].map((val, i) => (
-                <div key={i} className="flex space-x-1">
-                  <span className="bg-white text-black px-2 py-1 rounded text-xs font-bold">{val}</span>
-                  <span className="text-white text-xs">{["HRS", "MIN", "SEC"][i]}</span>
+                <div key={i} className="flex flex-col items-center mx-1">
+                  <span className="text-black px-2 py-1 rounded text-md font-bold">{val}</span>
+                  <span className="text-black font-bold text-[15px] mt-1">{["HRS", "MIN", "SEC"][i]}</span>
                 </div>
               ))}
             </div>
-          </div>
 
-          {/* Donate Button */}
-          <button 
-            onClick={handleDonateClick}
-            className={`ml-2 h-full px-6 py-5 font-semibold text-sm tracking-wide transition-all duration-300 ease-in-out transform rounded-full ${
-              isClicked
-                ? 'scale-105 bg-[#bf8c4b] text-white'
-                : 'bg-[#f1e8da] text-[#002726] hover:bg-[#bf8c4b] hover:text-white'
-            }`}
-          >
-            DONATE NOW
-          </button>
+            {/* Donate Button */}
+            <button 
+              onClick={handleDonateClick}
+              className={`h-[60px] w-[190px] flex items-center justify-center font-semibold text-[16px] py-9 tracking-wide transition-all duration-300 ease-in-out rounded-full ${
+                isClicked
+                  ? 'scale-105 bg-[#bf8c4b]'
+                  : 'bg-[#f1e8da] text-black hover:bg-[#bf8c4b] hover:scale-105'
+              }`}
+            >
+              DONATE NOW
+            </button>
+          </div>
         </div>
 
         {/* Mobile Toggle */}
