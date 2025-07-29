@@ -4,11 +4,12 @@ const CommunityEventsStats = () => {
   return (
     <div className="relative w-full py-20">
       {/* Background with shadow effect */}
-      <div 
-        className="absolute inset-0"
-        style={{ backgroundColor: '#012625' }}
-      ></div>
-      
+   {/* Background with shadow effect */}
+<div 
+  className="absolute inset-0"
+  style={{ backgroundColor: '#0C403C' }}
+></div>
+
       {/* Main content container */}
       <div 
         className="relative z-10 mx-auto max-w-6xl px-8 py-16 rounded-lg"
