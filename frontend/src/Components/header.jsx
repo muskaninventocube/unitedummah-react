@@ -45,16 +45,16 @@ const Header = () => {
             <div className="flex mr-6">
               {["00", "00", "49"].map((val, i) => (
                 <div key={i} className="flex flex-col items-center mx-1">
-                  <span className="text-black px-2 py-1 rounded text-md font-bold">{val}</span>
-                  <span className="text-black font-bold text-[15px] mt-1">{["HRS", "MIN", "SEC"][i]}</span>
+                  <span className="text-black px-2  rounded text-md font-bold">{val}</span>
+                  <span className="text-black font-bold text-[15px] ">{["HRS", "MIN", "SEC"][i]}</span>
                 </div>
               ))}
             </div>
-
+            </div>
             {/* Donate Button */}
             <button 
               onClick={handleDonateClick}
-              className={`h-[60px] w-[190px] flex items-center justify-center font-semibold text-[16px] py-9 tracking-wide transition-all duration-300 ease-in-out rounded-full ${
+              className={`h-[60px] w-[190px] flex items-center justify-center font-semibold text-[16px] py-9 tracking-wide transition-all duration-300 ease-in-out rounded-full z-10 ${
                 isClicked
                   ? 'scale-105 bg-[#bf8c4b]'
                   : 'bg-[#f1e8da] text-black hover:bg-[#bf8c4b] hover:scale-105'
@@ -63,7 +63,7 @@ const Header = () => {
               DONATE NOW
             </button>
           </div>
-        </div>
+        
 
         {/* Mobile Toggle */}
         <div className="md:hidden">
