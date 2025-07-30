@@ -1,12 +1,57 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import dayjs from 'dayjs';
 
 const Header = () => {
   const [isClicked, setIsClicked] = useState(false);
+  const [nextPrayer, setNextPrayer] = useState({ name: '', hrs: '00', mins: '00', secs: '00' });
 
   const handleDonateClick = () => {
     setIsClicked(true);
     setTimeout(() => setIsClicked(false), 300);
   };
+
+  const prayerTimes = [
+    { name: 'Fajr', time: '4:34' },
+    { name: 'Dhuhr', time: '12:38' },
+    { name: 'Asr', time: '17:18' },
+    { name: 'Maghrib', time: '19:17' },
+    { name: 'Isha', time: '20:42' },
+  ];
+
+  useEffect(() => {
+    const updateCountdown = () => {
+      const now = dayjs();
+      let next = null;
+
+      for (let i = 0; i < prayerTimes.length; i++) {
+        const [hr, min] = prayerTimes[i].time.split(':');
+        const prayerTime = dayjs().hour(Number(hr)).minute(Number(min)).second(0);
+
+        if (now.isBefore(prayerTime)) {
+          next = { name: prayerTimes[i].name, time: prayerTime };
+          break;
+        }
+      }
+
+      // If no prayer left for today, set next Fajr tomorrow
+      if (!next) {
+        const [fajrHr, fajrMin] = prayerTimes[0].time.split(':');
+        const fajrTomorrow = dayjs().add(1, 'day').hour(Number(fajrHr)).minute(Number(fajrMin)).second(0);
+        next = { name: prayerTimes[0].name, time: fajrTomorrow };
+      }
+
+      const diffSec = next.time.diff(now, 'second');
+      const hrs = String(Math.floor(diffSec / 3600)).padStart(2, '0');
+      const mins = String(Math.floor((diffSec % 3600) / 60)).padStart(2, '0');
+      const secs = String(diffSec % 60).padStart(2, '0');
+
+      setNextPrayer({ name: next.name, hrs, mins, secs });
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <header className="w-full bg-[#002726]">
@@ -37,11 +82,11 @@ const Header = () => {
             <div className="relative flex items-center bg-transparent pl-6 pr-2 h-[60px] z-10">
               <div className="text-black leading-tight whitespace-nowrap mr-5">
                 <div className="text-[13px] font-medium">Islamic Centre of Canada (ICC)</div>
-                <div className="font-bold text-[16px]">NEXT PRAYER: FAJR</div>
+                <div className="font-bold text-[16px]">NEXT PRAYER: {nextPrayer.name.toUpperCase()}</div>
               </div>
 
               <div className="flex mr-6">
-                {["00", "00", "49"].map((val, i) => (
+                {[nextPrayer.hrs, nextPrayer.mins, nextPrayer.secs].map((val, i) => (
                   <div key={i} className="flex flex-col items-center mx-1">
                     <span className="text-black px-2 rounded text-md font-bold">{val}</span>
                     <span className="text-black font-bold text-[15px]">{["HRS", "MIN", "SEC"][i]}</span>
