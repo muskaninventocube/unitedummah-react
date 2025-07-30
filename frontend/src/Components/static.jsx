@@ -87,12 +87,12 @@ const PrologueGallery = () => {
               className="text-white text-lg leading-relaxed"
               style={{ 
                 fontFamily: 'styreneB, serif',
-                fontWeight: 300,
+                fontWeight: 400,
                 lineHeight: '1.6'
               }}
             >
-              United Ummah is more than just a community centre it is a 
-              sanctuary for Muslims from every walk of life, a place where 
+              United Ummah is more than just a community centre it is a <br />
+              sanctuary for Muslims from every walk of life, a place where <br />
               hearts meet, hands join, and faith flourishes.
             </p>
 
@@ -100,16 +100,16 @@ const PrologueGallery = () => {
               className="text-white text-lg leading-relaxed"
               style={{ 
                 fontFamily: 'styreneB, serif',
-                fontWeight: 300,
+                fontWeight: 400,
                 lineHeight: '1.6'
               }}
             >
-              Here, every soul is valued, every story is honoured, and 
-              every gathering feels like a homecoming minus the awkward 
-              cousin and the overcooked biryani. From our youth and 
-              elders to families seeking connection, United Ummah stands 
-              as a testament to the beauty of togetherness, a beacon of 
-              hope, and a safe harbour where faith and unity intertwine in 
+              Here, every soul is valued, every story is honoured, and <br />
+              every gathering feels like a homecoming minus the awkward <br />
+              cousin and the overcooked biryani. From our youth and  <br />
+              elders to families seeking connection, United Ummah stands <br />
+              as a testament to the beauty of togetherness, a beacon of <br />
+              hope, and a safe harbour where faith and unity intertwine in <br />
               the most graceful way.
             </p>
           </div>
