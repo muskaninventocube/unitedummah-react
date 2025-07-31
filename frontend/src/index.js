@@ -12,6 +12,8 @@ root.render(
     <Home />
         <CommunityEventsStats />
         <Static />
-        <UpcomingEvents />
+       <div className="h-[5000px] overflow-y-scroll">
+  <UpcomingEvents />
+</div>
   </React.StrictMode>
 );
