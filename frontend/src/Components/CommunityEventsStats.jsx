@@ -9,7 +9,7 @@ const CommunityEventsStats = () => {
         style={{
           width: '2200px',
           height: '200px',
-          bottom: '-100px', // push it further down
+          bottom: '-150px', // push it further down
           left: '50%',
           transform: 'translateX(-50%)',
           backgroundColor: '#002626',
