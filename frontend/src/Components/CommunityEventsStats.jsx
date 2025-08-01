@@ -3,33 +3,33 @@ import React from 'react';
 const CommunityEventsStats = () => {
   return (
     <div className="relative w-full py-32 bg-[#002626]">
-      {/* Bottom Shadow (spread outward but only downward) */}
+      {/* Top Shadow */}
       <div
         className="absolute"
         style={{
-          width: '2200px',
-          height: '200px',
-          bottom: '-150px', // push it further down
+          width: '2500px',
+          height: '250px',
+          top: '-180px',
           left: '50%',
           transform: 'translateX(-50%)',
           backgroundColor: '#002626',
-          filter: 'blur(60px)',
-          zIndex: 0,
+          filter: 'blur(100px)',
+          zIndex: 1,
         }}
       />
 
-    
+      {/* Bottom Shadow */}
       <div
         className="absolute"
         style={{
-          width: '2200px',
-          height: '200px',
-          top: '-100px',
+          width: '2500px',
+          height: '250px',
+          bottom: '-180px',
           left: '50%',
           transform: 'translateX(-50%)',
           backgroundColor: '#002626',
-          filter: 'blur(60px)',
-          zIndex: 0,
+          filter: 'blur(100px)',
+          zIndex: 1,
         }}
       />
 
