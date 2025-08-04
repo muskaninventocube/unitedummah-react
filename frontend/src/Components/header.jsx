@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 
 const Header = () => {
   const [isClicked, setIsClicked] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [nextPrayer, setNextPrayer] = useState({ name: '', hrs: '00', mins: '00', secs: '00' });
   const [prayerTimes, setPrayerTimes] = useState([]);
 
@@ -73,44 +74,63 @@ const Header = () => {
 
   return (
     <header className="w-full bg-[#002726]">
-      <div className="flex justify-center px-6 py-4 mx-4 rounded-full shadow-md bg-[#002726]">
-        <div className="flex items-center gap-x-12">
-          <img 
-            src="/images/header-logo.png" 
-            alt="United Ummah Logo" 
-            className="h-20 w-auto"
-          />
+      <div className="flex justify-between items-center px-4 py-3 md:px-6 lg:px-12 mx-auto max-w-[1600px]">
 
-          <nav className="hidden md:flex items-center space-x-8 right-10">
+        {/* Logo */}
+        <img
+          src="/images/header-logo.png"
+          alt="United Ummah Logo"
+          className="h-16 md:h-20 w-auto"
+        />
+
+        {/* Hamburger for Mobile */}
+        <div className="md:hidden">
+          <button onClick={() => setIsMobileMenuOpen(true)} className="text-white">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Desktop/Mid Layout */}
+        <div className="hidden md:flex items-center justify-between w-full ml-8 gap-x-8">
+
+          {/* Nav */}
+          <nav className="flex items-center space-x-5 lg:space-x-8 text-white text-[13px] lg:text-[14px] font-medium">
             {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => (
-              <a key={index} href="#" className="text-white hover:opacity-80 transition-opacity text-base tracking-wide">
+              <a key={index} href="#" className="hover:opacity-80 transition-opacity tracking-wide">
                 {item}
               </a>
             ))}
           </nav>
 
-          <div className="relative -right-12 flex items-center">
-            <div className="absolute right-0 left-0 h-[60px] bg-[#90BC5D] rounded-full z-0"></div>
+          {/* Countdown + Donate */}
+          <div className="relative flex items-center ml-auto gap-x-4 lg:gap-x-6">
 
-            <div className="relative flex items-center bg-transparent pl-6 pr-2 h-[60px] z-10">
-              <div className="text-black leading-tight whitespace-nowrap mr-5">
-                <div className="text-[13px] font-medium">Islamic Centre of Canada (ICC)</div>
-                <div className="font-bold text-[16px]">NEXT PRAYER: {nextPrayer.name.toUpperCase()}</div>
+            {/* Green Capsule */}
+            <div className="absolute left-0 right-0 h-[60px] bg-[#90BC5D] rounded-full z-0"></div>
+
+            {/* Countdown */}
+            <div className="relative flex items-center z-10 px-4 md:pl-6 md:pr-2 h-[60px]">
+              <div className="text-black mr-4 whitespace-nowrap">
+                <div className="text-xs md:text-sm font-medium">Islamic Centre of Canada (ICC)</div>
+                <div className="text-sm md:text-base font-bold">NEXT PRAYER: {nextPrayer.name.toUpperCase()}</div>
               </div>
 
-              <div className="flex mr-6">
+              <div className="flex gap-x-1">
                 {[nextPrayer.hrs, nextPrayer.mins, nextPrayer.secs].map((val, i) => (
                   <div key={i} className="flex flex-col items-center mx-1">
-                    <span className="text-black px-2 rounded text-md font-bold">{val}</span>
-                    <span className="text-black font-bold text-[15px]">{["HRS", "MIN", "SEC"][i]}</span>
+                    <span className="text-black font-bold text-xs md:text-sm lg:text-base">{val}</span>
+                    <span className="text-black font-semibold text-[11px] md:text-xs">{["HRS", "MIN", "SEC"][i]}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <button 
+            {/* Donate Button */}
+            <button
               onClick={handleDonateClick}
-              className={`h-[60px] w-[190px] flex items-center justify-center font-semibold text-[16px] py-9 tracking-wide transition-all duration-300 ease-in-out rounded-full z-10 ${
+              className={`h-[60px] w-[140px] lg:w-[180px] flex items-center justify-center font-semibold text-sm md:text-base transition-all duration-300 ease-in-out rounded-full z-10 ${
                 isClicked
                   ? 'scale-105 bg-[#bf8c4b]'
                   : 'bg-[#f1e8da] text-black hover:bg-[#bf8c4b] hover:scale-105'
@@ -119,16 +139,23 @@ const Header = () => {
               DONATE NOW
             </button>
           </div>
-
-          <div className="md:hidden">
-            <button className="text-white">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
+
+      {/* Mobile Full Screen Menu Modal */}
+     {isMobileMenuOpen && (
+  <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center w-full px-4 py-8 space-y-6 text-black text-lg">
+    {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => (
+      <a key={index} href="#" className="hover:opacity-80 transition">{item}</a>
+    ))}
+
+    <button
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="mt-6 px-6 py-2 border border-black rounded-full text-sm hover:bg-black hover:text-white transition"
+    >
+      Close Menu
+    </button>
+  </div>      )}
     </header>
   );
 };
