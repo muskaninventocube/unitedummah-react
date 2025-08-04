@@ -15,11 +15,11 @@ root.render(
     <Home />
         <CommunityEventsStats />
         <Static />
-       {/* <div className="h-[5000px] overflow-y-scroll"> */}
+     
   <UpcomingEvents />
   <CommunityServices />
   <UmmahBuild />
   <Footer />
-{/* </div> */}
+
   </React.StrictMode>
 );
