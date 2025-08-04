@@ -13,7 +13,7 @@ const PrologueGallery = () => {
     { name: 'first', images: generateColumnImages('first', [470, 450, 478, 1050, 474, 498]) },
     { name: 'second', images: generateColumnImages('second', [474, 1050, 474, 473, 470, 494]) },
     { name: 'third', images: generateColumnImages('third', [475, 475, 1050, 480, 480, 475]) },
-    { name: 'four', images: generateColumnImages('four', [475, 475, 470, 1050, 485, 480]) },
+    { name: 'four', images: generateColumnImages('four', [480, 480, 470, 1050, 485, 480]) },
     { name: 'six', images: generateColumnImages('six', [1050, 475, 475, 470, 490, 475]) }
   ];
 

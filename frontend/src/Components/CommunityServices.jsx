@@ -42,8 +42,8 @@ const StickyBannerSection = () => {
           className="absolute text-center px-4 max-w-3xl text-white z-30"
           style={{ fontFamily: '"Times New Roman", serif' }}
         >
-          <h2 className="text-3xl sm:text-5xl mb-5 font-normal">Community Services</h2>
-          <p className="text-base sm:text-lg mb-6 leading-relaxed">
+          <h2 className="text-5xl sm:text-7xl mb-5 font-normal">Community Services</h2>
+          <p className="text-4xl sm:text-xl mb-6 leading-relaxed">
             At United Ummah, serving our community is not just <br />
             what we do it’s who we are. Our services are designed <br />
             to uplift, empower, and support every member of our <br />
