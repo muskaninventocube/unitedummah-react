@@ -33,51 +33,52 @@ const PrologueGallery = () => {
         height: '3200px',
       }}
     >
-      <style jsx>{`
-        .image-container {
-          position: relative;
-          overflow: hidden;
-          transition: all 300ms linear;
-          transform: translateX(0) scale(1);
-        }
+<style>{`
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    transition: all 300ms linear;
+    transform: translateX(0) scale(1);
+  }
 
-        .image-container:hover {
-          transform: translateX(20px) scale(1.02);
-          filter: brightness(1.05) contrast(1.1);
-          z-index: 10;
-        }
+  .image-container:hover {
+    transform: translateX(20px) scale(1.02);
+    filter: brightness(1.05) contrast(1.1);
+    z-index: 10;
+  }
 
-        .image-container::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-image: var(--bg-img);
-          background-size: cover;
-          background-position: center;
-          opacity: 0;
-          mix-blend-mode: multiply;
-          transition: opacity 300ms linear;
-          z-index: 20;
-          pointer-events: none;
+  .image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bg-img);
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    mix-blend-mode: multiply;
+    transition: opacity 300ms linear;
+    z-index: 20;
+    pointer-events: none;
 
-          /* Mask settings for ripped effect */
-          mask-image: url('/images/ripped-mask.png');
-          mask-size: cover;
-          mask-repeat: no-repeat;
-          mask-position: center;
-          -webkit-mask-image: url('/images/ripped-mask.png');
-          -webkit-mask-size: cover;
-          -webkit-mask-repeat: no-repeat;
-          -webkit-mask-position: center;
-        }
+    /* Mask settings for ripped effect */
+    mask-image: url('/images/ripped-mask.png');
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-image: url('/images/ripped-mask.png');
+    -webkit-mask-size: cover;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+  }
 
-        .image-container:hover::after {
-          opacity: 1;
-        }
-      `}</style>
+  .image-container:hover::after {
+    opacity: 1;
+  }
+`}</style>
+
 
       {/* Image Gallery Columns */}
       <div className="flex absolute inset-0 z-0">

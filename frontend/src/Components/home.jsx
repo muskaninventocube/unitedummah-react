@@ -24,7 +24,7 @@ const UmmahHeroSection = () => {
           <img 
             src="/images/right-corner.png" 
             alt="Community gathering" 
-            className="w-[500px] h-[280px] object-cover"
+            className="w-[500px] h-[250px] object-cover"
           />
         </div>
 

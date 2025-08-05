@@ -110,7 +110,8 @@ export default function UpcomingEvents() {
         </div>
 
         {/* 🎞 Scroll-Controlled Cards */}
-        <div ref={containerRef} className="relative h-[220vh]">
+<div ref={containerRef} className="relative h-[220vh]" style={{ position: 'relative' }}>
+
           <div className="sticky top-0 h-screen flex items-center justify-center z-20">
             <div className="flex justify-center gap-x-12 items-start">
               {/* First Card (Sticky, No Motion) */}
