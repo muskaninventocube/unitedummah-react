@@ -74,84 +74,75 @@ const Header = () => {
 
   return (
     <header className="w-full bg-[#002726] overflow-x-hidden">
-      <div className="flex justify-between items-center px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10 mx-auto max-w-[1800px]">
+      <div className="flex justify-between items-center px-4 md:px-6 lg:px-8 xl:px-10 mx-auto max-w-[1800px] py-2 w-full">
 
         {/* Logo */}
-        <img
-          src="/images/header-logo.png"
-          alt="United Ummah Logo"
-          className="h-12 sm:h-14 md:h-16 lg:h-18 xl:h-20 w-auto transition-all duration-300"
-        />
+        <div className="flex items-center flex-shrink-0">
+          <img
+            src="/images/header-logo.png"
+            alt="United Ummah Logo"
+            className="h-12 sm:h-14 md:h-16 w-auto transition-all duration-300"
+          />
+        </div>
 
-        {/* Hamburger for Mobile */}
-        <div className="md:hidden">
+        {/* Nav (Desktop only) */}
+        <nav className="hidden lg:flex items-center justify-center flex-grow space-x-4 text-white text-sm font-medium">
+          {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
+            const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
+            return (
+              <a key={index} href={anchors[index]} className="hover:opacity-80 transition whitespace-nowrap">
+                {item}
+              </a>
+            );
+          })}
+        </nav>
+
+        {/* Countdown + Donate (tablet and up) */}
+        <div className="hidden md:flex items-center relative ml-4 flex-shrink-0">
+
+          {/* Green capsule background */}
+          <div className="absolute left-0 right-0 h-[52px] bg-[#90BC5D] rounded-full z-0"></div>
+
+          {/* Countdown */}
+          <div className="relative flex items-center z-10 px-4 h-[52px]">
+            <div className="text-black mr-2 whitespace-nowrap">
+              <div className="text-[11px] font-medium">Islamic Centre of Canada (ICC)</div>
+              <div className="text-[13px] font-bold">NEXT PRAYER: {nextPrayer.name.toUpperCase()}</div>
+            </div>
+            <div className="flex gap-x-1">
+              {[nextPrayer.hrs, nextPrayer.mins, nextPrayer.secs].map((val, i) => (
+                <div key={i} className="flex flex-col items-center">
+                  <span className="text-black font-bold text-[13px]">{val}</span>
+                  <span className="text-black text-[10px] font-medium">{["HRS", "MIN", "SEC"][i]}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Donate Button (slightly taller than green) */}
+          <button
+            onClick={handleDonateClick}
+            className={`h-[58px] w-[85px] flex items-center justify-center font-semibold text-[13px] transition-all duration-300 ease-in-out rounded-full z-10 ml-2 ${
+              isClicked
+                ? 'scale-105 bg-[#bf8c4b]'
+                : 'bg-[#f1e8da] text-black hover:bg-[#bf8c4b] hover:scale-105'
+            }`}
+          >
+            DONATE
+          </button>
+        </div>
+
+        {/* Hamburger (tablet & mobile only) */}
+        <div className="lg:hidden flex items-center ml-2">
           <button onClick={() => setIsMobileMenuOpen(true)} className="text-white">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
-
-        {/* Desktop/Mid Layout */}
-        <div className="hidden md:flex items-center justify-between w-full ml-4 lg:ml-6 xl:ml-8 gap-x-2 lg:gap-x-4 xl:gap-x-6">
-
-          {/* Nav */}
-          <nav className="flex items-center space-x-3 sm:space-x-4 md:space-x-5 lg:space-x-6 xl:space-x-7 text-white text-xs sm:text-[12px] md:text-[13px] lg:text-[14px] xl:text-[15px] font-medium">
-            {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
-              const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
-              return (
-                <a key={index} href={anchors[index]} className="hover:opacity-80 transition-opacity tracking-wide whitespace-nowrap">
-                  {item.split(' ').map((word, i) => (
-                    <span key={i} className="block sm:inline">{word}{i < item.split(' ').length - 1 ? ' ' : ''}</span>
-                  ))}
-                </a>
-              );
-            })}
-          </nav>
-
-          {/* Countdown + Donate */}
-          <div className="relative flex items-center ml-auto min-w-max    shrink-0 flex-wrap gap-y-1">
-
-            {/* Green Capsule */}
-            <div className="absolute left-0 right-0 h-[44px] sm:h-[48px] md:h-[52px] lg:h-[56px] xl:h-[60px]   bg-[#90BC5D] rounded-full z-0"></div>
-
-            {/* Countdown */}
-            <div className="relative flex items-center z-10 pl-3 pr-1 sm:pl-4 sm:pr-2 md:pl-5 md:pr-3 h-[44px] sm:h-[48px] md:h-[52px] lg:h-[56px] xl:h-[60px]">
-              <div className="text-black mr-2 sm:mr-3 whitespace-nowrap">
-                <div className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] font-medium">Islamic Centre of Canada (ICC)</div>
-                <div className="text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] xl:text-[16px] font-bold">NEXT PRAYER: {nextPrayer.name.toUpperCase()}</div>
-              </div>
-
-              <div className="flex gap-x-0.5 sm:gap-x-1">
-                {[nextPrayer.hrs, nextPrayer.mins, nextPrayer.secs].map((val, i) => (
-                  <div key={i} className="flex flex-col items-center mx-0.5 sm:mx-1">
-                    <span className="text-black font-bold text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] xl:text-[16px]">{val}</span>
-                    <span className="text-black font-semibold text-[8px] sm:text-[9px] md:text-[10px] lg:text-[11px]">{["HRS", "MIN", "SEC"][i]}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Donate Button */}
-<button
-  onClick={handleDonateClick}
-  className={`h-[44px] xl:h-[58px] w-[78px] sm:w-[74px] md:w-[76px] lg:w-[78px] xl:w-[80px] 
-  flex items-center justify-center font-semibold text-[10px] sm:text-[11px] md:text-[12px] 
-  lg:text-[13px] xl:text-[14px] transition-all duration-300 ease-in-out rounded-full z-10 ml-2 ${
-    isClicked
-      ? 'scale-105 bg-[#bf8c4b]'
-      : 'bg-[#f1e8da] text-black hover:bg-[#bf8c4b] hover:scale-105'
-  }`}
->
-  DONATE NOW
-</button>
-
-
-          </div>
-        </div>
       </div>
 
-      {/* Mobile Full Screen Menu Modal */}
+      {/* Mobile/Tablet Menu */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center w-full px-4 py-8 space-y-6 text-black text-lg">
           {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
