@@ -13,3 +13,8 @@
     transform: scale(1.02) rotate(0.3deg);
   }
 }
+
+html,
+body {
+  position: relative;
+}
