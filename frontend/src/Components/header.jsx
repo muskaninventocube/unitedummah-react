@@ -72,34 +72,36 @@ const Header = () => {
     return () => clearInterval(interval);
   }, [prayerTimes]);
 
-  return (
-    <header className="w-full bg-[#002726] overflow-x-hidden">
-      <div className="flex justify-between items-center px-4 md:px-6 lg:px-8 xl:px-10 mx-auto max-w-[1800px] py-2 w-full">
+return (
+  <header className="w-full bg-[#002726] overflow-x-hidden">
+    <div className="flex justify-between items-center px-4 md:px-6 lg:px-8 xl:px-10 mx-auto max-w-[1800px] py-2 w-full">
 
-        {/* Logo */}
-        <div className="flex items-center flex-shrink-0">
-          <img
-            src="/images/header-logo.png"
-            alt="United Ummah Logo"
-            className="h-12 sm:h-14 md:h-16 w-auto transition-all duration-300"
-          />
-        </div>
+      {/* Logo */}
+      <div className="flex items-center flex-shrink-0">
+        <img
+          src="/images/header-logo.png"
+          alt="United Ummah Logo"
+          className="h-12 sm:h-14 md:h-16 w-auto transition-all duration-300"
+        />
+      </div>
 
-        {/* Nav (Desktop only) */}
-        <nav className="hidden lg:flex items-center justify-center flex-grow space-x-4 text-white text-sm font-medium">
-          {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
-            const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
-            return (
-              <a key={index} href={anchors[index]} className="hover:opacity-80 transition whitespace-nowrap">
-                {item}
-              </a>
-            );
-          })}
-        </nav>
+      {/* Nav (Desktop only) */}
+      <nav className="hidden lg:flex items-center justify-center flex-grow space-x-4 text-white text-sm font-medium">
+        {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
+          const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
+          return (
+            <a key={index} href={anchors[index]} className="hover:opacity-80 transition whitespace-nowrap">
+              {item}
+            </a>
+          );
+        })}
+      </nav>
 
-        {/* Countdown + Donate (tablet and up) */}
-        <div className="hidden md:flex items-center relative ml-4 flex-shrink-0">
+      {/* Right Side Controls (Donate + Hamburger) */}
+      <div className="flex items-center ml-auto space-x-2 md:space-x-4">
 
+        {/* Countdown + Donate (Tablet and up) */}
+        <div className="hidden md:flex items-center relative flex-shrink-0">
           {/* Green capsule background */}
           <div className="absolute left-0 right-0 h-[52px] bg-[#90BC5D] rounded-full z-0"></div>
 
@@ -119,7 +121,7 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Donate Button (slightly taller than green) */}
+          {/* Donate Button */}
           <button
             onClick={handleDonateClick}
             className={`h-[58px] w-[120px] flex items-center justify-center font-semibold text-[13px] transition-all duration-300 ease-in-out rounded-full z-10 ml-2 ${
@@ -132,8 +134,8 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Hamburger (tablet & mobile only) */}
-        <div className="lg:hidden flex items-center ml-2">
+        {/* Hamburger (Tablet & Mobile only) */}
+        <div className="lg:hidden flex items-center">
           <button onClick={() => setIsMobileMenuOpen(true)} className="text-white">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -141,34 +143,36 @@ const Header = () => {
           </button>
         </div>
       </div>
+    </div>
 
-      {/* Mobile/Tablet Menu */}
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center w-full px-4 py-8 space-y-6 text-black text-lg">
-          {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
-            const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
-            return (
-              <a 
-                key={index} 
-                href={anchors[index]} 
-                className="hover:opacity-80 transition text-xl sm:text-2xl"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item}
-              </a>
-            );
-          })}
+    {/* Mobile/Tablet Fullscreen Menu */}
+    {isMobileMenuOpen && (
+      <div className="fixed inset-0 bg-white z-50 w-full h-full overflow-y-auto flex flex-col items-center justify-center px-4 py-8 space-y-6 text-black text-lg">
+        {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
+          const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
+          return (
+            <a
+              key={index}
+              href={anchors[index]}
+              className="hover:opacity-80 transition text-xl sm:text-2xl"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {item}
+            </a>
+          );
+        })}
 
-          <button
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="mt-6 px-6 py-2 border border-black rounded-full text-sm hover:bg-black hover:text-white transition"
-          >
-            Close Menu
-          </button>
-        </div>
-      )}
-    </header>
-  );
+        <button
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="mt-6 px-6 py-2 border border-black rounded-full text-sm hover:bg-black hover:text-white transition"
+        >
+          Close Menu
+        </button>
+      </div>
+    )}
+  </header>
+);
+
 };
 
 export default Header;
