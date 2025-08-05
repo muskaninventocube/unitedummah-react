@@ -43,37 +43,37 @@ const BannerScrollSection = () => {
         src="/images/pol1.png"
         alt="pol1"
         className="absolute w-[400px] rotate-[-10deg]"
-        style={{ y: y1, top: '800px', left: '0%', zIndex }}
+        style={{ y: y1, top: '700px', left: '0%', zIndex }}
       />
       <motion.img
         src="/images/pol2.png"
         alt="pol2"
         className="absolute w-[400px] rotate-[8deg]"
-        style={{ y: y2, top: '850px', left: '17%', zIndex }}
+        style={{ y: y2, top: '750px', left: '17%', zIndex }}
       />
       <motion.img
         src="/images/pol6.png"
         alt="pol3"
         className="absolute w-[400px] rotate-[-6deg]"
-        style={{ y: y3, top: '820px', left: '35%', zIndex }}
+        style={{ y: y3, top: '720px', left: '35%', zIndex }}
       />
       <motion.img
         src="/images/pol4.png"
         alt="pol4"
         className="absolute w-[400px] rotate-[6deg]"
-        style={{ y: y4, top: '830px', left: '55%', zIndex }}
+        style={{ y: y4, top: '730px', left: '55%', zIndex }}
       />
       <motion.img
         src="/images/pol5.png"
         alt="pol5"
         className="absolute w-[350px] rotate-[-7deg]"
-        style={{ y: y5, top: '860px', left: '75%', zIndex }}
+        style={{ y: y5, top: '760px', left: '75%', zIndex }}
       />
       <motion.img
         src="/images/pol3.png"
         alt="pol6"
         className="absolute w-[400px] rotate-[10deg]"
-        style={{ y: y6, top: '840px', left: '87%', zIndex }}
+        style={{ y: y6, top: '740px', left: '87%', zIndex }}
       />
     </div>
   );

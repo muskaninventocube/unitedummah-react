@@ -9,15 +9,43 @@ const PrologueGallery = () => {
     }));
   };
 
+  // Responsive height configurations - 6 images per column, total height ~3000px
+  const getColumnHeights = () => ({
+    desktop: {
+      first: [470, 450, 478, 1050, 474, 498],
+      second: [474, 1050, 474, 473, 470, 494],
+      third: [475, 475, 1050, 480, 480, 475],
+      four: [475, 475, 470, 1050, 485, 480],
+      six: [1050, 475, 475, 470, 490, 475]
+    },
+    tablet: {
+      first: [450, 430, 458, 950, 454, 478],
+      second: [454, 950, 454, 453, 450, 474],
+      third: [455, 455, 950, 460, 460, 455],
+      four: [455, 455, 450, 950, 465, 460],
+      six: [950, 455, 455, 450, 470, 455]
+    },
+    mobile: {
+      first: [420, 400, 428, 850, 424, 448],
+      second: [424, 850, 424, 423, 420, 444],
+      third: [425, 425, 850, 430, 430, 425],
+      four: [425, 425, 420, 850, 435, 430],
+      six: [850, 425, 425, 420, 440, 425]
+    }
+  });
+
+  const columnHeights = getColumnHeights();
+
+  // 5 columns with 6 images each
   const columns = [
-    { name: 'first', images: generateColumnImages('first', [470, 300, 455, 1050, 490, 300]) },
-    { name: 'second', images: generateColumnImages('second', [474, 1030, 460, 450, 400, 494]) },
-    { name: 'third', images: generateColumnImages('third', [475, 460, 1050, 450, 480, 475]) },
-    { name: 'four', images: generateColumnImages('four', [490, 440, 450, 1050, 695, 340]) },
-    { name: 'six', images: generateColumnImages('six', [1050, 445, 475, 490, 720, 105]) }
+    { name: 'first', images: generateColumnImages('first', columnHeights.desktop.first) },
+    { name: 'second', images: generateColumnImages('second', columnHeights.desktop.second) },
+    { name: 'third', images: generateColumnImages('third', columnHeights.desktop.third) },
+    { name: 'four', images: generateColumnImages('four', columnHeights.desktop.four) },
+    { name: 'six', images: generateColumnImages('six', columnHeights.desktop.six) }
   ];
 
-  // 🔧 Set custom CSS variable for each image from its data attribute
+  // Set custom CSS variable for each image from its data attribute
   useEffect(() => {
     document.querySelectorAll('.image-container').forEach((el) => {
       const bg = el.getAttribute('data-bg');
@@ -26,70 +54,85 @@ const PrologueGallery = () => {
   }, []);
 
   return (
-    <div
-      className="relative bg-gray-100"
+    <div 
+      className="relative bg-gray-100 w-full"
       style={{
-        width: '1955px',
-        height: '3200px',
+        height: 'clamp(2400px, 300vh, 3200px)', // Responsive but maintains ~3000px structure
       }}
     >
-<style>{`
-  .image-container {
-    position: relative;
-    overflow: hidden;
-    transition: all 300ms linear;
-    transform: translateX(0) scale(1);
-  }
+      <style jsx>{`
+        .image-container {
+          position: relative;
+          overflow: hidden;
+          transition: all 300ms linear;
+          transform: translateX(0) scale(1);
+        }
 
-  .image-container:hover {
-    transform: translateX(20px) scale(1.02);
-    filter: brightness(1.05) contrast(1.1);
-    z-index: 10;
-  }
+        .image-container:hover {
+          transform: translateX(20px) scale(1.02);
+          filter: brightness(1.05) contrast(1.1);
+          z-index: 10;
+        }
 
-  .image-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: var(--bg-img);
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    mix-blend-mode: multiply;
-    transition: opacity 300ms linear;
-    z-index: 20;
-    pointer-events: none;
+        @media (max-width: 768px) {
+          .image-container:hover {
+            transform: translateX(10px) scale(1.01);
+          }
+        }
 
-    /* Mask settings for ripped effect */
-    mask-image: url('/images/ripped-mask.png');
-    mask-size: cover;
-    mask-repeat: no-repeat;
-    mask-position: center;
-    -webkit-mask-image: url('/images/ripped-mask.png');
-    -webkit-mask-size: cover;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-  }
+        .image-container::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: var(--bg-img);
+          background-size: cover;
+          background-position: center;
+          opacity: 0;
+          mix-blend-mode: multiply;
+          transition: opacity 300ms linear;
+          z-index: 20;
+          pointer-events: none;
 
-  .image-container:hover::after {
-    opacity: 1;
-  }
-`}</style>
+          /* Mask settings for ripped effect */
+          mask-image: url('/images/ripped-mask.png');
+          mask-size: cover;
+          mask-repeat: no-repeat;
+          mask-position: center;
+          -webkit-mask-image: url('/images/ripped-mask.png');
+          -webkit-mask-size: cover;
+          -webkit-mask-repeat: no-repeat;
+          -webkit-mask-position: center;
+        }
 
+        .image-container:hover::after {
+          opacity: 1;
+        }
 
-      {/* Image Gallery Columns */}
-      <div className="flex absolute inset-0 z-0">
+        /* Responsive column layout */
+        .gallery-columns {
+          display: flex;
+          height: 100%;
+          gap: clamp(2px, 0.5vw, 8px);
+          padding: clamp(4px, 1vw, 16px);
+        }
+
+        .gallery-column {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: clamp(1px, 0.2vw, 4px);
+        }
+      `}</style>
+
+      {/* Image Gallery - 5 Columns with 6 images each */}
+      <div className="gallery-columns absolute inset-0 z-0">
         {columns.map((column) => (
           <div
             key={column.name}
-            className="flex flex-col"
-            style={{
-              width: '391px',
-              height: '100%',
-            }}
+            className="gallery-column"
           >
             {column.images.map((image, imageIndex) => (
               <div
@@ -97,7 +140,7 @@ const PrologueGallery = () => {
                 className="image-container bg-gray-300 border border-gray-400 relative cursor-pointer"
                 data-bg={image.src}
                 style={{
-                  height: `${image.height}px`,
+                  height: `clamp(${columnHeights.mobile[column.name][imageIndex]}px, ${columnHeights.tablet[column.name][imageIndex] / 8}vw, ${image.height}px)`,
                   backgroundImage: `url(${image.src})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
@@ -108,61 +151,77 @@ const PrologueGallery = () => {
         ))}
       </div>
 
-      {/* Sticky Container with top and bottom gap */}
-      <div className="relative z-10 h-[3200px] flex justify-center">
+      {/* Sticky Container - Centered content */}
+      <div className="relative z-10 h-full flex justify-center">
         <div
-          className="sticky top-[250px] flex items-center justify-center"
+          className="sticky bg-[#001F1F]"
           style={{
-            width: '800px',
-            height: '800px',
-            backgroundColor: '#001F1F',
-            marginTop: '250px',
-            marginBottom: '250px',
+            top: 'clamp(150px, 25vh, 400px)',
+            width: 'clamp(320px, 85vw, 800px)',
+            height: 'clamp(600px, 70vh, 800px)',
+            marginTop: 'clamp(200px, 30vh, 500px)',
+            marginBottom: 'clamp(200px, 30vh, 500px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
-          <div className="text-center px-14 py-10">
+          <div className="text-center px-6 sm:px-10 lg:px-14 py-6 sm:py-8 lg:py-10">
             <h1
-              className="text-green-400 text-4xl mb-8 tracking-wider"
+              className="text-green-400 mb-4 sm:mb-6 lg:mb-8 tracking-wider"
               style={{
                 fontFamily: 'styreneB, serif',
                 fontWeight: 400,
                 letterSpacing: '0.1em',
+                fontSize: 'clamp(1.5rem, 4vw, 2.25rem)',
               }}
             >
               PROLOGUE
             </h1>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <p
-                className="text-white text-xl leading-relaxed"
+                className="text-white leading-relaxed"
                 style={{
                   fontFamily: 'styreneB, serif',
                   fontWeight: 400,
+                  fontSize: 'clamp(0.875rem, 2.5vw, 1.25rem)',
+                  lineHeight: '1.6',
                 }}
               >
-                United Ummah is more than just a community centre it is a <br />
-                sanctuary for Muslims from every walk of life, a place where <br />
+                United Ummah is more than just a community centre it is a{' '}
+                <span className="hidden sm:inline"><br /></span>
+                sanctuary for Muslims from every walk of life, a place where{' '}
+                <span className="hidden sm:inline"><br /></span>
                 hearts meet, hands join, and faith flourishes.
               </p>
               <p
-                className="text-white text-xl leading-relaxed"
+                className="text-white leading-relaxed"
                 style={{
                   fontFamily: 'styreneB, serif',
                   fontWeight: 400,
+                  fontSize: 'clamp(0.875rem, 2.5vw, 1.25rem)',
+                  lineHeight: '1.6',
                 }}
               >
-                Here, every soul is valued, every story is honoured, and <br />
-                every gathering feels like a homecoming minus the awkward <br />
-                cousin and the overcooked biryani. From our youth and <br />
-                elders to families seeking connection, United Ummah stands <br />
-                as a testament to the beauty of togetherness, a beacon of <br />
-                hope, and a safe harbour where faith and unity intertwine in <br />
+                Here, every soul is valued, every story is honoured, and{' '}
+                <span className="hidden sm:inline"><br /></span>
+                every gathering feels like a homecoming minus the awkward{' '}
+                <span className="hidden sm:inline"><br /></span>
+                cousin and the overcooked biryani. From our youth and{' '}
+                <span className="hidden sm:inline"><br /></span>
+                elders to families seeking connection, United Ummah stands{' '}
+                <span className="hidden sm:inline"><br /></span>
+                as a testament to the beauty of togetherness, a beacon of{' '}
+                <span className="hidden sm:inline"><br /></span>
+                hope, and a safe harbour where faith and unity intertwine in{' '}
+                <span className="hidden sm:inline"><br /></span>
                 the most graceful way.
               </p>
             </div>
 
             <button
-              className="mt-8 bg-white text-black px-8 py-3 font-medium tracking-wide hover:bg-gray-100 transition-colors duration-300"
+              className="mt-6 sm:mt-8 bg-white text-black px-4 sm:px-6 lg:px-8 py-2 sm:py-3 font-medium tracking-wide hover:bg-gray-100 transition-colors duration-300 text-sm sm:text-base"
               style={{
                 fontFamily: 'styreneB, serif',
                 fontWeight: 500,
