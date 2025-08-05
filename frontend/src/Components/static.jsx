@@ -1,117 +1,64 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const PrologueGallery = () => {
   const generateColumnImages = (columnName, heights) => {
-    return Array.from({ length: heights.length }, (_, index) => ({
-      src: `/grid/${columnName}-${['one', 'two', 'three', 'four', 'five', 'six'][index]}.png`,
-      alt: `${columnName} ${index + 1}`,
-      height: heights[index]
-    }));
+    return Array.from({ length: heights.length }, (_, index) => {
+      const baseName = ['one', 'two', 'three', 'four', 'five', 'six'][index];
+      return {
+        src: `/grid/${columnName}-${baseName}.png`,
+        hoverSrc: `/grid/${columnName}-${baseName}-hover.png`,
+        alt: `${columnName} ${index + 1}`,
+        height: heights[index],
+      };
+    });
   };
 
-  // Responsive height configurations - 6 images per column, total height ~3000px
   const getColumnHeights = () => ({
     desktop: {
       first: [470, 450, 478, 1050, 474, 498],
       second: [474, 1050, 474, 473, 470, 494],
       third: [475, 475, 1050, 480, 480, 475],
       four: [475, 475, 470, 1050, 485, 480],
-      six: [1050, 475, 475, 470, 490, 475]
+      six: [1050, 475, 475, 470, 490, 475],
     },
     tablet: {
       first: [450, 430, 458, 950, 454, 478],
       second: [454, 950, 454, 453, 450, 474],
       third: [455, 455, 950, 460, 460, 455],
       four: [455, 455, 450, 950, 465, 460],
-      six: [950, 455, 455, 450, 470, 455]
+      six: [950, 455, 455, 450, 470, 455],
     },
     mobile: {
       first: [420, 400, 428, 850, 424, 448],
       second: [424, 850, 424, 423, 420, 444],
       third: [425, 425, 850, 430, 430, 425],
       four: [425, 425, 420, 850, 435, 430],
-      six: [850, 425, 425, 420, 440, 425]
-    }
+      six: [850, 425, 425, 420, 440, 425],
+    },
   });
 
   const columnHeights = getColumnHeights();
 
-  // 5 columns with 6 images each
   const columns = [
     { name: 'first', images: generateColumnImages('first', columnHeights.desktop.first) },
     { name: 'second', images: generateColumnImages('second', columnHeights.desktop.second) },
     { name: 'third', images: generateColumnImages('third', columnHeights.desktop.third) },
     { name: 'four', images: generateColumnImages('four', columnHeights.desktop.four) },
-    { name: 'six', images: generateColumnImages('six', columnHeights.desktop.six) }
+    { name: 'six', images: generateColumnImages('six', columnHeights.desktop.six) },
   ];
 
-  // Set custom CSS variable for each image from its data attribute
-  useEffect(() => {
-    document.querySelectorAll('.image-container').forEach((el) => {
-      const bg = el.getAttribute('data-bg');
-      el.style.setProperty('--bg-img', `url(${bg})`);
-    });
-  }, []);
-
   return (
-    <div 
+    <div
       className="relative bg-gray-100 w-full"
-      style={{
-        height: 'clamp(2400px, 300vh, 3200px)', // Responsive but maintains ~3000px structure
-      }}
+      style={{ height: 'clamp(2400px, 300vh, 3200px)' }}
     >
       <style jsx>{`
         .image-container {
           position: relative;
           overflow: hidden;
-          transition: all 300ms linear;
-          transform: translateX(0) scale(1);
+          cursor: pointer;
         }
 
-        .image-container:hover {
-          transform: translateX(20px) scale(1.02);
-          filter: brightness(1.05) contrast(1.1);
-          z-index: 10;
-        }
-
-        @media (max-width: 768px) {
-          .image-container:hover {
-            transform: translateX(10px) scale(1.01);
-          }
-        }
-
-        .image-container::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-image: var(--bg-img);
-          background-size: cover;
-          background-position: center;
-          opacity: 0;
-          mix-blend-mode: multiply;
-          transition: opacity 300ms linear;
-          z-index: 20;
-          pointer-events: none;
-
-          /* Mask settings for ripped effect */
-          mask-image: url('/images/ripped-mask.png');
-          mask-size: cover;
-          mask-repeat: no-repeat;
-          mask-position: center;
-          -webkit-mask-image: url('/images/ripped-mask.png');
-          -webkit-mask-size: cover;
-          -webkit-mask-repeat: no-repeat;
-          -webkit-mask-position: center;
-        }
-
-        .image-container:hover::after {
-          opacity: 1;
-        }
-
-        /* Responsive column layout */
         .gallery-columns {
           display: flex;
           height: 100%;
@@ -125,33 +72,65 @@ const PrologueGallery = () => {
           flex-direction: column;
           gap: clamp(1px, 0.2vw, 4px);
         }
+
+        .image-container img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .image-container .hover-img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          z-index: 1;
+        }
+
+        .image-container:hover .hover-img {
+          opacity: 1;
+        }
+
+        .image-container:hover .main-img {
+          opacity: 0;
+          transform: scale(1.02);
+        }
+
+        .image-container:hover {
+          z-index: 10;
+        }
+
+        @media (max-width: 768px) {
+          .image-container:hover .main-img {
+            transform: scale(1.01);
+          }
+        }
       `}</style>
 
-      {/* Image Gallery - 5 Columns with 6 images each */}
+      {/* Image Gallery */}
       <div className="gallery-columns absolute inset-0 z-0">
         {columns.map((column) => (
-          <div
-            key={column.name}
-            className="gallery-column"
-          >
-            {column.images.map((image, imageIndex) => (
+          <div key={column.name} className="gallery-column">
+            {column.images.map((image, index) => (
               <div
-                key={`${column.name}-${imageIndex}`}
-                className="image-container bg-gray-300 border border-gray-400 relative cursor-pointer"
-                data-bg={image.src}
+                key={`${column.name}-${index}`}
+                className="image-container border border-gray-400 bg-gray-300"
                 style={{
-                  height: `clamp(${columnHeights.mobile[column.name][imageIndex]}px, ${columnHeights.tablet[column.name][imageIndex] / 8}vw, ${image.height}px)`,
-                  backgroundImage: `url(${image.src})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
+                  height: `clamp(${columnHeights.mobile[column.name][index]}px, ${
+                    columnHeights.tablet[column.name][index] / 8
+                  }vw, ${image.height}px)`,
                 }}
-              />
+              >
+                <img src={image.src} alt={image.alt} className="main-img" />
+                <img src={image.hoverSrc} alt={`${image.alt} hover`} className="hover-img" />
+              </div>
             ))}
           </div>
         ))}
       </div>
 
-      {/* Sticky Container - Centered content */}
+      {/* Sticky Center Content */}
       <div className="relative z-10 h-full flex justify-center items-center">
         <div
           className="sticky bg-[#001F1F]"
@@ -178,7 +157,6 @@ const PrologueGallery = () => {
             >
               PROLOGUE
             </h1>
-
             <div className="space-y-4 sm:space-y-6">
               <p
                 className="text-white leading-relaxed"
@@ -208,15 +186,7 @@ const PrologueGallery = () => {
                 <span className="hidden sm:inline"><br /></span>
                 every gathering feels like a homecoming minus the awkward{' '}
                 <span className="hidden sm:inline"><br /></span>
-                cousin and the overcooked biryani. From our youth and{' '}
-                <span className="hidden sm:inline"><br /></span>
-                elders to families seeking connection, United Ummah stands{' '}
-                <span className="hidden sm:inline"><br /></span>
-                as a testament to the beauty of togetherness, a beacon of{' '}
-                <span className="hidden sm:inline"><br /></span>
-                hope, and a safe harbour where faith and unity intertwine in{' '}
-                <span className="hidden sm:inline"><br /></span>
-                the most graceful way.
+                cousin and the overcooked biryani.
               </p>
             </div>
 
