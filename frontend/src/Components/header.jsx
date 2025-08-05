@@ -122,7 +122,7 @@ const Header = () => {
           {/* Donate Button (slightly taller than green) */}
           <button
             onClick={handleDonateClick}
-            className={`h-[58px] w-[85px] flex items-center justify-center font-semibold text-[13px] transition-all duration-300 ease-in-out rounded-full z-10 ml-2 ${
+            className={`h-[58px] w-[120px] flex items-center justify-center font-semibold text-[13px] transition-all duration-300 ease-in-out rounded-full z-10 ml-2 ${
               isClicked
                 ? 'scale-105 bg-[#bf8c4b]'
                 : 'bg-[#f1e8da] text-black hover:bg-[#bf8c4b] hover:scale-105'
