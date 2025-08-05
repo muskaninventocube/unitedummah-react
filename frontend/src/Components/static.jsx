@@ -1,6 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const PrologueGallery = () => {
+  const [scrollY, setScrollY] = useState(0);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Calculate the transform based on scroll position within the component
+  const getTransform = () => {
+    if (!containerRef.current) return 'translateY(0px)';
+    
+    const containerRect = containerRef.current.getBoundingClientRect();
+    const containerTop = containerRef.current.offsetTop;
+    const containerHeight = containerRef.current.offsetHeight;
+    const windowHeight = window.innerHeight;
+    const greenBoxHeight = 850;
+    
+    // When the component enters the viewport
+    const componentStart = containerTop - windowHeight;
+    const componentEnd = containerTop + containerHeight;
+    
+    // Calculate scroll progress within the component bounds
+    const relativeScroll = Math.max(0, scrollY - componentStart);
+    const totalScrollableDistance = componentEnd - componentStart - windowHeight;
+    const scrollProgress = Math.min(1, relativeScroll / totalScrollableDistance);
+    
+    // Available movement space (container height - green box height - top and bottom margins)
+    const availableMovement = containerHeight - greenBoxHeight - 300; // 150px top + 150px bottom
+    const moveDistance = scrollProgress * availableMovement;
+    
+    return `translateY(${moveDistance}px)`;
+  };
   const generateColumnImages = (columnName, heights) => {
     return Array.from({ length: heights.length }, (_, index) => {
       const baseName = ['one', 'two', 'three', 'four', 'five', 'six'][index];
@@ -51,7 +88,11 @@ const PrologueGallery = () => {
   ];
 
   return (
-    <div className="relative bg-gray-100 w-full" style={{ height: 'clamp(2400px, 300vh, 3200px)' }}>
+    <div 
+      ref={containerRef}
+      className="relative bg-gray-100 w-full" 
+      style={{ height: 'clamp(2400px, 300vh, 3200px)' }}
+    >
       {/* Inline styles to control hover swap */}
       <style>{`
         .hover-container {
@@ -114,45 +155,47 @@ const PrologueGallery = () => {
         ))}
       </div>
 
-      {/* Sticky center section */}
-      <div className="relative z-10 h-full flex justify-center items-center">
+      {/* Center section with smooth bounded movement */}
+      <div 
+        className="relative z-10 flex justify-center"
+        style={{ 
+          paddingTop: '150px',
+          paddingBottom: '150px',
+          height: '100%'
+        }}
+      >
         <div
-          className="sticky bg-[#001F1F]"
+          className="bg-[#001F1F] flex items-center justify-center transition-transform duration-75 ease-out"
           style={{
-            top: '150px',
-            width: 'clamp(400px, 85vw, 1000px)',
-            height: 'clamp(800px, 80vh, 1000px)',
-            marginTop: '150px',
-            marginBottom: '150px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            width: 'clamp(350px, 65vw, 700px)',
+            height: 'clamp(700px, 70vh, 850px)',
+            transform: getTransform(),
           }}
         >
-          <div className="text-center px-8 sm:px-12 lg:px-20 py-8 sm:py-12 lg:py-16">
+          <div className="text-center px-6 sm:px-10 lg:px-16 py-6 sm:py-10 lg:py-12">
             <h1
               className="text-green-400 mb-4 sm:mb-6 lg:mb-8 tracking-wider"
               style={{
                 fontFamily: 'styreneB, serif',
                 fontWeight: 400,
                 letterSpacing: '0.1em',
-                fontSize: 'clamp(2rem, 5vw, 3rem)',
+                fontSize: 'clamp(1.8rem, 4.5vw, 2.5rem)',
               }}
             >
               PROLOGUE
             </h1>
             <div className="space-y-4 sm:space-y-6">
-              <p className="text-white leading-relaxed" style={{ fontSize: 'clamp(1.125rem, 3vw, 1.5rem)', lineHeight: '1.6' }}>
+              <p className="text-white leading-relaxed" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.3rem)', lineHeight: '1.6' }}>
                 United Ummah is more than just a community centre. It is a{' '}
                 <span className="hidden sm:inline"><br /></span>
                 sanctuary for Muslims from every walk of life, a place where hearts meet, hands join, and faith flourishes.
               </p>
-              <p className="text-white leading-relaxed" style={{ fontSize: 'clamp(1.125rem, 3vw, 1.5rem)', lineHeight: '1.6' }}>
-                Here, every soul is valued, every story is honoured, and every gathering feels like a homecoming — minus the awkward cousin and the overcooked biryani.
+              <p className="text-white leading-relaxed" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.3rem)', lineHeight: '1.6' }}>
+                Here, every soul is valued, every story is honoured, and every gathering feels like a homecoming minus the awkward cousin and the overcooked biryani. From our youth and elders to families seeking connection, United Ummah stands as a testament to the beauty of togetherness, a beacon of hope, and a safe harbour where faith and unity intertwine in the most graceful way.
               </p>
             </div>
 
-            <button className="mt-6 sm:mt-8 bg-white text-black px-8 py-4 font-medium tracking-wide hover:bg-gray-100 transition duration-300 text-lg">
+            <button className="mt-6 sm:mt-8 bg-white text-black px-6 py-3 font-medium tracking-wide hover:bg-gray-100 transition duration-300 text-base">
               KNOW MORE ABOUT US
             </button>
           </div>
