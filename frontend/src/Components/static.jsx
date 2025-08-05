@@ -152,28 +152,28 @@ const PrologueGallery = () => {
       </div>
 
       {/* Sticky Container - Centered content */}
-      <div className="relative z-10 h-full flex justify-center">
+      <div className="relative z-10 h-full flex justify-center items-center">
         <div
           className="sticky bg-[#001F1F]"
           style={{
-            top: 'clamp(150px, 25vh, 400px)',
-            width: 'clamp(320px, 85vw, 800px)',
-            height: 'clamp(600px, 70vh, 800px)',
-            marginTop: 'clamp(200px, 30vh, 500px)',
-            marginBottom: 'clamp(200px, 30vh, 500px)',
+            top: '150px',
+            width: 'clamp(400px, 85vw, 1000px)',
+            height: 'clamp(800px, 80vh, 1000px)',
+            marginTop: '150px',
+            marginBottom: '150px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
           }}
         >
-          <div className="text-center px-6 sm:px-10 lg:px-14 py-6 sm:py-8 lg:py-10">
+          <div className="text-center px-8 sm:px-12 lg:px-20 py-8 sm:py-12 lg:py-16">
             <h1
               className="text-green-400 mb-4 sm:mb-6 lg:mb-8 tracking-wider"
               style={{
                 fontFamily: 'styreneB, serif',
                 fontWeight: 400,
                 letterSpacing: '0.1em',
-                fontSize: 'clamp(1.5rem, 4vw, 2.25rem)',
+                fontSize: 'clamp(2rem, 5vw, 3rem)',
               }}
             >
               PROLOGUE
@@ -185,7 +185,7 @@ const PrologueGallery = () => {
                 style={{
                   fontFamily: 'styreneB, serif',
                   fontWeight: 400,
-                  fontSize: 'clamp(0.875rem, 2.5vw, 1.25rem)',
+                  fontSize: 'clamp(1.125rem, 3vw, 1.5rem)',
                   lineHeight: '1.6',
                 }}
               >
@@ -200,7 +200,7 @@ const PrologueGallery = () => {
                 style={{
                   fontFamily: 'styreneB, serif',
                   fontWeight: 400,
-                  fontSize: 'clamp(0.875rem, 2.5vw, 1.25rem)',
+                  fontSize: 'clamp(1.125rem, 3vw, 1.5rem)',
                   lineHeight: '1.6',
                 }}
               >
@@ -221,11 +221,12 @@ const PrologueGallery = () => {
             </div>
 
             <button
-              className="mt-6 sm:mt-8 bg-white text-black px-4 sm:px-6 lg:px-8 py-2 sm:py-3 font-medium tracking-wide hover:bg-gray-100 transition-colors duration-300 text-sm sm:text-base"
+              className="mt-6 sm:mt-8 bg-white text-black px-6 sm:px-8 lg:px-10 py-3 sm:py-4 font-medium tracking-wide hover:bg-gray-100 transition-colors duration-300"
               style={{
                 fontFamily: 'styreneB, serif',
                 fontWeight: 500,
                 letterSpacing: '0.05em',
+                fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
               }}
             >
               KNOW MORE ABOUT US
