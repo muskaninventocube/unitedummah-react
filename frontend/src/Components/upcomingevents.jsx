@@ -72,9 +72,7 @@ useEffect(() => {
             </h1>
             <div className="text-end max-w-[850px] mr-6">
               <p className="leading-relaxed mb-6 font-[Times New Roman, serif] text-[21.75px]">
-                At United Ummah, every gathering is more than just an event —
-                it's a chance to strengthen bonds, share blessings, and grow
-                together in faith...
+              At United Ummah, every gathering is more than just an event — it’s a chance to strengthen bonds, share blessings, and grow together in faith. From inspiring lectures and vibrant youth activities to community iftars and charity drives, our events are thoughtfully crafted to bring hearts closer and uplift every member of our Ummah.
               </p>
               <p className="leading-relaxed font-[Times New Roman, serif] text-[21.75px]">
                 Come as you are, bring your family and friends, and be part of
