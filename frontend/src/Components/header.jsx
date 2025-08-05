@@ -97,11 +97,15 @@ const Header = () => {
 
           {/* Nav */}
           <nav className="flex items-center space-x-5 lg:space-x-8 text-white text-[13px] lg:text-[14px] font-medium">
-            {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => (
-              <a key={index} href="#" className="hover:opacity-80 transition-opacity tracking-wide">
-                {item}
-              </a>
-            ))}
+         {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
+  const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
+  return (
+    <a key={index} href={anchors[index]} className="hover:opacity-80 transition-opacity tracking-wide">
+      {item}
+    </a>
+  );
+})}
+
           </nav>
 
           {/* Countdown + Donate */}
@@ -145,9 +149,15 @@ const Header = () => {
       {/* Mobile Full Screen Menu Modal */}
      {isMobileMenuOpen && (
   <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center w-full px-4 py-8 space-y-6 text-black text-lg">
-    {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => (
-      <a key={index} href="#" className="hover:opacity-80 transition">{item}</a>
-    ))}
+    {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
+  const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
+  return (
+    <a key={index} href={anchors[index]} className="hover:opacity-80 transition">
+      {item}
+    </a>
+  );
+})}
+
 
     <button
       onClick={() => setIsMobileMenuOpen(false)}
