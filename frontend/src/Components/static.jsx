@@ -4,9 +4,12 @@ const PrologueGallery = () => {
   const generateColumnImages = (columnName, heights) => {
     return Array.from({ length: heights.length }, (_, index) => {
       const baseName = ['one', 'two', 'three', 'four', 'five', 'six'][index];
+      const hasHover =
+        columnName === 'first' &&
+        ['one', 'two', 'three'].includes(baseName); // only first-three have hover
       return {
         src: `/grid/${columnName}-${baseName}.png`,
-        hoverSrc: `/grid/${columnName}-${baseName}-hover.png`,
+        hoverSrc: hasHover ? `/grid/${columnName}-${baseName}-hover.png` : null,
         alt: `${columnName} ${index + 1}`,
         height: heights[index],
       };
@@ -48,89 +51,70 @@ const PrologueGallery = () => {
   ];
 
   return (
-    <div
-      className="relative bg-gray-100 w-full"
-      style={{ height: 'clamp(2400px, 300vh, 3200px)' }}
-    >
-      <style jsx>{`
-        .image-container {
+    <div className="relative bg-gray-100 w-full" style={{ height: 'clamp(2400px, 300vh, 3200px)' }}>
+      {/* Inline styles to control hover swap */}
+      <style>{`
+        .hover-container {
           position: relative;
           overflow: hidden;
           cursor: pointer;
         }
-
-        .gallery-columns {
-          display: flex;
-          height: 100%;
-          gap: clamp(2px, 0.5vw, 8px);
-          padding: clamp(4px, 1vw, 16px);
-        }
-
-        .gallery-column {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          gap: clamp(1px, 0.2vw, 4px);
-        }
-
-        .image-container img {
+        .hover-container img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
-
-        .image-container .hover-img {
+        .hover-container .hover-img {
           position: absolute;
           top: 0;
           left: 0;
           opacity: 0;
           z-index: 1;
         }
-
-        .image-container:hover .hover-img {
+        .hover-container:hover .hover-img {
           opacity: 1;
         }
-
-        .image-container:hover .main-img {
+        .hover-container:hover .main-img {
           opacity: 0;
           transform: scale(1.02);
         }
-
-        .image-container:hover {
-          z-index: 10;
-        }
-
         @media (max-width: 768px) {
-          .image-container:hover .main-img {
+          .hover-container:hover .main-img {
             transform: scale(1.01);
           }
         }
       `}</style>
 
-      {/* Image Gallery */}
-      <div className="gallery-columns absolute inset-0 z-0">
+      {/* Image Gallery Columns */}
+      <div className="absolute inset-0 z-0 flex gap-[0.5vw] p-[1vw]">
         {columns.map((column) => (
-          <div key={column.name} className="gallery-column">
+          <div key={column.name} className="flex flex-col gap-[0.2vw] flex-1">
             {column.images.map((image, index) => (
               <div
                 key={`${column.name}-${index}`}
-                className="image-container border border-gray-400 bg-gray-300"
+                className="hover-container border border-gray-400 bg-gray-300"
                 style={{
                   height: `clamp(${columnHeights.mobile[column.name][index]}px, ${
                     columnHeights.tablet[column.name][index] / 8
                   }vw, ${image.height}px)`,
                 }}
               >
-                <img src={image.src} alt={image.alt} className="main-img" />
-                <img src={image.hoverSrc} alt={`${image.alt} hover`} className="hover-img" />
+                {image.hoverSrc ? (
+                  <>
+                    <img src={image.src} alt={image.alt} className="main-img" />
+                    <img src={image.hoverSrc} alt={`${image.alt} hover`} className="hover-img" />
+                  </>
+                ) : (
+                  <img src={image.src} alt={image.alt} className="main-img" />
+                )}
               </div>
             ))}
           </div>
         ))}
       </div>
 
-      {/* Sticky Center Content */}
+      {/* Sticky center section */}
       <div className="relative z-10 h-full flex justify-center items-center">
         <div
           className="sticky bg-[#001F1F]"
@@ -158,47 +142,17 @@ const PrologueGallery = () => {
               PROLOGUE
             </h1>
             <div className="space-y-4 sm:space-y-6">
-              <p
-                className="text-white leading-relaxed"
-                style={{
-                  fontFamily: 'styreneB, serif',
-                  fontWeight: 400,
-                  fontSize: 'clamp(1.125rem, 3vw, 1.5rem)',
-                  lineHeight: '1.6',
-                }}
-              >
-                United Ummah is more than just a community centre it is a{' '}
+              <p className="text-white leading-relaxed" style={{ fontSize: 'clamp(1.125rem, 3vw, 1.5rem)', lineHeight: '1.6' }}>
+                United Ummah is more than just a community centre. It is a{' '}
                 <span className="hidden sm:inline"><br /></span>
-                sanctuary for Muslims from every walk of life, a place where{' '}
-                <span className="hidden sm:inline"><br /></span>
-                hearts meet, hands join, and faith flourishes.
+                sanctuary for Muslims from every walk of life, a place where hearts meet, hands join, and faith flourishes.
               </p>
-              <p
-                className="text-white leading-relaxed"
-                style={{
-                  fontFamily: 'styreneB, serif',
-                  fontWeight: 400,
-                  fontSize: 'clamp(1.125rem, 3vw, 1.5rem)',
-                  lineHeight: '1.6',
-                }}
-              >
-                Here, every soul is valued, every story is honoured, and{' '}
-                <span className="hidden sm:inline"><br /></span>
-                every gathering feels like a homecoming minus the awkward{' '}
-                <span className="hidden sm:inline"><br /></span>
-                cousin and the overcooked biryani.
+              <p className="text-white leading-relaxed" style={{ fontSize: 'clamp(1.125rem, 3vw, 1.5rem)', lineHeight: '1.6' }}>
+                Here, every soul is valued, every story is honoured, and every gathering feels like a homecoming — minus the awkward cousin and the overcooked biryani.
               </p>
             </div>
 
-            <button
-              className="mt-6 sm:mt-8 bg-white text-black px-6 sm:px-8 lg:px-10 py-3 sm:py-4 font-medium tracking-wide hover:bg-gray-100 transition-colors duration-300"
-              style={{
-                fontFamily: 'styreneB, serif',
-                fontWeight: 500,
-                letterSpacing: '0.05em',
-                fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
-              }}
-            >
+            <button className="mt-6 sm:mt-8 bg-white text-black px-8 py-4 font-medium tracking-wide hover:bg-gray-100 transition duration-300 text-lg">
               KNOW MORE ABOUT US
             </button>
           </div>

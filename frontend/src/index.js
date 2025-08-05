@@ -9,6 +9,7 @@ import CommunityServices from './Components/CommunityServices';
 import Footer from './Components/Footer';
 // import Header from './Components/header';
 import UmmahBuild from './Components/ummahBuild';
+import TestHoverGallery from "./Components/TestHoverGallery"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -22,6 +23,7 @@ root.render(
   <CommunityServices />
   <UmmahBuild />
   <Footer />
+  <TestHoverGallery/>
 </div>
   </React.StrictMode>
 );
