@@ -35,7 +35,7 @@ const CommunityEventsStats = () => {
 
       {/* Main content container */}
       <div
-        className="relative z-10 mx-auto max-w-6xl px-6 py-20 rounded-lg"
+        className="relative z-10 mx-auto max-w-6xl px-6 py-10 rounded-lg"
         style={{
           backgroundColor: '#001F1F',
           fontFamily: 'Arial, sans-serif',
