@@ -22,7 +22,7 @@ const PrologueGallery = () => {
   ];
 
   return (
-    <div className="relative bg-gray-100" style={{ width: '1955px', height: '3200px' }}>
+    <div className="relative" style={{ width: '1955px', height: '3000px' }}>
       {/* Hover logic */}
       <style jsx>{`
         .image-container {
