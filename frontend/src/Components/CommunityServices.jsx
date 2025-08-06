@@ -1,22 +1,42 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useRef, useEffect } from 'react';
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 
 const BannerScrollSection = () => {
   const sectionRef = useRef(null);
 
-  const { scrollYProgress } = useScroll({
+  const { scrollY, scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end start'],
   });
 
-  // Custom staggered scroll order: 2 → 1 → 5 → 6 → 4 → 3
-  const y2 = useTransform(scrollYProgress, [0.00, 0.10], [0, -400]); // 2nd (first to animate)
-const y1 = useTransform(scrollYProgress, [0.10, 0.20], [0, -400]); // 1st
-const y5 = useTransform(scrollYProgress, [0.20, 0.30], [0, -400]); // 5th
-const y6 = useTransform(scrollYProgress, [0.30, 0.40], [0, -400]); // 6th
-const y4 = useTransform(scrollYProgress, [0.40, 0.50], [0, -400]); // 4th
-const y3 = useTransform(scrollYProgress, [0.50, 0.60], [0, -400]); // 3rd (last to animate)
+  // Scroll lock between 1500px and 1500px + sticky height
+  useEffect(() => {
+    const unsubscribe = scrollY.onChange((currentY) => {
+      const lockStart = sectionRef.current?.offsetTop || 0;
+      const lockEnd = lockStart + 1500; // sticky height
 
+      const isInLockZone = currentY >= lockStart && currentY < lockEnd;
+
+      if (isInLockZone) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    return () => {
+      document.body.style.overflow = 'auto';
+      unsubscribe();
+    };
+  }, [scrollY]);
+
+  // Custom staggered scroll order: 2 → 1 → 5 → 6 → 4 → 3
+  const y2 = useTransform(scrollYProgress, [0.00, 0.10], [0, -700]); // 2nd
+  const y1 = useTransform(scrollYProgress, [0.10, 0.20], [0, -700]); // 1st
+  const y5 = useTransform(scrollYProgress, [0.20, 0.30], [0, -700]); // 5th
+  const y6 = useTransform(scrollYProgress, [0.30, 0.40], [0, -700]); // 6th
+  const y4 = useTransform(scrollYProgress, [0.40, 0.50], [0, -700]); // 4th
+  const y3 = useTransform(scrollYProgress, [0.50, 0.60], [0, -700]); // 3rd
 
   return (
     <div className="relative h-[2500px] bg-white">
@@ -42,47 +62,47 @@ const y3 = useTransform(scrollYProgress, [0.50, 0.60], [0, -400]); // 3rd (last 
           />
         </div>
 
-        {/* Pol Images in Custom Scroll Order */}
+        {/* Staggered Animated Images */}
         <motion.img
           src="/images/pol2.png"
           alt="pol2"
-          className="absolute w-[500px] rotate-[8deg] z-20"
-          style={{ y: y2, top: '1080px', left: '17%' }}
+          className="absolute w-[450px] rotate-[8deg] z-20"
+          style={{ y: y2, top: '980px', left: '17%' }}
         />
         <motion.img
           src="/images/pol1.png"
           alt="pol1"
-          className="absolute w-[500px] rotate-[-10deg] z-20"
-          style={{ y: y1, top: '1050px', left: '0%' }}
+          className="absolute w-[450px] rotate-[-10deg] z-20"
+          style={{ y: y1, top: '950px', left: '0%' }}
         />
         <motion.img
           src="/images/pol4.png"
           alt="pol5"
-          className="absolute w-[500px] rotate-[-7deg] z-20"
-          style={{ y: y5, top: '1090px', left: '75%' }}
+          className="absolute w-[450px] rotate-[-7deg] z-20"
+          style={{ y: y5, top: '990px', left: '75%' }}
         />
         <motion.img
           src="/images/pol6.png"
           alt="pol6"
-          className="absolute w-[500px] rotate-[10deg] z-20"
-          style={{ y: y6, top: '1080px', left: '87%' }}
+          className="absolute w-[450px] rotate-[10deg] z-20"
+          style={{ y: y6, top: '980px', left: '82%' }}
         />
         <motion.img
           src="/images/pol3.png"
           alt="pol4"
-          className="absolute w-[500px] rotate-[6deg] z-20"
-          style={{ y: y4, top: '1070px', left: '55%' }}
+          className="absolute w-[450px] rotate-[6deg] z-20"
+          style={{ y: y4, top: '970px', left: '55%' }}
         />
         <motion.img
           src="/images/pol5.png"
           alt="pol3"
-          className="absolute w-[500px] rotate-[-6deg] z-20"
-          style={{ y: y3, top: '1060px', left: '35%' }}
+          className="absolute w-[450px] rotate-[-6deg] z-20"
+          style={{ y: y3, top: '960px', left: '35%' }}
         />
       </div>
 
       {/* Next section */}
-      <div className="h-[1500px] bg-gray-100 flex items-center justify-center">
+      <div className="h-[1000px] bg-gray-100 flex items-center justify-center">
         <h1 className="text-4xl">Next Section Content</h1>
       </div>
     </div>
