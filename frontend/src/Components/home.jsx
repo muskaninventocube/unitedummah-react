@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import Header from "./header";
 
 const UmmahHeroSection = () => {
   const scrollRef = useRef(null);
@@ -14,9 +13,7 @@ const UmmahHeroSection = () => {
 
   return (
     <>
-      <div className="absolute top-8 left-12 right-12 z-40 rounded-full overflow-hidden">
-        <Header />
-      </div>
+      
 
       <div className="relative min-h-[120vh] w-full overflow-hidden">
         {/* Right Corner Image */}

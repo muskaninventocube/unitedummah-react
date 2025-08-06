@@ -13,9 +13,12 @@ import TestHoverGallery from "./Components/TestHoverGallery"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    
     <div className="relative w-full overflow-x-hidden">
-  
+       <div className="fixed top-8 left-12 right-12 z-40 rounded-full overflow-hidden">
+      <Header />
+    </div>
+
+
     <Home />
         <CommunityEventsStats />
       

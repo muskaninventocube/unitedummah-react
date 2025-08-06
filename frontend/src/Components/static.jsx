@@ -81,16 +81,18 @@ const PrologueGallery = () => {
         ))}
       </div>
 
-      {/* Sticky PROLOGUE Block */}
-      <div className="pointer-events-none  relative z-10 h-[3200px] flex justify-center">
-        <div className="sticky top-[250px] flex items-center justify-center" style={{ height: '800px' }}>
+      {/* Scroll container for PROLOGUE */}
+      <div className="pointer-events-none relative z-10 flex flex-col items-center" style={{ height: '2900px' }}>
+        {/* Top Spacer */}
+        <div style={{ height: '250px' }} />
+
+        {/* Sticky PROLOGUE */}
+        <div className="sticky top-[250px]  flex items-center justify-center" style={{ height: '800px' }}>
           <div
             style={{
               width: '800px',
               height: '800px',
               backgroundColor: '#001F1F',
-              marginTop: '250px',
-              marginBottom: '250px',
               pointerEvents: 'auto',
             }}
             className="flex items-center justify-center"
@@ -142,76 +144,14 @@ const PrologueGallery = () => {
               </button>
             </div>
           </div>
+           <div style={{ height: '250px' }} />
         </div>
+
+        {/* Bottom Spacer */}
+       
       </div>
     </div>
   );
 };
 
 export default PrologueGallery;
-
-
-
-//  {/* Sticky Container in Center */}
-//       <div className="relative z-10 h-[3200px] flex justify-center">
-//         <div
-//           className="sticky top-[250px] flex items-center justify-center"
-//           style={{
-//             width: '800px',
-//             height: '800px',
-//             backgroundColor: '#001F1F',
-//             marginTop: '250px',
-//             marginBottom: '250px',
-//           }}
-//         >
-//           <div className="text-center px-14 py-10">
-//             <h1
-//               className="text-green-400 text-4xl mb-8 tracking-wider"
-//               style={{
-//                 fontFamily: 'styreneB, serif',
-//                 fontWeight: 400,
-//                 letterSpacing: '0.1em',
-//               }}
-//             >
-//               PROLOGUE
-//             </h1>
-
-//             <div className="space-y-6">
-//               <p
-//                 className="text-white text-xl leading-relaxed"
-//                 style={{ fontFamily: 'styreneB, serif', fontWeight: 400 }}
-//               >
-//                 United Ummah is more than just a community centre it is a <br />
-//                 sanctuary for Muslims from every walk of life, a place where <br />
-//                 hearts meet, hands join, and faith flourishes.
-//               </p>
-//               <p
-//                 className="text-white text-xl leading-relaxed"
-//                 style={{ fontFamily: 'styreneB, serif', fontWeight: 400 }}
-//               >
-//                 Here, every soul is valued, every story is honoured, and <br />
-//                 every gathering feels like a homecoming minus the awkward <br />
-//                 cousin and the overcooked biryani. From our youth and <br />
-//                 elders to families seeking connection, United Ummah stands <br />
-//                 as a testament to the beauty of togetherness, a beacon of <br />
-//                 hope, and a safe harbour where faith and unity intertwine in <br />
-//                 the most graceful way.
-//               </p>
-//             </div>
-
-//             <button
-//               className="mt-8 bg-white text-black px-8 py-3 font-medium tracking-wide hover:bg-gray-100 transition-colors duration-300"
-//               style={{
-//                 fontFamily: 'styreneB, serif',
-//                 fontWeight: 500,
-//                 letterSpacing: '0.05em',
-//               }}
-//             >
-//               KNOW MORE ABOUT US
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
