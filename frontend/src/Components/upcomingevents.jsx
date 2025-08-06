@@ -48,14 +48,17 @@ export default function UpcomingEvents() {
   ];
 
   return (
-    <div className="relative w-full overflow-visible bg-[#F1E8DA]">
-      {/* 🔳 Top Blur */}
+   <div
+  className="relative w-full overflow-visible bg-cover bg-center"
+  style={{ backgroundImage: "url('/grid/comingevents-back.png')" }}
+>
+
       <div
         className="absolute"
         style={{
           width: "2500px",
           height: "250px",
-          top: "-180px",
+          top: "-280px",
           left: "50%",
           transform: "translateX(-50%)",
           backgroundColor: "#F1E8DA",
@@ -67,22 +70,22 @@ export default function UpcomingEvents() {
       {/* 🧾 Main Section (Background color only) */}
       <div className="relative z-10 top-0">
         {/* 📝 Text Block */}
-    <div className="relative max-w-[1750px] mx-auto px-6 mt-[100px] pb-[40px]">
+    <div className="relative max-w-[1750px] mx-auto px-6 mt-[200px] pb-[40px]">
 
 
  
  
 
-          <div className="flex flex-col md:flex-row justify-between items-start gap-5 mt-10">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-5 mb-30">
             <h1
-              className="text-[64px] text-gray-800 leading-[1.2] ml-6 mt-25"
+             className="text-[64px] text-gray-800 leading-[1.2] ml-6 mt-[150px]"
               style={{ fontFamily: "Orpheus Pro, serif" }}
             >
               Upcoming Events
             </h1>
-            <div className="text-end max-w-[850px] mr-6 mt-15">
+            <div className="text-start max-w-[850px] mr-6 mt-20">
               <p
-                className="leading-relaxed mb-6"
+                className="leading-relaxed mb-6 mt-20"
                 style={{
                   fontFamily: "Times New Roman, serif",
                   fontWeight: 400,
@@ -264,7 +267,7 @@ export default function UpcomingEvents() {
 </div>
 
         {/* Bottom Spacer */}
-        <div className="h-[400px]" />
+        <div className="h-[100px]" />
       </div>
 
       {/* 🔳 Bottom Blur */}
