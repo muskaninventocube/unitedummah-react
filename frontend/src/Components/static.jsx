@@ -1,14 +1,16 @@
-
-
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const PrologueGallery = () => {
   const generateColumnImages = (columnName, heights) => {
-    return Array.from({ length: heights.length }, (_, index) => ({
-      src: `/grid/${columnName}-${['one', 'two', 'three', 'four', 'five', 'six'][index]}.png`,
-      alt: `${columnName} ${index + 1}`,
-      height: heights[index]
-    }));
+    return Array.from({ length: heights.length }, (_, index) => {
+      const name = ['one', 'two', 'three', 'four', 'five', 'six'][index];
+      return {
+        src: `/grid/${columnName}-${name}.png`,
+        hoverSrc: `/grid/${columnName}-${name}-hover.png`,
+        alt: `${columnName} ${index + 1}`,
+        height: heights[index],
+      };
+    });
   };
 
   const columns = [
@@ -16,68 +18,44 @@ const PrologueGallery = () => {
     { name: 'second', images: generateColumnImages('second', [474, 1030, 460, 450, 400, 494]) },
     { name: 'third', images: generateColumnImages('third', [475, 460, 1050, 450, 480, 475]) },
     { name: 'four', images: generateColumnImages('four', [490, 440, 450, 1050, 695, 340]) },
-    { name: 'six', images: generateColumnImages('six', [1050, 445, 475, 490, 720, 105]) }
+    { name: 'six', images: generateColumnImages('six', [1050, 445, 475, 490, 720, 105]) },
   ];
 
-  // 🔧 Set custom CSS variable for each image from its data attribute
-  useEffect(() => {
-    document.querySelectorAll('.image-container').forEach((el) => {
-      const bg = el.getAttribute('data-bg');
-      el.style.setProperty('--bg-img', `url(${bg})`);
-    });
-  }, []);
-
   return (
-    <div
-      className="relative bg-gray-100"
-      style={{
-        width: '1955px',
-        height: '3200px',
-      }}
-    >
+    <div className="relative bg-gray-100" style={{ width: '1955px', height: '3200px' }}>
       <style jsx>{`
         .image-container {
           position: relative;
           overflow: hidden;
-          transition: all 300ms linear;
-          transform: translateX(0) scale(1);
+          transition: transform 300ms ease;
         }
 
         .image-container:hover {
-          transform: translateX(20px) scale(1.02);
-          filter: brightness(1.05) contrast(1.1);
-          z-index: 10;
+          transform: scale(1.03);
+          z-index: 5;
         }
 
-        .image-container::after {
-          content: '';
+        .image-container img {
           position: absolute;
           top: 0;
           left: 0;
+          object-fit: cover;
           width: 100%;
           height: 100%;
-          background-image: var(--bg-img);
-          background-size: cover;
-          background-position: center;
-          opacity: 0;
-          mix-blend-mode: multiply;
-          transition: opacity 300ms linear;
-          z-index: 20;
+          transition: opacity 0.3s ease;
           pointer-events: none;
-
-          /* Mask settings for ripped effect */
-          mask-image: url('/images/ripped-mask.png');
-          mask-size: cover;
-          mask-repeat: no-repeat;
-          mask-position: center;
-          -webkit-mask-image: url('/images/ripped-mask.png');
-          -webkit-mask-size: cover;
-          -webkit-mask-repeat: no-repeat;
-          -webkit-mask-position: center;
         }
 
-        .image-container:hover::after {
+        .image-container .hover-image {
+          opacity: 0;
+        }
+
+        .image-container:hover .hover-image {
           opacity: 1;
+        }
+
+        .image-container:hover .main-image {
+          opacity: 0;
         }
       `}</style>
 
@@ -87,29 +65,31 @@ const PrologueGallery = () => {
           <div
             key={column.name}
             className="flex flex-col"
-            style={{
-              width: '391px',
-              height: '100%',
-            }}
+            style={{ width: '391px', height: '100%' }}
           >
-            {column.images.map((image, imageIndex) => (
+            {column.images.map((image, index) => (
               <div
-                key={`${column.name}-${imageIndex}`}
-                className="image-container bg-gray-300 border border-gray-400 relative cursor-pointer"
-                data-bg={image.src}
-                style={{
-                  height: `${image.height}px`,
-                  backgroundImage: `url(${image.src})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
-              />
+                key={`${column.name}-${index}`}
+                className="image-container border border-gray-400 cursor-pointer relative"
+                style={{ height: `${image.height}px` }}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="main-image"
+                />
+                <img
+                  src={image.hoverSrc}
+                  alt={`${image.alt} hover`}
+                  className="hover-image"
+                />
+              </div>
             ))}
           </div>
         ))}
       </div>
 
-      {/* Sticky Container with top and bottom gap */}
+      {/* Sticky Container in Center */}
       <div className="relative z-10 h-[3200px] flex justify-center">
         <div
           className="sticky top-[250px] flex items-center justify-center"
@@ -136,10 +116,7 @@ const PrologueGallery = () => {
             <div className="space-y-6">
               <p
                 className="text-white text-xl leading-relaxed"
-                style={{
-                  fontFamily: 'styreneB, serif',
-                  fontWeight: 400,
-                }}
+                style={{ fontFamily: 'styreneB, serif', fontWeight: 400 }}
               >
                 United Ummah is more than just a community centre it is a <br />
                 sanctuary for Muslims from every walk of life, a place where <br />
@@ -147,10 +124,7 @@ const PrologueGallery = () => {
               </p>
               <p
                 className="text-white text-xl leading-relaxed"
-                style={{
-                  fontFamily: 'styreneB, serif',
-                  fontWeight: 400,
-                }}
+                style={{ fontFamily: 'styreneB, serif', fontWeight: 400 }}
               >
                 Here, every soul is valued, every story is honoured, and <br />
                 every gathering feels like a homecoming minus the awkward <br />

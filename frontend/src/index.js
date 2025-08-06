@@ -17,8 +17,9 @@ root.render(
     {/* <Header /> */}
     <Home />
         <CommunityEventsStats />
-        <Static />
+      
      </div>
+       <Static />
   <UpcomingEvents />
    <div className="relative w-full overflow-x-hidden">
   <CommunityServices />
