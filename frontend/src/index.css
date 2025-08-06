@@ -13,8 +13,10 @@
   }
 }
 
-html,
+
+ html,
 body {
   position: relative;
-  overflow-x: hidden; /* ✅ Move it here to apply globally */
+  /* overflow-x: hidden;  */
 }
+

@@ -18,8 +18,9 @@ root.render(
     <Home />
         <CommunityEventsStats />
         <Static />
-     
+     </div>
   <UpcomingEvents />
+   <div className="relative w-full overflow-x-hidden">
   <CommunityServices />
   <UmmahBuild />
   <Footer />

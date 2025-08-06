@@ -72,107 +72,102 @@ const Header = () => {
     return () => clearInterval(interval);
   }, [prayerTimes]);
 
-return (
-  <header className="w-full bg-[#002726] overflow-x-hidden">
-    <div className="flex justify-between items-center px-4 md:px-6 lg:px-8 xl:px-10 mx-auto max-w-[1800px] py-2 w-full">
+  return (
+    <header className="w-full bg-[#002726]">
+      <div className="flex justify-between items-center px-4 py-3 md:px-6 lg:px-12 mx-auto max-w-[1600px] ">
 
-      {/* Logo */}
-      <div className="flex items-center flex-shrink-0">
+        {/* Logo */}
         <img
           src="/images/header-logo.png"
           alt="United Ummah Logo"
-          className="h-12 sm:h-14 md:h-16 w-auto transition-all duration-300"
+          className="h-16 md:h-20 w-auto "
         />
-      </div>
 
-      {/* Nav (Desktop only) */}
-      <nav className="hidden lg:flex items-center justify-center flex-grow space-x-4 text-white text-sm font-medium">
-        {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
-          const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
-          return (
-            <a key={index} href={anchors[index]} className="hover:opacity-80 transition whitespace-nowrap">
-              {item}
-            </a>
-          );
-        })}
-      </nav>
-
-      {/* Right Side Controls (Donate + Hamburger) */}
-      <div className="flex items-center ml-auto space-x-2 md:space-x-4">
-
-        {/* Countdown + Donate (Tablet and up) */}
-        <div className="hidden md:flex items-center relative flex-shrink-0">
-          {/* Green capsule background */}
-          <div className="absolute left-0 right-0 h-[52px] bg-[#90BC5D] rounded-full z-0"></div>
-
-          {/* Countdown */}
-          <div className="relative flex items-center z-10 px-4 h-[52px]">
-            <div className="text-black mr-2 whitespace-nowrap">
-              <div className="text-[11px] font-medium">Islamic Centre of Canada (ICC)</div>
-              <div className="text-[13px] font-bold">NEXT PRAYER: {nextPrayer.name.toUpperCase()}</div>
-            </div>
-            <div className="flex gap-x-1">
-              {[nextPrayer.hrs, nextPrayer.mins, nextPrayer.secs].map((val, i) => (
-                <div key={i} className="flex flex-col items-center">
-                  <span className="text-black font-bold text-[13px]">{val}</span>
-                  <span className="text-black text-[10px] font-medium">{["HRS", "MIN", "SEC"][i]}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Donate Button */}
-          <button
-            onClick={handleDonateClick}
-            className={`h-[58px] w-[120px] flex items-center justify-center font-semibold text-[13px] transition-all duration-300 ease-in-out rounded-full z-10 ml-2 ${
-              isClicked
-                ? 'scale-105 bg-[#bf8c4b]'
-                : 'bg-[#f1e8da] text-black hover:bg-[#bf8c4b] hover:scale-105'
-            }`}
-          >
-            DONATE
-          </button>
-        </div>
-
-        {/* Hamburger (Tablet & Mobile only) */}
-        <div className="lg:hidden flex items-center">
+        {/* Hamburger for Mobile */}
+        <div className="md:hidden">
           <button onClick={() => setIsMobileMenuOpen(true)} className="text-white">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
-      </div>
-    </div>
 
-    {/* Mobile/Tablet Fullscreen Menu */}
-    {isMobileMenuOpen && (
-      <div className="fixed inset-0 bg-white z-50 w-full h-full overflow-y-auto flex flex-col items-center justify-center px-4 py-8 space-y-6 text-black text-lg">
-        {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
-          const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
-          return (
-            <a
-              key={index}
-              href={anchors[index]}
-              className="hover:opacity-80 transition text-xl sm:text-2xl"
-              onClick={() => setIsMobileMenuOpen(false)}
+        {/* Desktop/Mid Layout */}
+        <div className="hidden md:flex items-center justify-between w-full ml-8 gap-x-15">
+
+          {/* Nav */}
+          <nav className="flex items-center space-x-5 lg:space-x-8 text-white text-[13px] lg:text-[14px] font-medium">
+         {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
+  const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
+  return (
+    <a key={index} href={anchors[index]} className="hover:opacity-80 transition-opacity tracking-wide">
+      {item}
+    </a>
+  );
+})}
+
+          </nav>
+
+          {/* Countdown + Donate */}
+          <div className="relative flex items-center ml-auto gap-x-4 lg:gap-x-6 -right-12">
+
+            {/* Green Capsule */}
+            <div className="absolute left-0 right-0 h-[60px] bg-[#90BC5D] rounded-full z-0"></div>
+
+            {/* Countdown */}
+            <div className="relative flex items-center z-10 px-4 md:pl-6 md:pr-2 h-[60px]">
+              <div className="text-black mr-4 whitespace-nowrap">
+                <div className="text-xs md:text-sm font-medium">Islamic Centre of Canada (ICC)</div>
+                <div className="text-sm md:text-base font-bold">NEXT PRAYER: {nextPrayer.name.toUpperCase()}</div>
+              </div>
+
+              <div className="flex gap-x-1">
+                {[nextPrayer.hrs, nextPrayer.mins, nextPrayer.secs].map((val, i) => (
+                  <div key={i} className="flex flex-col items-center mx-1">
+                    <span className="text-black font-bold text-sm md:text-md lg:text-base">{val}</span>
+                    <span className="text-black font-semibold text-[15px] md:text-sm">{["HRS", "MIN", "SEC"][i]}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Donate Button */}
+            <button
+              onClick={handleDonateClick}
+              className={`h-[65px] w-[140px] lg:w-[180px] flex items-center justify-center font-semibold text-sm md:text-base transition-all duration-300 ease-in-out rounded-full z-10 ${
+                isClicked
+                  ? 'scale-105 bg-[#bf8c4b]'
+                  : 'bg-[#f1e8da] text-black hover:bg-[#bf8c4b] hover:scale-105'
+              }`}
             >
-              {item}
-            </a>
-          );
-        })}
-
-        <button
-          onClick={() => setIsMobileMenuOpen(false)}
-          className="mt-6 px-6 py-2 border border-black rounded-full text-sm hover:bg-black hover:text-white transition"
-        >
-          Close Menu
-        </button>
+              DONATE NOW
+            </button>
+          </div>
+        </div>
       </div>
-    )}
-  </header>
-);
 
+      {/* Mobile Full Screen Menu Modal */}
+     {isMobileMenuOpen && (
+  <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center w-full px-4 py-8 space-y-6 text-black text-lg">
+    {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
+  const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
+  return (
+    <a key={index} href={anchors[index]} className="hover:opacity-80 transition">
+      {item}
+    </a>
+  );
+})}
+
+
+    <button
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="mt-6 px-6 py-2 border border-black rounded-full text-sm hover:bg-black hover:text-white transition"
+    >
+      Close Menu
+    </button>
+  </div>      )}
+    </header>
+  );
 };
 
 export default Header;
