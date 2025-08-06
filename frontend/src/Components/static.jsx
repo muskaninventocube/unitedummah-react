@@ -23,6 +23,7 @@ const PrologueGallery = () => {
 
   return (
     <div className="relative bg-gray-100" style={{ width: '1955px', height: '3200px' }}>
+      {/* Hover logic */}
       <style jsx>{`
         .image-container {
           position: relative;
@@ -39,14 +40,13 @@ const PrologueGallery = () => {
           position: absolute;
           top: 0;
           left: 0;
-          object-fit: cover;
           width: 100%;
           height: 100%;
+          object-fit: cover;
           transition: opacity 0.3s ease;
-          pointer-events: none;
         }
 
-        .image-container .hover-image {
+        .hover-image {
           opacity: 0;
         }
 
@@ -70,82 +70,77 @@ const PrologueGallery = () => {
             {column.images.map((image, index) => (
               <div
                 key={`${column.name}-${index}`}
-                className="image-container border border-gray-400 cursor-pointer relative"
+                className="image-container border border-gray-400 cursor-pointer"
                 style={{ height: `${image.height}px` }}
               >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="main-image"
-                />
-                <img
-                  src={image.hoverSrc}
-                  alt={`${image.alt} hover`}
-                  className="hover-image"
-                />
+                <img src={image.src} alt={image.alt} className="main-image" />
+                <img src={image.hoverSrc} alt={`${image.alt} hover`} className="hover-image" />
               </div>
             ))}
           </div>
         ))}
       </div>
 
-      {/* Sticky Container in Center */}
-      <div className="relative z-10 h-[3200px] flex justify-center">
-        <div
-          className="sticky top-[250px] flex items-center justify-center"
-          style={{
-            width: '800px',
-            height: '800px',
-            backgroundColor: '#001F1F',
-            marginTop: '250px',
-            marginBottom: '250px',
-          }}
-        >
-          <div className="text-center px-14 py-10">
-            <h1
-              className="text-green-400 text-4xl mb-8 tracking-wider"
-              style={{
-                fontFamily: 'styreneB, serif',
-                fontWeight: 400,
-                letterSpacing: '0.1em',
-              }}
-            >
-              PROLOGUE
-            </h1>
+      {/* Sticky PROLOGUE Block */}
+      <div className="pointer-events-none  relative z-10 h-[3200px] flex justify-center">
+        <div className="sticky top-[250px] flex items-center justify-center" style={{ height: '800px' }}>
+          <div
+            style={{
+              width: '800px',
+              height: '800px',
+              backgroundColor: '#001F1F',
+              marginTop: '250px',
+              marginBottom: '250px',
+              pointerEvents: 'auto',
+            }}
+            className="flex items-center justify-center"
+          >
+            <div className="text-center px-14 py-10 text-white">
+              <h1
+                className="text-green-400 text-4xl mb-8 tracking-wider"
+                style={{
+                  fontFamily: 'styreneB, serif',
+                  fontWeight: 400,
+                  letterSpacing: '0.1em',
+                }}
+              >
+                PROLOGUE
+              </h1>
 
-            <div className="space-y-6">
-              <p
-                className="text-white text-xl leading-relaxed"
-                style={{ fontFamily: 'styreneB, serif', fontWeight: 400 }}
+              <div className="space-y-6">
+                <p
+                  className="text-white text-xl leading-relaxed"
+                  style={{ fontFamily: 'styreneB, serif', fontWeight: 400 }}
+                >
+                  United Ummah is more than just a community centre it is a <br />
+                  sanctuary for Muslims from every walk of life, a place where <br />
+                  hearts meet, hands join, and faith flourishes.
+                </p>
+                <p
+                  className="text-white text-xl leading-relaxed"
+                  style={{ fontFamily: 'styreneB, serif', fontWeight: 400 }}
+                >
+                  Here, every soul is valued, every story is honoured, and <br />
+                  every gathering feels like a homecoming minus the awkward <br />
+                  cousin and the overcooked biryani. From our youth and <br />
+                  elders to families seeking connection, United Ummah stands <br />
+                  as a testament to the beauty of togetherness, a beacon of <br />
+                  hope, and a safe harbour where faith and unity intertwine in <br />
+                  the most graceful way.
+                </p>
+              </div>
+
+              <button
+                className="mt-8 bg-white text-black px-8 py-3 font-medium tracking-wide hover:bg-gray-100 transition-colors duration-300"
+                style={{
+                  fontFamily: 'styreneB, serif',
+                  fontWeight: 500,
+                  letterSpacing: '0.05em',
+                }}
               >
-                United Ummah is more than just a community centre it is a <br />
-                sanctuary for Muslims from every walk of life, a place where <br />
-                hearts meet, hands join, and faith flourishes.
-              </p>
-              <p
-                className="text-white text-xl leading-relaxed"
-                style={{ fontFamily: 'styreneB, serif', fontWeight: 400 }}
-              >
-                Here, every soul is valued, every story is honoured, and <br />
-                every gathering feels like a homecoming minus the awkward <br />
-                cousin and the overcooked biryani. From our youth and <br />
-                elders to families seeking connection, United Ummah stands <br />
-                as a testament to the beauty of togetherness, a beacon of <br />
-                hope, and a safe harbour where faith and unity intertwine in <br />
-                the most graceful way.
-              </p>
+                KNOW MORE ABOUT US
+              </button>
             </div>
-
-            <button
-              className="mt-8 bg-white text-black px-8 py-3 font-medium tracking-wide hover:bg-gray-100 transition-colors duration-300"
-              style={{
-                fontFamily: 'styreneB, serif',
-                fontWeight: 500,
-                letterSpacing: '0.05em',
-              }}
-            >
-              KNOW MORE ABOUT US
-            </button>
           </div>
         </div>
       </div>
@@ -154,3 +149,69 @@ const PrologueGallery = () => {
 };
 
 export default PrologueGallery;
+
+
+
+//  {/* Sticky Container in Center */}
+//       <div className="relative z-10 h-[3200px] flex justify-center">
+//         <div
+//           className="sticky top-[250px] flex items-center justify-center"
+//           style={{
+//             width: '800px',
+//             height: '800px',
+//             backgroundColor: '#001F1F',
+//             marginTop: '250px',
+//             marginBottom: '250px',
+//           }}
+//         >
+//           <div className="text-center px-14 py-10">
+//             <h1
+//               className="text-green-400 text-4xl mb-8 tracking-wider"
+//               style={{
+//                 fontFamily: 'styreneB, serif',
+//                 fontWeight: 400,
+//                 letterSpacing: '0.1em',
+//               }}
+//             >
+//               PROLOGUE
+//             </h1>
+
+//             <div className="space-y-6">
+//               <p
+//                 className="text-white text-xl leading-relaxed"
+//                 style={{ fontFamily: 'styreneB, serif', fontWeight: 400 }}
+//               >
+//                 United Ummah is more than just a community centre it is a <br />
+//                 sanctuary for Muslims from every walk of life, a place where <br />
+//                 hearts meet, hands join, and faith flourishes.
+//               </p>
+//               <p
+//                 className="text-white text-xl leading-relaxed"
+//                 style={{ fontFamily: 'styreneB, serif', fontWeight: 400 }}
+//               >
+//                 Here, every soul is valued, every story is honoured, and <br />
+//                 every gathering feels like a homecoming minus the awkward <br />
+//                 cousin and the overcooked biryani. From our youth and <br />
+//                 elders to families seeking connection, United Ummah stands <br />
+//                 as a testament to the beauty of togetherness, a beacon of <br />
+//                 hope, and a safe harbour where faith and unity intertwine in <br />
+//                 the most graceful way.
+//               </p>
+//             </div>
+
+//             <button
+//               className="mt-8 bg-white text-black px-8 py-3 font-medium tracking-wide hover:bg-gray-100 transition-colors duration-300"
+//               style={{
+//                 fontFamily: 'styreneB, serif',
+//                 fontWeight: 500,
+//                 letterSpacing: '0.05em',
+//               }}
+//             >
+//               KNOW MORE ABOUT US
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };

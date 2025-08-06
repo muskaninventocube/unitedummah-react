@@ -89,9 +89,7 @@ export default function UpcomingEvents() {
                   fontSize: "21.75px",
                 }}
               >
-                At United Ummah, every gathering is more than just an event —
-                it’s a chance to strengthen bonds, share blessings, and grow
-                together in faith...
+           At United Ummah, every gathering is more than just an event — it’s a chance to strengthen bonds, share blessings, and grow together in faith. From inspiring lectures and vibrant youth activities to community iftars and charity drives, our events are thoughtfully crafted to bring hearts closer and uplift every member of our Ummah.
               </p>
               <p
                 className="leading-relaxed"
