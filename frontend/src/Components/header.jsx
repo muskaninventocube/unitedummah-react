@@ -79,18 +79,18 @@ const Header = () => {
   }, [prayerTimes]);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#002726] overflow-hidden">
+    <header className="sticky top-0 z-50 w-full overflow-hidden">
       {/* MAIN NAVIGATION ROW */}
-      <div className="flex justify-between items-center px-3 py-3 md:px-6 lg:px-12 mx-auto max-w-[95%]">
+    <div className="bg-[#002726] flex justify-between items-center px-3 py-3 md:px-6 lg:px-12 mx-auto max-w-[95%]">
         {/* Logo */}
         <img
           src="/images/header-logo.png"
           alt="United Ummah Logo"
-          className="h-10 md:h-20 w-auto -ml-2 md:-ml-12 z-10 relative"
+          className="h-8 md:h-16 xl:h-20 w-auto z-10 relative"
         />
 
-        {/* Mobile Hamburger Menu */}
-        <div className="md:hidden">
+        {/* Hamburger */}
+        <div className="xl:hidden block">
           <button onClick={() => setIsMobileMenuOpen(true)} className="text-white p-2">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -99,8 +99,8 @@ const Header = () => {
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center justify-between w-full ml-8 gap-x-15">
-          <nav className="flex items-center space-x-5 lg:space-x-8 text-white text-[13px] lg:text-[14px] font-medium">
+        <div className="hidden xl:flex items-center justify-between w-full ml-8 gap-x-15">
+          <nav className="flex items-center space-x-5 lg:space-x-8 text-white text-[10px] lg:text-[14px] font-medium">
             {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
               const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
               return (
@@ -145,24 +145,22 @@ const Header = () => {
         </div>
       </div>
 
-      {/* MOBILE PRAYER + DONATE CAPSULE (SEPARATE ROW) */}
-      <div className="md:hidden w-full px-2 pb-3 relative bg-[#002726]">
+      {/* PRAYER + DONATE CAPSULE FOR <1460px */}
+      <div className="xl:hidden w-full px-2 pt-2 pb-3 relative bg-transparent">
         <div className="mx-auto max-w-[95%] relative">
           {/* Background Capsule */}
           <div className="absolute inset-x-0 h-[50px] bg-[#90BC5D] rounded-full z-0"></div>
 
-          {/* Content */}
-          <div className="relative flex items-center justify-between z-10 px-3 h-[50px]">
-            <div className="flex items-center overflow-hidden">
-              <div className="text-black mr-2 flex flex-col justify-center text-[9px] leading-tight">
-  <div className="font-medium">
-    Islamic Centre of Canada (ICC)
-  </div>
-  <div className="font-bold">
-    NEXT PRAYER: {nextPrayer.name.toUpperCase()}
-  </div>
-</div>
+          {/* Content Row: Left = Text, Right = Timer + Button */}
+          <div className="relative flex items-center justify-between z-10 px-4 h-[50px]">
+            {/* Left side: ICC + Prayer Name */}
+            <div className="text-black flex flex-col justify-center text-[9px] leading-tight">
+              <div className="font-medium">Islamic Centre of Canada (ICC)</div>
+              <div className="font-bold">NEXT PRAYER: {nextPrayer.name.toUpperCase()}</div>
+            </div>
 
+            {/* Right side: Timer + Button */}
+            <div className="flex items-center gap-x-2">
               <div className="flex gap-x-1">
                 {[nextPrayer.hrs, nextPrayer.mins, nextPrayer.secs].map((val, i) => (
                   <div key={i} className="flex flex-col items-center">
@@ -171,18 +169,18 @@ const Header = () => {
                   </div>
                 ))}
               </div>
-            </div>
 
-            <button
-              onClick={handleDonateClick}
-              className={`h-[50px] w-[100px] -mr-3 flex items-center justify-center font-semibold text-[10px] transition-all duration-300 ease-in-out rounded-full z-10 ${
-                isClicked
-                  ? 'scale-105 bg-[#bf8c4b]'
-                  : 'bg-[#f1e8da] text-black hover:bg-[#bf8c4b] hover:scale-105'
-              }`}
-            >
-              DONATE NOW
-            </button>
+              <button
+                onClick={handleDonateClick}
+                className={`h-[52px] w-[120px] -mr-4 text-[10px] flex items-center justify-center font-semibold transition-all duration-300 ease-in-out rounded-full z-10 ${
+                  isClicked
+                    ? 'scale-105 bg-[#bf8c4b]'
+                    : 'bg-[#f1e8da] text-black hover:bg-[#bf8c4b] hover:scale-105'
+                }`}
+              >
+                DONATE NOW
+              </button>
+            </div>
           </div>
         </div>
       </div>
