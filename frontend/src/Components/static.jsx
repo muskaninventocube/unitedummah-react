@@ -22,9 +22,25 @@ const PrologueGallery = () => {
   ];
 
   return (
-   <div
-  className="relative w-[1600px] min-h-screen sm:min-h-[3000px] px-4 sm:px-8"
->
+  <div className="relative w-full min-h-screen sm:min-h-[3000px] px-4 sm:px-8">
+
+  {/* Top Shadow */}
+  <div
+    className="absolute"
+    style={{
+      width: '1700px',
+      height: '250px',
+      top: '-180px',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      backgroundColor: '#001F1F', // match this to current bg
+      filter: 'blur(100px)',
+      zIndex: 1,
+    }}
+  />
+
+ 
+
       {/* Hover logic */}
       <style jsx>{`
         .image-container {
