@@ -23,7 +23,7 @@ const PrologueGallery = () => {
 
   return (
    <div
-  className="relative w-full min-h-screen sm:min-h-[3000px] px-4 sm:px-8"
+  className="relative w-[1600px] min-h-screen sm:min-h-[3000px] px-4 sm:px-8"
 >
       {/* Hover logic */}
       <style jsx>{`
