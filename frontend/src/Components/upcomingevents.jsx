@@ -56,7 +56,9 @@ export default function UpcomingEvents() {
       <div
         className="absolute"
         style={{
-          width: "2500px",
+          width: "100%",
+maxWidth: "100vw",
+
           height: "250px",
           top: "-280px",
           left: "50%",
@@ -274,7 +276,9 @@ export default function UpcomingEvents() {
       <div
         className="absolute"
         style={{
-          width: "2500px",
+          width: "100%",
+maxWidth: "100vw",
+
           height: "250px",
           bottom: "-180px",
           left: "50%",

@@ -14,10 +14,13 @@
 }
 
 
- html,
-body {
-  position: relative;
-  /* overflow-x: hidden;  */
+
+
+
+* {
+  box-sizing: border-box;
 }
-
-
+html, body {
+  overflow-x: hidden;
+  position: relative;
+}

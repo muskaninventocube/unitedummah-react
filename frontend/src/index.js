@@ -13,9 +13,10 @@ import UmmahBuild from './Components/ummahBuild';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <div className="relative w-full overflow-x-hidden">
+    <div className="relative w-full overflow-x-hidden overflow-y-hidden">
        <div className="fixed top-8 left-12 right-12 z-40 rounded-full overflow-hidden">
       <Header />
+        
     </div>
 
 
@@ -23,14 +24,16 @@ root.render(
         <CommunityEventsStats />
       
      </div>
-       <div className=" overflow-x-hidden"><Static /></div>
+<Static />
        
   <UpcomingEvents />
   <CommunityServices />
  
-  
-  <UmmahBuild />
+   <div className=" overflow-x-hidden">
+     <UmmahBuild />
   <Footer />
+   </div>
+ 
 
   </React.StrictMode>
 );
