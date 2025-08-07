@@ -18,7 +18,7 @@ const y4 = useTransform(scrollYProgress, [0.40, 0.50], [0, -700]); // 4th
 const y3 = useTransform(scrollYProgress, [0.50, 0.60], [0, -700]); // 3rd (last to animate)
 
   return (
-    <div className="relative h-[2500px] bg-white">
+    <div className="relative h-[1500px] ">
       {/* Sticky Scroll Section */}
       <div
         ref={sectionRef}
@@ -78,10 +78,7 @@ const y3 = useTransform(scrollYProgress, [0.50, 0.60], [0, -700]); // 3rd (last 
         />
       </div>
 
-      {/* Next section */}
-      <div className="h-[1000px] bg-gray-100 flex items-center justify-center">
-        <h1 className="text-4xl">Next Section Content</h1>
-      </div>
+      
     </div>
   );
 };

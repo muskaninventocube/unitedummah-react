@@ -14,10 +14,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <div className="relative w-full overflow-x-hidden overflow-y-hidden">
-       <div className="fixed top-8 left-12 right-12 z-40 rounded-full overflow-hidden">
-      <Header />
-        
-    </div>
+   <div className="fixed top-8 z-40 w-full px-5 md:px-8">
+  <div className="rounded-full overflow-hidden mx-auto max-w-[1600px] bg-[#002726]">
+    <Header />
+  </div>
+</div>
+
+
 
 
     <Home />
