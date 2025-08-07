@@ -23,13 +23,14 @@ root.render(
         <CommunityEventsStats />
       
      </div>
-       <Static />
+       <div className=" overflow-x-hidden"><Static /></div>
+       
   <UpcomingEvents />
   <CommunityServices />
-   <div className="relative w-full overflow-x-hidden">
+ 
   
   <UmmahBuild />
   <Footer />
-</div>
+
   </React.StrictMode>
 );

@@ -80,7 +80,7 @@ const Header = () => {
         <img
           src="/images/header-logo.png"
           alt="United Ummah Logo"
-          className="h-16 md:h-20 w-auto "
+          className="h-16 md:h-20 w-auto -ml-12 "
         />
 
         {/* Hamburger for Mobile */}
