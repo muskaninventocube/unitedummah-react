@@ -81,7 +81,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full overflow-hidden">
       {/* MAIN NAVIGATION ROW */}
-      <div className="bg-[#002726] px-3 py-3 md:px-6 lg:px-12 mx-auto max-w-[95%] flex justify-between items-center">
+      <div className="bg-[#002726] px-3 py-3 md:px-6 lg:px-12 mx-auto max-w-[95%] flex justify-between items-center rounded-full">
         {/* Logo */}
         <img
           src="/images/header-logo.png"
@@ -146,7 +146,7 @@ const Header = () => {
       </div>
 
       {/* PRAYER + DONATE CAPSULE FOR <1460px */}
-      <div className="xl:hidden w-full px-2 pt-2 pb-3 relative bg-transparent">
+      <div className="xl:hidden w-full px-2 pt-2 pb-3 relative bg-transparent -mt-5">
         <div className="mx-auto max-w-[95%] relative bg-transparent">
           {/* Background Capsule */}
           <div className="absolute inset-x-0 h-[55px] bg-[#90BC5D] rounded-full z-0"></div>

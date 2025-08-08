@@ -15,7 +15,7 @@ root.render(
   <React.StrictMode>
     <div className="relative w-full overflow-x-hidden overflow-y-hidden  ">
    <div className="fixed top-8 z-40 w-full px-5 md:px-8">
-  <div className="rounded-full overflow-x-hidden mx-auto max-w-[1800px] bg-[#002726]">
+  <div className="rounded-full overflow-hidden mx-auto max-w-[1800px] ">
     <Header />
   </div>
 </div>
