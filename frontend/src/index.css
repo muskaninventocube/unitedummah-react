@@ -21,7 +21,7 @@
   box-sizing: border-box;
 }
 html, body {
- max-width: 1440px ;
+ max-width: 1200px ;
  max-height: 1080px;
   position: relative;
 }
