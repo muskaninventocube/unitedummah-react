@@ -81,7 +81,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full overflow-hidden">
       {/* MAIN NAVIGATION ROW */}
-    <div className="bg-[#002726] flex justify-between items-center px-3 py-3 md:px-6 lg:px-12 mx-auto max-w-[95%]">
+      <div className="bg-[#002726] px-3 py-3 md:px-6 lg:px-12 mx-auto max-w-[95%] flex justify-between items-center">
         {/* Logo */}
         <img
           src="/images/header-logo.png"
@@ -113,19 +113,19 @@ const Header = () => {
 
           {/* Countdown + Donate */}
           <div className="relative flex items-center ml-auto gap-x-4 lg:gap-x-6 -right-12">
-            <div className="absolute left-0 right-0 h-[60px] bg-[#90BC5D] rounded-full z-0"></div>
+            <div className="absolute left-0 right-0 h-[75px] bg-[#90BC5D] rounded-full z-0"></div>
 
-            <div className="relative flex items-center z-10 px-4 md:pl-6 md:pr-2 h-[60px]">
+            <div className="relative flex items-center z-10 px-4 md:pl-6 md:pr-2 h-[75px]">
               <div className="text-black mr-4 whitespace-nowrap">
-                <div className="text-xs md:text-sm font-medium">Islamic Centre of Canada (ICC)</div>
-                <div className="text-sm md:text-base font-bold">NEXT PRAYER: {nextPrayer.name.toUpperCase()}</div>
+                <div className="text-sm font-medium">Islamic Centre of Canada (ICC)</div>
+                <div className="text-lg font-bold">NEXT PRAYER: {nextPrayer.name.toUpperCase()}</div>
               </div>
 
-              <div className="flex gap-x-1">
+              <div className="flex gap-x-2">
                 {[nextPrayer.hrs, nextPrayer.mins, nextPrayer.secs].map((val, i) => (
                   <div key={i} className="flex flex-col items-center mx-1">
-                    <span className="text-black font-bold text-sm md:text-md lg:text-base">{val}</span>
-                    <span className="text-black font-semibold text-[15px] md:text-sm">{["HRS", "MIN", "SEC"][i]}</span>
+                    <span className="text-black font-bold text-lg">{val}</span>
+                    <span className="text-black font-semibold text-xs">{["HRS", "MIN", "SEC"][i]}</span>
                   </div>
                 ))}
               </div>
@@ -133,7 +133,7 @@ const Header = () => {
 
             <button
               onClick={handleDonateClick}
-              className={`h-[65px] w-[140px] lg:w-[180px] flex items-center justify-center font-semibold text-sm md:text-base transition-all duration-300 ease-in-out rounded-full z-10 ${
+              className={`h-[75px] w-[160px] lg:w-[200px] flex items-center justify-center font-semibold text-lg transition-all duration-300 ease-in-out rounded-full z-10 ${
                 isClicked
                   ? 'scale-105 bg-[#bf8c4b]'
                   : 'bg-[#f1e8da] text-black hover:bg-[#bf8c4b] hover:scale-105'
@@ -147,19 +147,19 @@ const Header = () => {
 
       {/* PRAYER + DONATE CAPSULE FOR <1460px */}
       <div className="xl:hidden w-full px-2 pt-2 pb-3 relative bg-transparent">
-        <div className="mx-auto max-w-[95%] relative">
+        <div className="mx-auto max-w-[95%] relative bg-transparent">
           {/* Background Capsule */}
-          <div className="absolute inset-x-0 h-[50px] bg-[#90BC5D] rounded-full z-0"></div>
+          <div className="absolute inset-x-0 h-[55px] bg-[#90BC5D] rounded-full z-0"></div>
 
-          {/* Content Row: Left = Text, Right = Timer + Button */}
-          <div className="relative flex items-center justify-between z-10 px-4 h-[50px]">
-            {/* Left side: ICC + Prayer Name */}
+          {/* Content Row */}
+          <div className="relative flex items-center justify-between z-10 px-4 h-[55px]">
+            {/* Left side */}
             <div className="text-black flex flex-col justify-center text-[9px] leading-tight">
               <div className="font-medium">Islamic Centre of Canada (ICC)</div>
               <div className="font-bold">NEXT PRAYER: {nextPrayer.name.toUpperCase()}</div>
             </div>
 
-            {/* Right side: Timer + Button */}
+            {/* Right side */}
             <div className="flex items-center gap-x-2">
               <div className="flex gap-x-1">
                 {[nextPrayer.hrs, nextPrayer.mins, nextPrayer.secs].map((val, i) => (
@@ -172,7 +172,7 @@ const Header = () => {
 
               <button
                 onClick={handleDonateClick}
-                className={`h-[52px] w-[120px] -mr-4 text-[10px] flex items-center justify-center font-semibold transition-all duration-300 ease-in-out rounded-full z-10 ${
+                className={`h-[55px] w-[120px] -mr-4 text-[10px] flex items-center justify-center font-semibold transition-all duration-300 ease-in-out rounded-full z-10 ${
                   isClicked
                     ? 'scale-105 bg-[#bf8c4b]'
                     : 'bg-[#f1e8da] text-black hover:bg-[#bf8c4b] hover:scale-105'
