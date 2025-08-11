@@ -15,7 +15,7 @@
     width: 400px;
   }
 }
-/* 1000px – 1400px */
+
 @media (max-width: 1450px) and (min-width: 1200px) {
   .banner-img {
     width: 1200px;
@@ -25,10 +25,9 @@
   }
 }
 
-/* 500px – 999px */
 @media (max-width: 1199px) and (min-width: 800px) {
   .banner-img {
-    width: 1000px;
+    width: 800px;
   }
   .card-img {
     width: 350px;
@@ -43,12 +42,18 @@
   }
 }
 
-/* 1px – 499px */
+
 @media (max-width: 499px) {
   .banner-img {
     width: 350px;
+   
   }
   .card-img {
     width: 250px;
+  }
+   /* Text ko neeche shift karne ke liye */
+  .banner-text-mobile {
+    justify-content: flex-end !important; /* center ki jagah neeche */
+    padding-bottom: 40px; /* thoda space neeche se */
   }
 }

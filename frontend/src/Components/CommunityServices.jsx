@@ -9,14 +9,17 @@ const BannerScrollSection = () => {
     target: sectionRef,
     offset: ['start start', 'end start'],
   });
+const isMobile = typeof window !== "undefined" && window.innerWidth <= 500;
 
-  // Custom staggered scroll order
-  const y2 = useTransform(scrollYProgress, [0.0, 0.1], [0, -700]);
-  const y1 = useTransform(scrollYProgress, [0.1, 0.2], [0, -700]);
-  const y5 = useTransform(scrollYProgress, [0.2, 0.3], [0, -700]);
-  const y6 = useTransform(scrollYProgress, [0.3, 0.4], [0, -700]);
-  const y4 = useTransform(scrollYProgress, [0.4, 0.5], [0, -700]);
-  const y3 = useTransform(scrollYProgress, [0.5, 0.6], [0, -700]);
+const moveDistance = isMobile ? -900 : -700; // mobile pe zyada upar
+
+const y2 = useTransform(scrollYProgress, [0.0, 0.1], [0, moveDistance]);
+const y1 = useTransform(scrollYProgress, [0.1, 0.2], [0, moveDistance]);
+const y5 = useTransform(scrollYProgress, [0.2, 0.3], [0, moveDistance]);
+const y6 = useTransform(scrollYProgress, [0.3, 0.4], [0, moveDistance]);
+const y4 = useTransform(scrollYProgress, [0.4, 0.5], [0, moveDistance]);
+const y3 = useTransform(scrollYProgress, [0.5, 0.6], [0, moveDistance]);
+
 
   return (
     <div className="relative h-[1500px]">
@@ -34,7 +37,8 @@ const BannerScrollSection = () => {
               alt="Banner"
               className="banner-img h-[1000px] object-cover"
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center text-white">
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center text-white banner-text-mobile">
+
               <h1 className="text-6xl mb-6" style={{ fontFamily: 'Times New Roman, serif', color: '#F1E8DA' }}>
                 Community Services
               </h1>
@@ -50,15 +54,68 @@ const BannerScrollSection = () => {
             </div>
           </div>
         </div>
-
-        {/* Cards */}
-        <motion.img src="/images/pol2.png" alt="pol2" className="card-img rotate-[8deg]" style={{ y: y2, top: '980px', left: '17%' }} />
-        <motion.img src="/images/pol1.png" alt="pol1" className="card-img rotate-[-10deg]" style={{ y: y1, top: '950px', left: '0%' }} />
-        <motion.img src="/images/pol4.png" alt="pol5" className="card-img rotate-[-7deg]" style={{ y: y5, top: '990px', left: '75%' }} />
-        <motion.img src="/images/pol6.png" alt="pol6" className="card-img rotate-[10deg]" style={{ y: y6, top: '980px', left: '82%' }} />
-        <motion.img src="/images/pol3.png" alt="pol4" className="card-img rotate-[6deg]" style={{ y: y4, top: '970px', left: '55%' }} />
-        <motion.img src="/images/pol5.png" alt="pol3" className="card-img rotate-[-6deg]" style={{ y: y3, top: '960px', left: '35%' }} />
-      </div>
+{/* Cards */}
+<motion.img
+  src="/images/pol2.png"
+  alt="pol2"
+  className="card-img rotate-[8deg]"
+  style={{
+    y: y2,
+    top: isMobile ? '1180px' : '980px',
+    left: isMobile ? '20%' : '17%'
+  }}
+/>
+<motion.img
+  src="/images/pol1.png"
+  alt="pol1"
+  className="card-img rotate-[-10deg]"
+  style={{
+    y: y1,
+    top: isMobile ? '1190px' : '950px',
+    left: isMobile ? '45%' : '0%'
+  }}
+/>
+<motion.img
+  src="/images/pol4.png"
+  alt="pol5"
+  className="card-img rotate-[-7deg]"
+  style={{
+    y: y5,
+    top: isMobile ? '1200px' : '990px',
+    left: isMobile ? '25%' : '75%'
+  }}
+/>
+<motion.img
+  src="/images/pol6.png"
+  alt="pol6"
+  className="card-img rotate-[10deg]"
+  style={{
+    y: y6,
+    top: isMobile ? '1210px' : '980px',
+    left: isMobile ? '40%' : '82%'
+  }}
+/>
+<motion.img
+  src="/images/pol3.png"
+  alt="pol4"
+  className="card-img rotate-[6deg]"
+  style={{
+    y: y4,
+    top: isMobile ? '1195px' : '970px',
+    left: isMobile ? '15%' : '55%'
+  }}
+/>
+<motion.img
+  src="/images/pol5.png"
+  alt="pol3"
+  className="card-img rotate-[-6deg]"
+  style={{
+    y: y3,
+    top: isMobile ? '1205px' : '960px',
+    left: isMobile ? '30%' : '35%'
+  }}
+/>
+</div>
     </div>
   );
 };
