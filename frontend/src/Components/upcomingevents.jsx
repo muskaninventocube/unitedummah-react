@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -32,10 +31,12 @@ export default function UpcomingEvents() {
     offset: ["start start", "end start"],
   });
 
-// Mobile scroll animations (faster overlap)
-const mSecondY = useTransform(mobileProgress, [0.12, 0.28], [600, 0]);
-const mThirdY  = useTransform(mobileProgress, [0.22, 0.38], [1000, 0]);
+  const mSecondY = useTransform(mobileProgress, [0.12, 0.28], [600, 0]);
+  const mThirdY = useTransform(mobileProgress, [0.22, 0.38], [1000, 0]);
 
+//   // Button animation for mobile
+// const buttonOpacity = useTransform(mobileProgress, [0.38, 0.42], [0, 1]);
+// const buttonY = useTransform(mobileProgress, [0.38, 0.42], [50, 0]);
 
   const events = [
     {
@@ -98,7 +99,7 @@ const mThirdY  = useTransform(mobileProgress, [0.22, 0.38], [1000, 0]);
                 className="leading-relaxed mb-6"
                 style={{
                   fontFamily: "Times New Roman, serif",
-                  fontWeight: 400,
+                  fontWeight: 350,
                   fontSize: "21.75px",
                 }}
               >
@@ -113,7 +114,7 @@ const mThirdY  = useTransform(mobileProgress, [0.22, 0.38], [1000, 0]);
                 className="leading-relaxed"
                 style={{
                   fontFamily: "Times New Roman, serif",
-                  fontWeight: 400,
+                  fontWeight: 350,
                   fontSize: "21.75px",
                 }}
               >
@@ -166,7 +167,7 @@ const mThirdY  = useTransform(mobileProgress, [0.22, 0.38], [1000, 0]);
                       className="text-gray-700"
                       style={{
                         fontFamily: "Times New Roman, serif",
-                        fontWeight: 400,
+                        fontWeight: 350,
                         fontSize: "18.75px",
                       }}
                     >
@@ -214,7 +215,7 @@ const mThirdY  = useTransform(mobileProgress, [0.22, 0.38], [1000, 0]);
                       className="text-gray-700"
                       style={{
                         fontFamily: "Times New Roman, serif",
-                        fontWeight: 400,
+                        fontWeight: 350,
                         fontSize: "18.75px",
                       }}
                     >
@@ -262,7 +263,7 @@ const mThirdY  = useTransform(mobileProgress, [0.22, 0.38], [1000, 0]);
                       className="text-gray-700"
                       style={{
                         fontFamily: "Times New Roman, serif",
-                        fontWeight: 400,
+                        fontWeight: 350,
                         fontSize: "18.75px",
                       }}
                     >
@@ -273,102 +274,103 @@ const mThirdY  = useTransform(mobileProgress, [0.22, 0.38], [1000, 0]);
               </div>
             </div>
           </div>
-        </div>
 
-        {/* MOBILE Stacked Scroll Animation */}
-        <div className="block sm:hidden px-4">
-          <div ref={mobileRef} className="relative h-[300vh]">
-            <div className="sticky top-0 h-screen flex flex-col items-center justify-center">
-              {/* First Card */}
-              <div className="absolute top-0 w-full">
-                <div
-                  className="w-full h-[420px] overflow-hidden shadow-lg"
-                  style={{
-                    backgroundImage: `url(${events[0].src})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    borderRadius: "210px 210px 0 0",
-                  }}
-                ></div>
-                <div className="mt-4 px-3">
-                  <h2 className="text-gray-800 mb-1 text-[28px] font-bold">
-                    {events[0].title}
-                  </h2>
-                  <p className="text-gray-600 text-right mb-2 text-[20px]">
-                    {events[0].date}
-                  </p>
-                  <p className="text-gray-700 text-[16px]">
-                    {events[0].description}
-                  </p>
-                </div>
-              </div>
-
-              {/* Second Card */}
-              <motion.div
-                className="absolute top-0 w-full"
-                style={{ y: mSecondY }}
-              >
-                <div
-                  className="w-full h-[420px] overflow-hidden shadow-lg"
-                  style={{
-                    backgroundImage: `url(${events[1].src})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    borderRadius: "210px 210px 0 0",
-                  }}
-                ></div>
-                <div className="mt-4 px-3">
-                  <h2 className="text-gray-800 mb-1 text-[28px] font-bold">
-                    {events[1].title}
-                  </h2>
-                  <p className="text-gray-600 text-right mb-2 text-[20px]">
-                    {events[1].date}
-                  </p>
-                  <p className="text-gray-700 text-[16px]">
-                    {events[1].description}
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Third Card */}
-              <motion.div
-                className="absolute top-0 w-full"
-                style={{ y: mThirdY }}
-              >
-                <div
-                  className="w-full h-[420px] overflow-hidden shadow-lg"
-                  style={{
-                    backgroundImage: `url(${events[2].src})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    borderRadius: "210px 210px 0 0",
-                  }}
-                ></div>
-                <div className="mt-4 px-3">
-                  <h2 className="text-gray-800 mb-1 text-[28px] font-bold">
-                    {events[2].title}
-                  </h2>
-                  <p className="text-gray-600 text-right mb-2 text-[20px]">
-                    {events[2].date}
-                  </p>
-                  <p className="text-gray-700 text-[16px]">
-                    {events[2].description}
-                  </p>
-                </div>
-              </motion.div>
-            </div>
+          {/* Desktop Button */}
+          <div className="flex justify-center z-30 relative mt-10">
+            <button className="bg-[#90BC5D] text-black px-8 py-4 text-lg rounded-md transition-colors duration-300 hover:bg-[#A67C52]">
+              VIEW OUR EVENTS
+            </button>
           </div>
         </div>
-
-        {/* Button */}
-        <div className="flex justify-center mt-12 z-30 relative">
-          <button className="bg-[#90BC5D] text-black px-8 py-4 text-lg rounded-md transition-colors duration-300 hover:bg-[#A67C52]">
-            VIEW OUR EVENTS
-          </button>
+{/* MOBILE Stacked Scroll Animation */}
+<div className="block sm:hidden px-4">
+  <div ref={mobileRef} className="relative h-[200vh]">
+    <div className="sticky top-0 h-screen flex flex-col items-center justify-center">
+      {/* First Card */}
+      <div className="absolute top-0 w-full bg-[#F1E8DA]">
+        <div
+          className="w-full h-[350px] overflow-hidden shadow-lg"
+          style={{
+            backgroundImage: `url(${events[0].src})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            borderRadius: "210px 210px 0 0",
+          }}
+        ></div>
+        <div className="mt-4 px-3 bg-[#F1E8DA]">
+          <h2 className="text-gray-800 mb-1 text-[28px] font-bold">
+            {events[0].title}
+          </h2>
+          <p className="text-gray-600 text-right mb-2 text-[20px]">
+            {events[0].date}
+          </p>
+          <p className="text-gray-700 text-[16px]">{events[0].description}</p>
         </div>
+      </div>
+
+      {/* Second Card */}
+      <motion.div className="absolute top-0 w-full" style={{ y: mSecondY }}>
+        <div
+          className="w-full h-[350px] overflow-hidden shadow-lg bg-[#F1E8DA]"
+          style={{
+            backgroundImage: `url(${events[1].src})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            borderRadius: "210px 210px 0 0",
+          }}
+        ></div>
+        <div className="mt-4 px-3 bg-[#F1E8DA]">
+          <h2 className="text-gray-800 mb-1 text-[28px] font-bold">
+            {events[1].title}
+          </h2>
+          <p className="text-gray-600 text-right mb-2 text-[20px]">
+            {events[1].date}
+          </p>
+          <p className="text-gray-700 text-[16px]">{events[1].description}</p>
+        </div>
+      </motion.div>
+
+      {/* Third Card */}
+      <motion.div className="absolute top-0 w-full" style={{ y: mThirdY }}>
+        <div
+          className="w-full h-[350px] overflow-hidden shadow-lg bg-[#F1E8DA]"
+          style={{
+            backgroundImage: `url(${events[2].src})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            borderRadius: "210px 210px 0 0",
+          }}
+        ></div>
+        <div className="mt-4 px-3 bg-[#F1E8DA]">
+          <h2 className="text-gray-800 mb-1 text-[28px] font-bold">
+            {events[2].title}
+          </h2>
+          <p className="text-gray-600 text-right mb-2 text-[20px]">
+            {events[2].date}
+          </p>
+          <p className="text-gray-700 text-[16px]">{events[2].description}</p>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+
+  {/* Button After Animation */}
+  <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true, amount: 0.3 }}
+      className="flex justify-center mt-0 mb-0"
+    >
+      <button className="bg-[#90BC5D] text-black px-8 py-4 text-lg rounded-md transition-colors duration-300 hover:bg-[#A67C52]">
+        VIEW OUR EVENTS
+      </button>
+    </motion.div>
+</div>
+
 
         <div className="h-[100px]" />
-      </div>
+       </div>
 
       {/* Bottom Blur */}
       <div

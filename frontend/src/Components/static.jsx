@@ -93,7 +93,7 @@ const PrologueGallery = () => {
       </div>
 
       {/* Scroll container for PROLOGUE */}
-      <div className="pointer-events-none relative z-10 flex flex-col items-center pb-20 sm:pb-0" style={{ height: '2900px' }}>
+      <div className="pointer-events-none relative z-10 flex flex-col items-center pb-20 sm:pb-40" style={{ height: '2900px' }}>
 
         {/* Top Spacer */}
         <div className="h-[150px] sm:h-[200px] md:h-[250px]" />
@@ -120,20 +120,20 @@ const PrologueGallery = () => {
                   className="text-white"
                   style={{ fontFamily: 'styreneB, serif', fontWeight: 400 }}
                 >
-                  United Ummah is more than just a community centre it is a <br />
-                  sanctuary for Muslims from every walk of life, a place where <br />
+                  United Ummah is more than just a community centre it is a 
+                  sanctuary for Muslims from every walk of life, a place where 
                   hearts meet, hands join, and faith flourishes.
                 </p>
                 <p
                   className="text-white"
                   style={{ fontFamily: 'styreneB, serif', fontWeight: 400 }}
                 >
-                  Here, every soul is valued, every story is honoured, and <br />
-                  every gathering feels like a homecoming minus the awkward <br />
-                  cousin and the overcooked biryani. From our youth and <br />
-                  elders to families seeking connection, United Ummah stands <br />
-                  as a testament to the beauty of togetherness, a beacon of <br />
-                  hope, and a safe harbour where faith and unity intertwine in <br />
+                  Here, every soul is valued, every story is honoured, and 
+                  every gathering feels like a homecoming minus the awkward
+                  cousin and the overcooked biryani. From our youth and 
+                  elders to families seeking connection, United Ummah stands 
+                  as a testament to the beauty of togetherness, a beacon of 
+                  hope, and a safe harbour where faith and unity intertwine in 
                   the most graceful way.
                 </p>
               </div>
