@@ -40,35 +40,37 @@ const PrologueGallery = () => {
       />
 
       {/* Hover logic */}
-      <style jsx>{`
-        .image-container {
-          position: relative;
-          overflow: hidden;
-          transition: transform 300ms ease;
-        }
-        .image-container:hover {
-          transform: scale(1.03);
-          z-index: 5;
-        }
-        .image-container img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: opacity 0.3s ease;
-        }
-        .hover-image {
-          opacity: 0;
-        }
-        .image-container:hover .hover-image {
-          opacity: 1;
-        }
-        .image-container:hover .main-image {
-          opacity: 0;
-        }
-      `}</style>
+     <style jsx>{`
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    transition: transform 300ms ease;
+  }
+  .image-container:hover {
+    transform: scale(1.03);
+    z-index: 5;
+  }
+  .image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: opacity 0.3s ease;
+  }
+  .hover-image {
+    opacity: 0;
+  }
+  .image-container:hover .hover-image {
+    opacity: 1;
+  }
+  .image-container:hover .main-image {
+    opacity: 0;
+  }
+`}</style>
+
 
       {/* Image Gallery Columns */}
       <div className="flex absolute inset-0 z-0">
