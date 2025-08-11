@@ -64,16 +64,41 @@ const UmmahHeroSection = () => {
           <div className="absolute inset-0 bg-white bg-opacity-30"></div>
         </div>
 
+        
         {/* Main Content */}
-        <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
-          <div className="relative flex items-center justify-center mt-20 -right-8">
-            {/* Center Image */}
-            <img
-              src="/images/center.png"
-              alt="Building A Stronger Ummah"
-              className="w-[100%] object-contain mx-auto max-[600px]:min-h-[1000px] max-[600px]:max-h-[2000px]"
-              style={{ minHeight: '700px', maxHeight: '750px' }}
-            />
+<div className="relative z-10 flex items-center justify-center min-h-screen px-4">
+  <div
+    className="relative flex items-center justify-center mt-20 -right-8 w-[100%] mx-auto max-[600px]:min-h-[1000px] max-[600px]:max-h-[2000px]"
+    style={{ minHeight: '500px', maxHeight: '600px', backgroundColor: '#DED7CE' }}
+  >
+    {/* Top Left Mask */}
+    <img
+      src="/images/mask.png"
+      alt="Mask Top Left"
+      className="absolute top-0 left-0 w-[250px] h-auto"
+    />
+
+    {/* Bottom Right Mask */}
+    <img
+      src="/images/mask2.png"
+      alt="Mask Bottom Right"
+      className="absolute bottom-0 right-0 w-[250px] h-auto"
+    />
+
+    {/* Top Right Text */}
+    <div className="absolute top-6 right-8 text-lg font-semibold uppercase tracking-widest text-black">
+      TOGETHER WE RISE
+    </div>
+
+    {/* Center Text */}
+    <h1 className="text-4xl md:text-6xl font-semibold text-black leading-tight text-center px-4">
+      BUILDING A STRONGER UMMAH
+    </h1>
+
+
+
+</div>
+
 
             {/* Below image */}
             <div className="absolute -bottom-12 right-[600px] max-[1400px]:right-[300px] max-[1200px]:right-0">
@@ -93,7 +118,7 @@ const UmmahHeroSection = () => {
               />
             </div>
           </div>
-        </div>
+        
 
         {/* Events Section */}
         <div className="relative z-20 flex flex-col items-start -ml-0 -mt-16">
