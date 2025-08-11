@@ -7,11 +7,21 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [nextPrayer, setNextPrayer] = useState({ name: '', hrs: '00', mins: '00', secs: '00' });
   const [prayerTimes, setPrayerTimes] = useState([]);
+  const [showPrayerSection, setShowPrayerSection] = useState(false);
 
   const handleDonateClick = () => {
     setIsClicked(true);
     setTimeout(() => setIsClicked(false), 300);
   };
+
+  // Animation trigger after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPrayerSection(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const fetchPrayerTimes = async () => {
@@ -113,9 +123,17 @@ const Header = () => {
 
           {/* Countdown + Donate */}
           <div className="relative flex items-center ml-auto gap-x-4 lg:gap-x-6 -right-12">
-            <div className="absolute left-0 right-0 h-[75px] bg-[#90BC5D] rounded-full z-0"></div>
+            <div 
+              className={`absolute left-0 right-0 h-[75px] bg-[#90BC5D] rounded-full z-0 transition-all duration-1000 ease-out ${
+                showPrayerSection ? 'transform translate-x-0 opacity-100' : 'transform translate-x-full opacity-0'
+              }`}
+            ></div>
 
-            <div className="relative flex items-center z-10 px-4 md:pl-6 md:pr-2 h-[75px]">
+            <div 
+              className={`relative flex items-center z-10 px-4 md:pl-6 md:pr-2 h-[75px] transition-all duration-1000 ease-out ${
+                showPrayerSection ? 'transform translate-x-0 opacity-100' : 'transform translate-x-full opacity-0'
+              }`}
+            >
               <div className="text-black mr-4 whitespace-nowrap">
                 <div className="text-sm font-medium">Islamic Centre of Canada (ICC)</div>
                 <div className="text-lg font-bold">NEXT PRAYER: {nextPrayer.name.toUpperCase()}</div>
@@ -133,7 +151,7 @@ const Header = () => {
 
             <button
               onClick={handleDonateClick}
-              className={`h-[75px] w-[160px] lg:w-[200px] flex items-center justify-center font-semibold text-lg transition-all duration-300 ease-in-out rounded-full z-10 ${
+              className={`h-[75px] w-[160px] lg:w-[200px] flex items-center justify-center font-semibold text-lg transition-all duration-300 ease-in-out rounded-full z-20 ${
                 isClicked
                   ? 'scale-105 bg-[#bf8c4b]'
                   : 'bg-[#f1e8da] text-black hover:bg-[#bf8c4b] hover:scale-105'
@@ -149,10 +167,18 @@ const Header = () => {
       <div className="xl:hidden w-full px-2 pt-2 pb-3 relative bg-transparent -mt-5">
         <div className="mx-auto max-w-[95%] relative bg-transparent">
           {/* Background Capsule */}
-          <div className="absolute inset-x-0 h-[55px] bg-[#90BC5D] rounded-full z-0"></div>
+          <div 
+            className={`absolute inset-x-0 h-[55px] bg-[#90BC5D] rounded-full z-0 transition-all duration-1000 ease-out ${
+              showPrayerSection ? 'transform translate-x-0 opacity-100' : 'transform translate-x-full opacity-0'
+            }`}
+          ></div>
 
           {/* Content Row */}
-          <div className="relative flex items-center justify-between z-10 px-4 h-[55px]">
+          <div 
+            className={`relative flex items-center justify-between z-10 px-4 h-[55px] transition-all duration-1000 ease-out ${
+              showPrayerSection ? 'transform translate-x-0 opacity-100' : 'transform translate-x-full opacity-0'
+            }`}
+          >
             {/* Left side */}
             <div className="text-black flex flex-col justify-center text-[9px] leading-tight">
               <div className="font-medium">Islamic Centre of Canada (ICC)</div>
@@ -172,7 +198,7 @@ const Header = () => {
 
               <button
                 onClick={handleDonateClick}
-                className={`h-[55px] w-[120px] -mr-4 text-[10px] flex items-center justify-center font-semibold transition-all duration-300 ease-in-out rounded-full z-10 ${
+                className={`h-[55px] w-[120px] -mr-4 text-[10px] flex items-center justify-center font-semibold transition-all duration-300 ease-in-out rounded-full z-20 ${
                   isClicked
                     ? 'scale-105 bg-[#bf8c4b]'
                     : 'bg-[#f1e8da] text-black hover:bg-[#bf8c4b] hover:scale-105'
