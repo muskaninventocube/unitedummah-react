@@ -22,13 +22,13 @@ const PrologueGallery = () => {
   ];
 
   return (
-  <div className="relative w-full min-h-screen sm:min-h-[3000px] px-4 sm:px-8">
+  <div className="relative w-full min-h-screen sm:min-h-[2000px] px-4 sm:px-8">
 
   {/* Top Shadow */}
   <div
     className="absolute"
     style={{
-      width: '1700px',
+      width: 'auto',
       height: '250px',
       top: '-180px',
       left: '50%',

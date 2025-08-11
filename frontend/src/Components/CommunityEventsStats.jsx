@@ -7,7 +7,7 @@ const CommunityEventsStats = () => {
       <div
         className="absolute"
         style={{
-          width: '2500px',
+          width: '1920px',
           height: '250px',
           top: '-180px',
           left: '50%',
@@ -22,7 +22,7 @@ const CommunityEventsStats = () => {
       <div
         className="absolute"
         style={{
-          width: '2500px',
+          width: '1920',
           height: '250px',
           bottom: '-180px',
           left: '50%',
