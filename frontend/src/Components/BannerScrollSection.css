@@ -1,0 +1,54 @@
+/* Default full size */
+.banner-img {
+  width: 1600px;
+}
+.card-img {
+  position: absolute;
+  z-index: 20;
+  width: 450px;
+}
+@media (max-width: 1600px) and (min-width: 1451px) {
+  .banner-img {
+    width: 1400px;
+  }
+  .card-img {
+    width: 400px;
+  }
+}
+/* 1000px – 1400px */
+@media (max-width: 1450px) and (min-width: 1200px) {
+  .banner-img {
+    width: 1200px;
+  }
+  .card-img {
+    width: 400px;
+  }
+}
+
+/* 500px – 999px */
+@media (max-width: 1199px) and (min-width: 800px) {
+  .banner-img {
+    width: 1000px;
+  }
+  .card-img {
+    width: 350px;
+  }
+}
+@media (max-width: 799px) and (min-width: 500px) {
+  .banner-img {
+    width: 495px;
+  }
+  .card-img {
+    width: 300px;
+  }
+}
+
+/* 1px – 499px */
+@media (max-width: 499px) {
+  .banner-img {
+    width: 350px;
+  }
+  .card-img {
+    width: 250px;
+  }
+}
