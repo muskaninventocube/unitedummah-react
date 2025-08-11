@@ -40,7 +40,7 @@ const PrologueGallery = () => {
       />
 
       {/* Hover logic */}
-     <style jsx>{`
+     <style >{`
   .image-container {
     position: relative;
     overflow: hidden;

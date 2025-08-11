@@ -284,7 +284,7 @@ export default function UpcomingEvents() {
         </div>
 {/* MOBILE Stacked Scroll Animation */}
 <div className="block sm:hidden px-4">
-  <div ref={mobileRef} className="relative h-[200vh]">
+  <div ref={mobileRef} className="relative h-[150vh]"> {/* Reduced from 200vh */}
     <div className="sticky top-0 h-screen flex flex-col items-center justify-center">
       {/* First Card */}
       <div className="absolute top-0 w-full bg-[#F1E8DA]">
@@ -341,7 +341,7 @@ export default function UpcomingEvents() {
             borderRadius: "210px 210px 0 0",
           }}
         ></div>
-        <div className="mt-4 px-3 bg-[#F1E8DA]">
+        <div className="mt-4 px-3 bg-[#F1E8DA] pb-8"> {/* Added pb-8 for bottom padding */}
           <h2 className="text-gray-800 mb-1 text-[28px] font-bold">
             {events[2].title}
           </h2>
@@ -350,26 +350,21 @@ export default function UpcomingEvents() {
           </p>
           <p className="text-gray-700 text-[16px]">{events[2].description}</p>
         </div>
+          {/* Button - Now appears immediately after content */}
+  <div className="flex justify-center mt-10"> {/* Changed from motion.div */}
+    <button className="bg-[#90BC5D] text-black px-8 py-4 text-lg rounded-md transition-colors duration-300 hover:bg-[#A67C52]">
+      VIEW OUR EVENTS
+    </button>
+  </div>
       </motion.div>
     </div>
   </div>
 
-  {/* Button After Animation */}
-  <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true, amount: 0.3 }}
-      className="flex justify-center mt-0 mb-0"
-    >
-      <button className="bg-[#90BC5D] text-black px-8 py-4 text-lg rounded-md transition-colors duration-300 hover:bg-[#A67C52]">
-        VIEW OUR EVENTS
-      </button>
-    </motion.div>
+
 </div>
 
 
-        <div className="h-[100px]" />
+        <div className=" sm:h-[100px]" />
        </div>
 
       {/* Bottom Blur */}
