@@ -174,20 +174,25 @@ const Header = () => {
           ></div>
 
           {/* Content Row */}
-          <div 
-            className={`relative flex items-center justify-between z-10 px-4 h-[55px] transition-all duration-1000 ease-out ${
-              showPrayerSection ? 'transform translate-x-0 opacity-100' : 'transform translate-x-full opacity-0'
-            }`}
-          >
-            {/* Left side */}
-            <div className="text-black flex flex-col justify-center text-[9px] leading-tight">
+          <div className="relative flex items-center justify-between z-10 px-4 h-[55px]">
+            {/* Left side - Prayer Info (animated) */}
+            <div 
+              className={`text-black flex flex-col justify-center text-[9px] leading-tight transition-all duration-1000 ease-out ${
+                showPrayerSection ? 'transform translate-x-0 opacity-100' : 'transform translate-x-full opacity-0'
+              }`}
+            >
               <div className="font-medium">Islamic Centre of Canada (ICC)</div>
               <div className="font-bold">NEXT PRAYER: {nextPrayer.name.toUpperCase()}</div>
             </div>
 
             {/* Right side */}
             <div className="flex items-center gap-x-2">
-              <div className="flex gap-x-1">
+              {/* Countdown (animated) */}
+              <div 
+                className={`flex gap-x-1 transition-all duration-1000 ease-out ${
+                  showPrayerSection ? 'transform translate-x-0 opacity-100' : 'transform translate-x-full opacity-0'
+                }`}
+              >
                 {[nextPrayer.hrs, nextPrayer.mins, nextPrayer.secs].map((val, i) => (
                   <div key={i} className="flex flex-col items-center">
                     <span className="text-black font-bold text-xs">{val}</span>
@@ -196,6 +201,7 @@ const Header = () => {
                 ))}
               </div>
 
+              {/* Donate Button (always visible) */}
               <button
                 onClick={handleDonateClick}
                 className={`h-[55px] w-[120px] -mr-4 text-[10px] flex items-center justify-center font-semibold transition-all duration-300 ease-in-out rounded-full z-20 ${
