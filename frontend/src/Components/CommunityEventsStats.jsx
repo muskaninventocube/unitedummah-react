@@ -13,26 +13,26 @@ const CommunityEventsStats = () => {
           left: '50%',
           transform: 'translateX(-50%)',
           backgroundColor: '#002626',
-          filter: 'blur(100px)',
+       backdropFilter: 'blur(12px)',
+background: 'linear-gradient(to bottom, rgba(0,38,38,0.6), transparent)',
+
           zIndex: 1,
         }}
       />
 
       {/* Bottom Shadow */}
       <div
-        className="absolute"
-        style={{
-          width: '1920',
-          height: '250px',
-          bottom: '-180px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          backgroundColor: '#002626',
-          filter: 'blur(100px)',
-          zIndex: 1,
-        }}
-      />
-
+  className="absolute left-1/2 -translate-x-1/2"
+  style={{
+    width: '1920px',
+    height: '250px',
+    bottom: '-180px',
+    background: 'linear-gradient(to top, rgba(0,38,38,0.6), transparent)',
+    backdropFilter: 'blur(12px)',
+    WebkitBackdropFilter: 'blur(12px)',
+    zIndex: 1,
+  }}
+/>
       {/* Main content container */}
       <div
         className="relative z-10 mx-auto max-w-6xl px-6 py-10 rounded-lg"
