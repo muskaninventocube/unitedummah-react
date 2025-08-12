@@ -55,7 +55,7 @@ const UmmahHeroSection = () => {
     className="
       w-[500px] h-[320px] object-cover 
       max-[1200px]:w-[400px] max-[1200px]:h-[400px] 
-      max-[500px]:w-[250px] max-[500px]:h-[400px] max-[500px]:right-0
+      max-[500px]:w-[250px] max-[500px]:h-[350px] max-[500px]:right-0
     "
   />
 </div>
@@ -76,8 +76,10 @@ const UmmahHeroSection = () => {
   min-h-[500px] max-h-[600px] 
   max-[600px]:min-h-[250px] max-[600px]:max-h-[250px] 
   sm:min-h-[250px] md:min-h-[500px] 
+  
   [@media(max-width:1200px)]:min-h-[300px] [@media(max-width:1200px)]:max-h-[300px] 
-  [@media(min-width:1600px)]:min-h-[400px] [@media(min-width:1600px)]:max-w-[85rem]"
+  [@media(min-width:1600px)]:min-h-[400px] [@media(min-width:1600px)]:max-w-[85rem]
+   "
   style={{ backgroundColor: '#DED7CE' }}
 >
 
@@ -103,7 +105,7 @@ const UmmahHeroSection = () => {
     sm:top-12 sm:right-8 
     text-xl sm:text-2xl md:text-3xl 
     uppercase tracking-widest text-[#272625] 
-    max-[500px]:top-8
+    max-[500px]:top-18
   "
   style={{ fontFamily: "'Inter', sans-serif" , fontWeight: 300}}
 >
@@ -117,27 +119,38 @@ const UmmahHeroSection = () => {
     text-[#272625] leading-tight text-start px-4 
     -ml-5 sm:-ml-20 md:-ml-14 lg:-ml-20 
     [@media(min-width:1600px)]:-ml-[400px]  /* more left on big screens */
-    max-[500px]:ml-4 capitalize 
+    max-[500px]:ml-0
+      max-[500px]:text-3xl 
+    capitalize 
   "
   style={{ fontFamily: "'Orpheus Pro', serif", fontWeight: 300 }}
 >
   building a stronger <br /> ummah
 </h1>
 
-
 </div>
 
 
-            {/* Below image */}
-           <div className="absolute -bottom-12 right-[600px] max-[1400px]:right-[300px] max-[1200px]:right-0 max-[500px]:-bottom-4 ">
+     {/* Below image */}
+<div className="
+  absolute -bottom-12 right-[600px] 
+  max-[1400px]:right-[300px] 
+  max-[500px]:left-[200px]  
+  max-[1200px]:right-0 
+ 
+">
   <img
     src="/images/below.png"
     alt="Below content"
-    className="w-50 h-50 object-contain max-[600px]:w-[300px] max-[500px]:h-[200px] "
+    className="w-50 h-50 object-contain 
+               max-[600px]:w-[300px] 
+               max-[500px]:h-[300px]
+                max-[500px]:w-[300px]"
   />
 </div>
 
-          <div className="absolute -bottom-12 -left-10 max-[500px]:-bottom-2">
+
+          <div className="absolute -bottom-12 -left-10 max-[500px]:bottom-[70px] max-[500px]:left-0">
   <img
     src="/images/left.png"
     alt="Left corner"
@@ -147,8 +160,8 @@ const UmmahHeroSection = () => {
           </div>
         
 
-        {/* Events Section */}
-        <div className="relative z-20 flex flex-col items-start -ml-0 -mt-16">
+        {/* Events Section   changed from -mt-16 */}
+        <div className="relative z-20 flex flex-col items-start -ml-0 -mt-50"> 
           <div className="w-[810px] max-[1200px]:w-full py-4 px-2">
             {/* Header */}
             <div className="flex items-center justify-between p-2 border-b border-black text-white bg-black pb-2 px-4 rounded-t">
@@ -201,16 +214,16 @@ const UmmahHeroSection = () => {
                   </div>
                   <div className="flex-1 flex justify-between items-start">
                     <div>
-                      <div className="text-xs uppercase tracking-wide mb-1 text-black font-medium">
+                      <div className="text-sm text-black">
                         {event.subtitle}
                       </div>
-                      <div className="text-sm font-bold mb-1 text-black">
+                      <div className="text-sm  mb-1 text-black">
                         {event.title}
                       </div>
                       <div className="text-sm text-black">{event.speaker}</div>
                     </div>
                     <button
-                      className="ml-4 px-5 py-3 mt-2 text-xs font-bold text-white rounded hover:opacity-90 transition-opacity uppercase"
+                      className="ml-4 px-5 py-4 mt-2 text-xs font-bold text-white rounded hover:opacity-90 transition-opacity uppercase"
                       style={{ backgroundColor: '#041b06ff' }}
                     >
                       LEARN MORE

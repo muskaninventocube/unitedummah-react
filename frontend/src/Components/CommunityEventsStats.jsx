@@ -6,7 +6,7 @@ const Counter = ({ target, duration }) => {
   useEffect(() => {
     let start = 0;
     const end = parseInt(target);
-    const incrementTime = Math.abs(Math.floor(duration / end));
+    const incrementTime = Math.max(1, Math.floor(duration / end)); // avoid 0ms
     const timer = setInterval(() => {
       start += 1;
       setCount(start);
@@ -21,35 +21,35 @@ const Counter = ({ target, duration }) => {
 const CommunityEventsStats = () => {
   return (
     <div className="relative w-full py-16 bg-[#002626]">
-     {/* Top Blur */}
+      {/* Top Blur */}
       <div
         className="absolute"
         style={{
-          width: "100%",
-          maxWidth: "100vw",
-          height: "250px",
-          top: "-280px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          backgroundColor: "#041a10ff",
-          filter: "blur(100px)",
+          width: '100%',
+          maxWidth: '100vw',
+          height: '250px',
+          top: '-280px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          backgroundColor: '#041a10ff',
+          filter: 'blur(100px)',
           zIndex: 1,
         }}
       />
 
-    {/* Bottom Shadow going downwards */}
-<div
-  className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
-  style={{
-    width: '1920px',
-    height: '250px',
-    bottom: '0', // component ke bilkul end par
-    transform: 'translateY(100px)', // thoda neeche push
-    background: 'linear-gradient(to bottom, rgba(4, 49, 49, 0.6), transparent)',
-    filter: 'blur(100px)', // backdropFilter ki jagah direct blur
-    zIndex: 1,
-  }}
-/>
+      {/* Bottom Shadow */}
+      <div
+        className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
+        style={{
+          width: '1920px',
+          height: '250px',
+          bottom: '0',
+          transform: 'translateY(100px)',
+          background: 'linear-gradient(to bottom, rgba(4, 49, 49, 0.6), transparent)',
+          filter: 'blur(100px)',
+          zIndex: 1,
+        }}
+      />
 
       {/* Main content container */}
       <div
@@ -63,7 +63,7 @@ const CommunityEventsStats = () => {
           <img
             src="/images/mosque.png"
             alt="Mosque icon"
-            className="w-16 h-16 object-contain"
+            className="w-20 h-20 object-contain md:w-28 md:h-28"
           />
         </div>
 
@@ -77,7 +77,7 @@ const CommunityEventsStats = () => {
             color: '#F1E8DA',
           }}
         >
-          Community Events
+          <span className="text-[32px] md:text-[56px]">Community Events</span>
         </h2>
 
         {/* Statistics */}
@@ -86,13 +86,18 @@ const CommunityEventsStats = () => {
           <div>
             <div
               className="mb-4"
-              style={{ fontFamily: 'Times New Roman, serif', fontSize: '48px', color: '#F1E8DA' }}
+              style={{
+                fontFamily: 'Times New Roman, serif',
+                fontSize: '48px',
+                color: '#F1E8DA',
+              }}
             >
-              <Counter target={100000} duration={2000} />
+              <Counter target={100000} duration={300} /> {/* Faster */}
               <span style={{ fontSize: '32px' }}>+</span>
             </div>
             <div className="text-sm text-gray-300 leading-relaxed">
-              Attendees across all<br />
+              Attendees across all
+              <br />
               events/programs
             </div>
           </div>
@@ -101,13 +106,18 @@ const CommunityEventsStats = () => {
           <div>
             <div
               className="mb-4"
-              style={{ fontFamily: 'Times New Roman, serif', fontSize: '48px', color: '#F1E8DA' }}
+              style={{
+                fontFamily: 'Times New Roman, serif',
+                fontSize: '48px',
+                color: '#F1E8DA',
+              }}
             >
-              <Counter target={10000} duration={2000} />
+              <Counter target={10000} duration={300} /> {/* Faster */}
               <span style={{ fontSize: '32px' }}>+</span>
             </div>
             <div className="text-sm text-gray-300 leading-relaxed">
-              Attendees at weekly<br />
+              Attendees at weekly
+              <br />
               programs
             </div>
           </div>
@@ -116,9 +126,13 @@ const CommunityEventsStats = () => {
           <div>
             <div
               className="mb-4"
-              style={{ fontFamily: 'Times New Roman, serif', fontSize: '48px', color: '#F1E8DA' }}
+              style={{
+                fontFamily: 'Times New Roman, serif',
+                fontSize: '48px',
+                color: '#F1E8DA',
+              }}
             >
-              <Counter target={600} duration={2000} />
+              <Counter target={600} duration={300} /> {/* Faster */}
               <span style={{ fontSize: '32px' }}>+</span>
             </div>
             <div className="text-sm text-gray-300 leading-relaxed">
@@ -127,6 +141,15 @@ const CommunityEventsStats = () => {
           </div>
         </div>
       </div>
+
+      {/* Mobile-specific width */}
+      <style jsx>{`
+        @media (max-width: 500px) {
+          .relative.z-10 {
+            max-width: 90% !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };

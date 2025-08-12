@@ -23,7 +23,7 @@ const UmmahSection = () => {
 
 
       {/* Heading */}
-      <div className="mb-6 mt-20">
+      <div className="mb-6  sm:mt-20">
         <h1
           style={{
             fontFamily: 'Orpheus Pro, serif',
