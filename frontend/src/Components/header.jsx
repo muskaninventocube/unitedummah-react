@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './main.css'; 
 import axios from 'axios';
 import dayjs from 'dayjs';
 
@@ -96,7 +97,7 @@ const Header = () => {
   }, [prayerTimes]);
 
   return (
-    <header className="sticky top-0 z-50 w-full overflow-hidden">
+    <header className="sticky top-0 z-50 w-full overflow-hidden ">
       {/* MAIN NAVIGATION ROW */}
       <div className="bg-[#002726] px-3 py-3 md:px-6 lg:px-12 mx-auto max-w-[95%] flex justify-between items-center rounded-full">
         {/* Logo */}
@@ -117,7 +118,7 @@ const Header = () => {
 
         {/* Desktop Nav */}
         <div className="hidden xl:flex items-center justify-between w-full ml-8 gap-x-15 full-rounded">
-          <nav className="flex items-center space-x-5 lg:space-x-8 text-white text-[10px] lg:text-[14px] font-medium">
+          <nav className="flex items-center space-x-5 lg:space-x-8 text-[#f1e8da] text-[10px] lg:text-[14px] font-medium">
             {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
               const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
               return (
@@ -190,7 +191,7 @@ const Header = () => {
                 showPrayerContent ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
               }`}
             >
-              <div className="font-medium">Islamic Centre of Canada (ICC)</div>
+              <div className="font-medium text-[#030400]">Islamic Centre of Canada (ICC)</div>
               <div className="font-bold">NEXT PRAYER: {nextPrayer.name.toUpperCase()}</div>
             </div>
 
@@ -211,16 +212,17 @@ const Header = () => {
               </div>
 
               {/* Donate Button */}
-              <button
-                onClick={handleDonateClick}
-                className={`h-[55px] w-[120px] -mr-4 text-[10px] flex items-center justify-center font-semibold transition-all duration-300 ease-in-out rounded-full z-20 ${
-                  isClicked
-                    ? 'scale-105 bg-[#bf8c4b]'
-                    : 'bg-[#f1e8da] text-black hover:bg-[#bf8c4b] hover:scale-105'
-                }`}
-              >
-                DONATE NOW
-              </button>
+              {/* Donate Button */}
+<button
+  className="h-[55px] w-[120px] -mr-4 text-[10px] flex items-center justify-center font-semibold rounded-full z-20
+             bg-[#f1e8da] text-black transition-all duration-300 ease-in-out
+             hover:bg-[#bf8c4b] hover:scale-105
+             touch-manipulation"
+>
+  DONATE NOW
+</button>
+
+
             </div>
           </div>
         </div>
@@ -228,7 +230,7 @@ const Header = () => {
 
       {/* MOBILE MENU OVERLAY */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center w-full px-4 py-8 space-y-6 text-black text-lg rounded-full">
+        <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center w-full px-4 py-8  space-y-6 text-black text-lg">
           {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
             const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
             return (

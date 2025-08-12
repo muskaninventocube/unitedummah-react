@@ -159,7 +159,7 @@ export default function UpcomingEvents() {
                       style={{
                         fontFamily: "Times New Roman, serif",
                         fontWeight: 500,
-                        fontSize: "27px",
+                        fontSize: "26px",
                       }}
                     >
                       {events[0].date}
@@ -207,7 +207,7 @@ export default function UpcomingEvents() {
                       style={{
                         fontFamily: "Times New Roman, serif",
                         fontWeight: 500,
-                        fontSize: "27px",
+                        fontSize: "26px",
                       }}
                     >
                       {events[1].date}
@@ -255,7 +255,7 @@ export default function UpcomingEvents() {
                       style={{
                         fontFamily: "Times New Roman, serif",
                         fontWeight: 500,
-                        fontSize: "27px",
+                        fontSize: "26px",
                       }}
                     >
                       {events[2].date}
@@ -321,7 +321,7 @@ export default function UpcomingEvents() {
           }}
         ></div>
         <div className="mt-4 px-3 bg-[#F1E8DA]">
-          <h2 className="text-gray-800 mb-1 text-[28px] font-bold">
+          <h2 className="text-gray-800 mb-1 text-[25px] font-bold">
             {events[1].title}
           </h2>
           <p className="text-gray-600 text-right mb-2 text-[20px]">

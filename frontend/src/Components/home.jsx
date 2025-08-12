@@ -48,13 +48,18 @@ const UmmahHeroSection = () => {
     <>
       <div className="relative min-h-[120vh] w-full overflow-hidden">
         {/* Right Corner Image */}
-        <div className="absolute top-0 right-0 z-30">
-          <img
-            src="/images/right-corner.png"
-            alt="Community gathering"
-            className="w-[500px] h-[250px] object-cover max-[1200px]:w-[400px] max-[1200px]:h-[400px]"
-          />
-        </div>
+     <div className="absolute top-0 right-0 z-30 max-[500px]:mt-18  ">
+  <img
+    src="/images/right-corner.png"
+    alt="Community gathering"
+    className="
+      w-[500px] h-[250px] object-cover 
+      max-[1200px]:w-[400px] max-[1200px]:h-[400px] 
+      max-[500px]:w-[250px] max-[500px]:h-[400px] max-[500px]:right-0
+    "
+  />
+</div>
+
 
         {/* Background Image */}
         <div
@@ -65,58 +70,77 @@ const UmmahHeroSection = () => {
         </div>
 
         
-        {/* Main Content */}
-<div className="relative z-10 flex items-center justify-center min-h-screen px-4">
-  <div
-    className="relative flex items-center justify-center mt-20 -right-8 w-[100%] mx-auto max-[600px]:min-h-[1000px] max-[600px]:max-h-[2000px]"
-    style={{ minHeight: '500px', maxHeight: '600px', backgroundColor: '#DED7CE' }}
-  >
-    {/* Top Left Mask */}
-    <img
-      src="/images/mask.png"
-      alt="Mask Top Left"
-      className="absolute top-0 left-0 w-[250px] h-auto"
-    />
-
-    {/* Bottom Right Mask */}
-    <img
-      src="/images/mask2.png"
-      alt="Mask Bottom Right"
-      className="absolute bottom-0 right-0 w-[250px] h-auto"
-    />
-
-    {/* Top Right Text */}
-    <div className="absolute top-6 right-8 text-lg font-semibold uppercase tracking-widest text-black">
-      TOGETHER WE RISE
-    </div>
-
-    {/* Center Text */}
-    <h1 className="text-4xl md:text-6xl font-semibold text-black leading-tight text-center px-4">
-      BUILDING A STRONGER UMMAH
-    </h1>
+      <div className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
+   <div
+  className="relative flex items-center justify-center mt-20 w-full max-w-7xl mx-auto 
+  min-h-[500px] max-h-[600px] 
+  max-[600px]:min-h-[250px] max-[600px]:max-h-[250px] 
+  sm:min-h-[250px] md:min-h-[500px] 
+  [@media(max-width:1200px)]:min-h-[300px] [@media(max-width:1200px)]:max-h-[300px] 
+  [@media(min-width:1600px)]:min-h-[400px] [@media(min-width:1600px)]:max-w-[90rem]"
+  style={{ backgroundColor: '#DED7CE' }}
+>
 
 
+        {/* Top Left Mask */}
+        <img
+          src="/images/mask.png"
+          alt="Mask Top Left"
+          className="absolute top-0 left-0 w-[150px] h-auto sm:w-[200px] md:w-[250px]"
+        />
 
+        {/* Bottom Right Mask */}
+        <img
+          src="/images/mask2.png"
+          alt="Mask Bottom Right"
+          className="absolute bottom-0 right-0 w-[200px] h-auto sm:w-[250px] md:w-[300px]"
+        />
+
+        {/* Top Right Text - Increased font size */}
+<div
+  className="
+    absolute top-16 right-4 
+    sm:top-12 sm:right-8 
+    text-xl sm:text-2xl md:text-3xl 
+    uppercase tracking-widest text-black
+    max-[500px]:top-8
+  "
+  style={{ fontFamily: "'Inter', sans-serif" }}
+>
+  TOGETHER , WE RISE
+</div>
+
+{/* Main Heading */}
+<h1
+  className="
+     text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
+    text-[#272625] leading-tight text-start px-4 
+    -ml-4 sm:-ml-10 md:-ml-14 lg:-ml-20
+    max-[500px]:ml-4 capitalize 
+  "
+  style={{ fontFamily: "'Orpheus Pro', serif" }}
+>
+  building a stronger  <br /> ummah
+</h1>
 </div>
 
 
             {/* Below image */}
-            <div className="absolute -bottom-12 right-[600px] max-[1400px]:right-[300px] max-[1200px]:right-0">
-              <img
-                src="/images/below.png"
-                alt="Below content"
-                className="w-50 h-50 object-contain max-[600px]:w-[150px] max-[500px]:h-[300px]"
-              />
-            </div>
+           <div className="absolute -bottom-12 right-[600px] max-[1400px]:right-[300px] max-[1200px]:right-0 max-[500px]:-bottom-4 ">
+  <img
+    src="/images/below.png"
+    alt="Below content"
+    className="w-50 h-50 object-contain max-[600px]:w-[300px] max-[500px]:h-[200px] "
+  />
+</div>
 
-            {/* Left Image */}
-            <div className="absolute -bottom-12 -left-10">
-              <img
-                src="/images/left.png"
-                alt="Left corner"
-                className="w-50 h-50 object-cover max-[600px]:w-[150px] max-[600px]:h-[200px]"
-              />
-            </div>
+          <div className="absolute -bottom-12 -left-10 max-[500px]:-bottom-2">
+  <img
+    src="/images/left.png"
+    alt="Left corner"
+    className="w-50 h-50 object-cover max-[600px]:w-[200px] max-[600px]:h-[150px]"
+  />
+</div>
           </div>
         
 

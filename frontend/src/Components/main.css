@@ -1,0 +1,6 @@
+@media (hover: none) and (pointer: coarse) {
+  button:hover {
+    background-color: #bf8c4b !important;
+    transform: scale(1.05) !important;
+  }
+}
