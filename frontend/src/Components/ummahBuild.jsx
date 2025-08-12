@@ -3,22 +3,23 @@ import React from 'react';
 const UmmahSection = () => {
   return (
     <div className="bg-[#F1E8DA] py-12 px-4 text-center font-serif relative">
-      {/* Top Shadow */}
-{/* Top Shadow going upwards */}
-{/* Top Shadow going upwards */}
-<div
-  className="absolute pointer-events-none"
-  style={{
-    width: '1920px',
-    height: '250px',
-    top: '0', // component start
-    left: '50%',
-    transform: 'translate(-50%, -100px)', // upar push
-    background: 'linear-gradient(to top, #ddbc8cff 0%, transparent 100%)',
-    filter: 'blur(100px)',
-    zIndex: 1,
-  }}
-/>
+ 
+
+   {/* Top Blur */}
+     <div
+    className="absolute pointer-events-none"
+    style={{
+      width: "100%",
+      height: "250px",
+      top: "-80px",
+      left: "50%",
+      transform: "translateX(-50%)",
+      backgroundColor: "#F1E8DA",
+      filter: "blur(100px)",
+      zIndex: 50,
+    }}
+  />
+
 
 
 

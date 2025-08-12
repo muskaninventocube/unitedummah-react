@@ -75,7 +75,7 @@ export default function UpcomingEvents() {
           width: "100%",
           maxWidth: "100vw",
           height: "250px",
-          top: "-280px",
+          top: "-80px",
           left: "50%",
           transform: "translateX(-50%)",
           backgroundColor: "#F1E8DA",
@@ -369,20 +369,22 @@ export default function UpcomingEvents() {
        </div>
 
       {/* Bottom Blur */}
-      <div
-        className="absolute"
-        style={{
-          width: "100%",
-          maxWidth: "100vw",
-          height: "250px",
-          bottom: "-180px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          backgroundColor: "#F1E8DA",
-          filter: "blur(100px)",
-          zIndex: 1,
-        }}
-      />
+     {/* Bottom Blur */}
+<div
+  className="absolute pointer-events-none"
+  style={{
+    width: "100%",
+    maxWidth: "100vw",
+    height: "250px",
+    bottom: "-250px", // thoda aur neeche push kiya
+    left: "50%",
+    transform: "translateX(-50%)",
+    backgroundColor: "#F1E8DA",
+    filter: "blur(100px)",
+    zIndex: 10, // high so it's above next section background
+  }}
+/>
+
     </div>
   );
 }

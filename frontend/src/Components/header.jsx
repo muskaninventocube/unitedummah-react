@@ -212,12 +212,11 @@ const Header = () => {
               </div>
 
               {/* Donate Button */}
-              {/* Donate Button */}
 <button
   className="h-[55px] w-[120px] -mr-4 text-[10px] flex items-center justify-center font-semibold rounded-full z-20
              bg-[#f1e8da] text-black transition-all duration-300 ease-in-out
              hover:bg-[#bf8c4b] hover:scale-105
-             touch-manipulation"
+             touch-manipulation max-[500px]:-mr-12"
 >
   DONATE NOW
 </button>

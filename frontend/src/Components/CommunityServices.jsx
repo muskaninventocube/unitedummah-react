@@ -122,6 +122,7 @@ const y3 = useTransform(scrollYProgress, [0.5, 0.6], [0, moveDistance]);
   }}
 />
 </div>
+
     </div>
   );
 };

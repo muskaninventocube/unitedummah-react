@@ -24,20 +24,24 @@ const PrologueGallery = () => {
   return (
     <div className="relative w-full min-h-screen sm:min-h-[2000px] px-4 sm:px-8">
 
-      {/* Top Shadow */}
-      <div
-        className="absolute"
-        style={{
-          width: 'auto',
-          height: '250px',
-          top: '-180px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          backgroundColor: '#001F1F', // match this to current bg
-          filter: 'blur(100px)',
-          zIndex: 1,
-        }}
-      />
+      {/* Top Blur */}
+   {/* Start Blur (fading downward over images) */}
+<div
+  className="absolute"
+  style={{
+    width: '100%',
+    maxWidth: '100vw',
+    height: '250px',          // fade area height
+    top: '0',                 // component start
+    left: '50%',
+    transform: 'translateX(-50%)',
+    backgroundColor: '#041a10ff',
+    filter: 'blur(100px)',
+    zIndex: 5,                 // higher than images
+    pointerEvents: 'none',     // so it doesn’t block clicks
+  }}
+/>
+
 
       {/* Hover logic */}
      <style >{`

@@ -239,7 +239,7 @@ const UmmahHeroSection = () => {
                       <div className="text-sm text-black">{event.speaker}</div>
                     </div>
                     <button
-                      className="ml-4 px-5 py-4 mt-2 text-xs font-bold text-white rounded hover:opacity-90 transition-opacity uppercase"
+                      className="ml-4 px-5 py-4 mt-2 text-sm font-semibold text-white rounded hover:opacity-90 transition-opacity uppercase"
                       style={{ backgroundColor: '#001F1F' }}
                     >
                       LEARN MORE

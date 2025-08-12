@@ -37,20 +37,8 @@ const CommunityEventsStats = () => {
         }}
       />
 
-      {/* Bottom Shadow */}
-      <div
-        className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
-        style={{
-          width: '1920px',
-          height: '250px',
-          bottom: '0',
-          transform: 'translateY(100px)',
-          background: 'linear-gradient(to bottom, rgba(4, 49, 49, 0.6), transparent)',
-          filter: 'blur(100px)',
-          zIndex: 1,
-        }}
-      />
-
+      
+  
       {/* Main content container */}
       <div
         className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 py-10 rounded-lg w-full"
