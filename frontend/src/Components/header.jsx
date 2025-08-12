@@ -18,7 +18,7 @@ const Header = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPrayerSection(true);
-    }, 3000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -109,7 +109,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden xl:flex items-center justify-between w-full ml-8 gap-x-15">
+        <div className="hidden xl:flex items-center justify-between w-full ml-8 gap-x-15 full-rounded">
           <nav className="flex items-center space-x-5 lg:space-x-8 text-white text-[10px] lg:text-[14px] font-medium">
             {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
               const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
@@ -219,7 +219,7 @@ const Header = () => {
 
       {/* MOBILE MENU OVERLAY */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center w-full px-4 py-8 space-y-6 text-black text-lg">
+        <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center w-full px-4 py-8 space-y-6 text-black text-lg rounded-full">
           {["HOME", "ABOUT US", "OUR PROGRAMS", "EVENTS", "COMMUNITY SERVICES", "CONTACT"].map((item, index) => {
             const anchors = ["#home", "#about-us", "#programs", "#events", "#services", "#contact"];
             return (
