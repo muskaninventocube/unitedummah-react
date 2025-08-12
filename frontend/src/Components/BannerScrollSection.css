@@ -45,8 +45,8 @@
 
 @media (max-width: 499px) {
   .banner-img {
-    width: 350px;
-    height: 900;
+    width: 330px;
+    height: 800px;
    
   }
   .card-img {
@@ -55,6 +55,6 @@
    /* Text ko neeche shift karne ke liye */
   .banner-text-mobile {
     justify-content: flex-end !important; /* center ki jagah neeche */
-    padding-bottom: 40px; /* thoda space neeche se */
+    padding-bottom: 30px; /* thoda space neeche se */
   }
 }

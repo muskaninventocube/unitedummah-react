@@ -53,7 +53,7 @@ const UmmahHeroSection = () => {
     src="/images/right-corner.png"
     alt="Community gathering"
     className="
-      w-[500px] h-[250px] object-cover 
+      w-[500px] h-[320px] object-cover 
       max-[1200px]:w-[400px] max-[1200px]:h-[400px] 
       max-[500px]:w-[250px] max-[500px]:h-[400px] max-[500px]:right-0
     "
@@ -77,7 +77,7 @@ const UmmahHeroSection = () => {
   max-[600px]:min-h-[250px] max-[600px]:max-h-[250px] 
   sm:min-h-[250px] md:min-h-[500px] 
   [@media(max-width:1200px)]:min-h-[300px] [@media(max-width:1200px)]:max-h-[300px] 
-  [@media(min-width:1600px)]:min-h-[400px] [@media(min-width:1600px)]:max-w-[90rem]"
+  [@media(min-width:1600px)]:min-h-[400px] [@media(min-width:1600px)]:max-w-[85rem]"
   style={{ backgroundColor: '#DED7CE' }}
 >
 
@@ -102,10 +102,10 @@ const UmmahHeroSection = () => {
     absolute top-16 right-4 
     sm:top-12 sm:right-8 
     text-xl sm:text-2xl md:text-3xl 
-    uppercase tracking-widest text-black
+    uppercase tracking-widest text-[#272625] 
     max-[500px]:top-8
   "
-  style={{ fontFamily: "'Inter', sans-serif" }}
+  style={{ fontFamily: "'Inter', sans-serif" , fontWeight: 300}}
 >
   TOGETHER , WE RISE
 </div>
@@ -113,15 +113,18 @@ const UmmahHeroSection = () => {
 {/* Main Heading */}
 <h1
   className="
-     text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
+    text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
     text-[#272625] leading-tight text-start px-4 
-    -ml-4 sm:-ml-10 md:-ml-14 lg:-ml-20
+    -ml-5 sm:-ml-20 md:-ml-14 lg:-ml-20 
+    [@media(min-width:1600px)]:-ml-[400px]  /* more left on big screens */
     max-[500px]:ml-4 capitalize 
   "
-  style={{ fontFamily: "'Orpheus Pro', serif" }}
+  style={{ fontFamily: "'Orpheus Pro', serif", fontWeight: 300 }}
 >
-  building a stronger  <br /> ummah
+  building a stronger <br /> ummah
 </h1>
+
+
 </div>
 
 

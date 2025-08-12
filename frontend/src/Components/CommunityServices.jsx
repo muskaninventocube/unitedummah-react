@@ -11,7 +11,7 @@ const BannerScrollSection = () => {
   });
 const isMobile = typeof window !== "undefined" && window.innerWidth <= 500;
 
-const moveDistance = isMobile ? -900 : -700; // mobile pe zyada upar
+const moveDistance = isMobile ? -1200 : -700; // mobile pe zyada upar
 
 const y2 = useTransform(scrollYProgress, [0.0, 0.1], [0, moveDistance]);
 const y1 = useTransform(scrollYProgress, [0.1, 0.2], [0, moveDistance]);
@@ -22,15 +22,15 @@ const y3 = useTransform(scrollYProgress, [0.5, 0.6], [0, moveDistance]);
 
 
   return (
-    <div className="relative h-[1500px]">
-      <div ref={sectionRef} className="sticky top-0 h-[1500px] overflow-hidden z-10">
+    <div className="relative min-h-screen">
+      <div ref={sectionRef} className="sticky top-0 sm:h-[1500px] h-[1200px]  overflow-hidden z-10">
         {/* Background */}
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url("/grid/six-four.png")' }}>
           <div className="absolute inset-0 bg-white opacity-40" />
         </div>
 
         {/* Banner */}
-        <div className="absolute top-[200px] w-full flex justify-center z-10">
+        <div className="absolute sm:top-[200px]  w-full flex justify-center z-10">
           <div className="relative">
             <img
               src="/images/black-back.png"
@@ -39,18 +39,24 @@ const y3 = useTransform(scrollYProgress, [0.5, 0.6], [0, moveDistance]);
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center text-white banner-text-mobile">
 
-              <h1 className="text-6xl mb-6" style={{ fontFamily: 'Times New Roman, serif', color: '#F1E8DA' }}>
+              <h1 className="sm:text-6xl text-2xl mb-6" style={{ fontFamily: 'Times New Roman, serif', color: '#F1E8DA' }}>
                 Community Services
               </h1>
-              <p className="max-w-3xl text-xl mb-8 leading-relaxed" style={{ fontFamily: 'Times New Roman, serif', color: '#F1E8DA' }}>
+              <p className="max-w-3xl sm:text-xl text-md mb-8 leading-relaxed" style={{ fontFamily: 'Times New Roman, serif', color: '#F1E8DA' }}>
               At United Ummah, serving our community is not just what we do it’s who we are. Our services are designed to uplift, empower, and support every member of our Ummah with dignity and compassion.
               </p>
-              <button
-                className="px-8 py-3 text-lg font-semibold rounded"
-                style={{ fontFamily: 'Times New Roman, serif', backgroundColor: '#F1E8DA', color: '#000' }}
-              >
-                BECOME A MEMBER
-              </button>
+             <button
+  className="
+    sm:px-8 sm:py-3 px-6 py-2 
+    sm:text-lg text-md font-semibold mb-20
+    bg-[#F1E8DA] text-black
+    hover:bg-[#bf8c4b] transition-colors duration-300
+  "
+  style={{ fontFamily: 'Times New Roman, serif' }}
+>
+  BECOME A MEMBER
+</button>
+
             </div>
           </div>
         </div>
@@ -61,7 +67,7 @@ const y3 = useTransform(scrollYProgress, [0.5, 0.6], [0, moveDistance]);
   className="card-img rotate-[8deg]"
   style={{
     y: y2,
-    top: isMobile ? '1180px' : '980px',
+    top: isMobile ? '1280px' : '1080px',
     left: isMobile ? '20%' : '17%'
   }}
 />
@@ -71,7 +77,7 @@ const y3 = useTransform(scrollYProgress, [0.5, 0.6], [0, moveDistance]);
   className="card-img rotate-[-10deg]"
   style={{
     y: y1,
-    top: isMobile ? '1190px' : '950px',
+    top: isMobile ? '1290px' : '1050px',
     left: isMobile ? '45%' : '0%'
   }}
 />
@@ -81,7 +87,7 @@ const y3 = useTransform(scrollYProgress, [0.5, 0.6], [0, moveDistance]);
   className="card-img rotate-[-7deg]"
   style={{
     y: y5,
-    top: isMobile ? '1200px' : '990px',
+    top: isMobile ? '1300px' : '1090px',
     left: isMobile ? '25%' : '75%'
   }}
 />
@@ -91,7 +97,7 @@ const y3 = useTransform(scrollYProgress, [0.5, 0.6], [0, moveDistance]);
   className="card-img rotate-[10deg]"
   style={{
     y: y6,
-    top: isMobile ? '1210px' : '980px',
+    top: isMobile ? '1310px' : '1080px',
     left: isMobile ? '40%' : '82%'
   }}
 />
@@ -101,7 +107,7 @@ const y3 = useTransform(scrollYProgress, [0.5, 0.6], [0, moveDistance]);
   className="card-img rotate-[6deg]"
   style={{
     y: y4,
-    top: isMobile ? '1195px' : '970px',
+    top: isMobile ? '1395px' : '1070px',
     left: isMobile ? '15%' : '55%'
   }}
 />
@@ -111,7 +117,7 @@ const y3 = useTransform(scrollYProgress, [0.5, 0.6], [0, moveDistance]);
   className="card-img rotate-[-6deg]"
   style={{
     y: y3,
-    top: isMobile ? '1205px' : '960px',
+    top: isMobile ? '1305px' : '1060px',
     left: isMobile ? '30%' : '35%'
   }}
 />

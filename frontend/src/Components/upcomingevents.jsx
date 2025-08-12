@@ -89,47 +89,47 @@ export default function UpcomingEvents() {
         <div className="relative max-w-[1750px] mx-auto px-6 mt-0 pb-[40px]">
           <div className="flex flex-col md:flex-row justify-between items-start gap-5 mb-30">
             <h1
-              className="text-[40px] sm:text-[64px] text-gray-800 leading-[1.2] ml-0 sm:ml-6 mt-[80px] sm:mt-[150px]"
+              className="text-[35px] sm:text-[64px] text-gray-800 leading-[1.2] ml-0 sm:ml-6 mt-[80px] sm:mt-[150px]"
               style={{ fontFamily: "Orpheus Pro, serif" }}
             >
               Upcoming Events
             </h1>
 
-            <div className="text-start max-w-[850px] mr-0 sm:mr-6 mt-6 sm:mt-20">
-              <p
-                className="leading-relaxed mb-6"
-                style={{
-                  fontFamily: "Times New Roman, serif",
-                  fontWeight: 350,
-                  fontSize: "21.75px",
-                }}
-              >
-                At United Ummah, every gathering is more than just an event —
-                it’s a chance to strengthen bonds, share blessings, and grow
-                together in faith. From inspiring lectures and vibrant youth
-                activities to community iftars and charity drives, our events
-                are thoughtfully crafted to bring hearts closer and uplift
-                every member of our Ummah.
-              </p>
-              <p
-                className="leading-relaxed"
-                style={{
-                  fontFamily: "Times New Roman, serif",
-                  fontWeight: 350,
-                  fontSize: "21.75px",
-                }}
-              >
-                Come as you are, bring your family and friends, and be part of
-                moments that create memories — and sometimes questionable chai
-                art.
-              </p>
-            </div>
+           <div className="text-start max-w-[850px] mr-0 sm:mr-6 mt-6 sm:mt-20">
+  <p
+    className="leading-relaxed mb-6 text-[15px] sm:text-[20px] lg:text-[22px]"
+    style={{
+      fontFamily: "Times New Roman, serif",
+      fontWeight: 350,
+    }}
+  >
+    At United Ummah, every gathering is more than just an event —
+    it’s a chance to strengthen bonds, share blessings, and grow
+    together in faith. From inspiring lectures and vibrant youth
+    activities to community iftars and charity drives, our events
+    are thoughtfully crafted to bring hearts closer and uplift
+    every member of our Ummah.
+  </p>
+
+  <p
+    className="leading-relaxed text-[15px] sm:text-[20px] lg:text-[22px]"
+    style={{
+      fontFamily: "Times New Roman, serif",
+      fontWeight: 350,
+    }}
+  >
+    Come as you are, bring your family and friends, and be part of
+    moments that create memories — and sometimes questionable chai
+    art.
+  </p>
+</div>
+
           </div>
         </div>
 
         {/* DESKTOP Sticky Cards */}
         <div className="hidden sm:block">
-          <div ref={containerRef} className="relative h-[220vh]">
+          <div ref={containerRef} className="relative h-[180vh]">
             <div className="sticky top-0 h-screen flex items-center justify-center z-20">
               <div className="flex justify-center gap-x-12 items-start">
                 {/* First Card */}
@@ -365,7 +365,7 @@ export default function UpcomingEvents() {
 </div>
 
 
-        <div className=" sm:h-[100px]" />
+        <div className=" sm:h-[50px]" />
        </div>
 
       {/* Bottom Blur */}
