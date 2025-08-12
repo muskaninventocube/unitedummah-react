@@ -60,7 +60,23 @@ const UmmahHeroSection = () => {
   />
 </div>
 
-
+     {/* Below image */}
+<div className="
+  absolute -bottom-12 right-[600px] 
+  max-[1400px]:right-[300px] 
+  max-[1200px]:right-0 
+ max-[500px]:right-0 max-[500px]:left-auto
+ 
+">
+  <img
+    src="/images/below.png"
+    alt="Below content"
+    className="w-50 h-50 object-contain 
+               max-[600px]:w-[300px] 
+               max-[500px]:h-[300px]
+                max-[500px]:w-[300px]"
+  />
+</div>
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -224,7 +240,7 @@ const UmmahHeroSection = () => {
                     </div>
                     <button
                       className="ml-4 px-5 py-4 mt-2 text-xs font-bold text-white rounded hover:opacity-90 transition-opacity uppercase"
-                      style={{ backgroundColor: '#041b06ff' }}
+                      style={{ backgroundColor: '#001F1F' }}
                     >
                       LEARN MORE
                     </button>
