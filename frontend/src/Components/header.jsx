@@ -7,22 +7,28 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [nextPrayer, setNextPrayer] = useState({ name: '', hrs: '00', mins: '00', secs: '00' });
   const [prayerTimes, setPrayerTimes] = useState([]);
-  const [showPrayerSection, setShowPrayerSection] = useState(false);
+
+  // Animation states
+  const [showPrayerBackground, setShowPrayerBackground] = useState(false);
+  const [showPrayerContent, setShowPrayerContent] = useState(false);
 
   const handleDonateClick = () => {
     setIsClicked(true);
     setTimeout(() => setIsClicked(false), 300);
   };
 
-  // Animation trigger after 3 seconds
+  // Animation triggers
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowPrayerSection(true);
-    }, 1000);
+    const bgTimer = setTimeout(() => setShowPrayerBackground(true), 1000);
+    const contentTimer = setTimeout(() => setShowPrayerContent(true), 1400);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(bgTimer);
+      clearTimeout(contentTimer);
+    };
   }, []);
 
+  // Fetch prayer times
   useEffect(() => {
     const fetchPrayerTimes = async () => {
       try {
@@ -49,6 +55,7 @@ const Header = () => {
     fetchPrayerTimes();
   }, []);
 
+  // Update countdown
   useEffect(() => {
     const updateCountdown = () => {
       if (!prayerTimes.length) return;
@@ -123,15 +130,17 @@ const Header = () => {
 
           {/* Countdown + Donate */}
           <div className="relative flex items-center ml-auto gap-x-4 lg:gap-x-6 -right-12">
+            {/* Background */}
             <div 
               className={`absolute left-0 right-0 h-[75px] bg-[#90BC5D] rounded-full z-0 transition-all duration-1000 ease-out ${
-                showPrayerSection ? 'transform translate-x-0 opacity-100' : 'transform translate-x-full opacity-0'
+                showPrayerBackground ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
               }`}
             ></div>
 
+            {/* Content */}
             <div 
-              className={`relative flex items-center z-10 px-4 md:pl-6 md:pr-2 h-[75px] transition-all duration-1000 ease-out ${
-                showPrayerSection ? 'transform translate-x-0 opacity-100' : 'transform translate-x-full opacity-0'
+              className={`relative flex items-center z-10 px-4 md:pl-6 md:pr-2 h-[75px] transition-all duration-700 ease-out ${
+                showPrayerContent ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
               }`}
             >
               <div className="text-black mr-4 whitespace-nowrap">
@@ -169,16 +178,16 @@ const Header = () => {
           {/* Background Capsule */}
           <div 
             className={`absolute inset-x-0 h-[55px] bg-[#90BC5D] rounded-full z-0 transition-all duration-1000 ease-out ${
-              showPrayerSection ? 'transform translate-x-0 opacity-100' : 'transform translate-x-full opacity-0'
+              showPrayerBackground ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
             }`}
           ></div>
 
           {/* Content Row */}
           <div className="relative flex items-center justify-between z-10 px-4 h-[55px]">
-            {/* Left side - Prayer Info (animated) */}
+            {/* Left side */}
             <div 
-              className={`text-black flex flex-col justify-center text-[9px] leading-tight transition-all duration-1000 ease-out ${
-                showPrayerSection ? 'transform translate-x-0 opacity-100' : 'transform translate-x-full opacity-0'
+              className={`text-black flex flex-col justify-center text-[9px] leading-tight transition-all duration-700 ease-out ${
+                showPrayerContent ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
               }`}
             >
               <div className="font-medium">Islamic Centre of Canada (ICC)</div>
@@ -187,10 +196,10 @@ const Header = () => {
 
             {/* Right side */}
             <div className="flex items-center gap-x-2">
-              {/* Countdown (animated) */}
+              {/* Countdown */}
               <div 
-                className={`flex gap-x-1 transition-all duration-1000 ease-out ${
-                  showPrayerSection ? 'transform translate-x-0 opacity-100' : 'transform translate-x-full opacity-0'
+                className={`flex gap-x-1 transition-all duration-700 ease-out ${
+                  showPrayerContent ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
                 }`}
               >
                 {[nextPrayer.hrs, nextPrayer.mins, nextPrayer.secs].map((val, i) => (
@@ -201,7 +210,7 @@ const Header = () => {
                 ))}
               </div>
 
-              {/* Donate Button (always visible) */}
+              {/* Donate Button */}
               <button
                 onClick={handleDonateClick}
                 className={`h-[55px] w-[120px] -mr-4 text-[10px] flex items-center justify-center font-semibold transition-all duration-300 ease-in-out rounded-full z-20 ${
