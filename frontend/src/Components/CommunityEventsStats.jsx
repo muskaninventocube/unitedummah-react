@@ -21,35 +21,35 @@ const Counter = ({ target, duration }) => {
 const CommunityEventsStats = () => {
   return (
     <div className="relative w-full py-16 bg-[#002626]">
-      {/* Top Shadow */}
+     {/* Top Blur */}
       <div
         className="absolute"
         style={{
-          width: '1920px',
-          height: '250px',
-          top: '-50px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          backgroundColor: '#002626',
-          backdropFilter: 'blur(12px)',
-          background: 'linear-gradient(to bottom, rgba(0,38,38,0.6), transparent)',
+          width: "100%",
+          maxWidth: "100vw",
+          height: "250px",
+          top: "-280px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          backgroundColor: "#041a10ff",
+          filter: "blur(100px)",
           zIndex: 1,
         }}
       />
 
-      {/* Bottom Shadow */}
-      <div
-        className="absolute left-1/2 -translate-x-1/2"
-        style={{
-          width: '1920px',
-          height: '250px',
-          bottom: '-180px',
-          background: 'linear-gradient(to top, rgba(0,38,38,0.6), transparent)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-          zIndex: 1,
-        }}
-      />
+    {/* Bottom Shadow going downwards */}
+<div
+  className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
+  style={{
+    width: '1920px',
+    height: '250px',
+    bottom: '0', // component ke bilkul end par
+    transform: 'translateY(100px)', // thoda neeche push
+    background: 'linear-gradient(to bottom, rgba(4, 49, 49, 0.6), transparent)',
+    filter: 'blur(100px)', // backdropFilter ki jagah direct blur
+    zIndex: 1,
+  }}
+/>
 
       {/* Main content container */}
       <div
