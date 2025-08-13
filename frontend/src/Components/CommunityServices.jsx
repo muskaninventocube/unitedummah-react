@@ -23,6 +23,7 @@ const y3 = useTransform(scrollYProgress, [0.5, 0.6], [0, moveDistance]);
 
   return (
     <div className="relative min-h-screen">
+   
       <div ref={sectionRef} className="sticky top-0 sm:h-[1500px] h-[1200px]  overflow-hidden z-10">
         {/* Background */}
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url("/grid/home-backk.png")' }}>
@@ -47,7 +48,7 @@ const y3 = useTransform(scrollYProgress, [0.5, 0.6], [0, moveDistance]);
               </p>
              <button
   className="
-    sm:px-8 sm:py-3 px-6 py-2 
+    sm:px-8 sm:py-3 px-6 py-2
     sm:text-lg text-md font-semibold mb-20
     bg-[#F1E8DA] text-black
     hover:bg-[#bf8c4b] transition-colors duration-300
