@@ -22,7 +22,7 @@ const CommunityEventsStats = () => {
   return (
     <div className="relative w-full py-16 bg-[#002626]">
       {/* Top Blur */}
-      <div
+      {/* <div
         className="absolute"
         style={{
           width: '100%',
@@ -35,7 +35,7 @@ const CommunityEventsStats = () => {
           filter: 'blur(100px)',
           zIndex: 1,
         }}
-      />
+      /> */}
 
       
   
@@ -80,7 +80,7 @@ const CommunityEventsStats = () => {
                 color: '#F1E8DA',
               }}
             >
-              <Counter target={100000} duration={100000} /> {/* Faster */}
+              <Counter target={100000} duration={5000000} /> {/* Faster */}
               <span style={{ fontSize: '32px' }}>+</span>
             </div>
             <div className="text-sm text-gray-300 leading-relaxed">

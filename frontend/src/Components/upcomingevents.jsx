@@ -370,21 +370,22 @@ export default function UpcomingEvents() {
 
       {/* Bottom Blur */}
      {/* Bottom Blur */}
-<div
+{/* Bottom Blur */}
+{/* <div
   className="absolute pointer-events-none"
   style={{
     width: "100%",
     maxWidth: "100vw",
-    height: "250px",
-    bottom: "-250px", // thoda aur neeche push kiya
+    height: "400px",            // zyada height taake neeche tak jaye
+    bottom: "-350px",           // neeche push kiya
     left: "50%",
     transform: "translateX(-50%)",
     backgroundColor: "#F1E8DA",
-    filter: "blur(100px)",
-    zIndex: 10, // high so it's above next section background
+    filter: "blur(120px)",      // thoda zyada blur for smooth fade
+    zIndex: 10,
   }}
 />
-
-    </div>
+</div> */}
+</div>
   );
 }
