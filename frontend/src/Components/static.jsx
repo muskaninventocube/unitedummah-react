@@ -99,10 +99,10 @@ const PrologueGallery = () => {
       <div className="pointer-events-none relative z-10 flex flex-col items-center pb-20 sm:pb-40" style={{ height: '2900px' }}>
 
         {/* Top Spacer */}
-        <div className="h-[150px] sm:h-[200px] md:h-[250px]" />
+        <div className="h-[150px] sm:h-[100px] md:h-[250px]" />
 
         {/* Sticky PROLOGUE */}
-        <div className="sticky top-[150px] sm:top-[200px] md:top-[250px] flex items-center justify-center h-[600px] sm:h-[700px] md:h-[800px] w-full">
+        <div className="sticky top-[150px] sm:top-[150px] md:top-[250px] flex items-center justify-center h-[600px] sm:h-[700px] md:h-[800px] w-full">
           <div
             className="w-[90%] sm:w-[500px] md:w-[650px] lg:w-[800px] h-[600px] sm:h-[700px] md:h-[800px] bg-[#001F1F] pointer-events-auto flex items-center justify-center"
           >

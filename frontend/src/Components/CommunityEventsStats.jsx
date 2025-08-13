@@ -1,28 +1,42 @@
 import React, { useState, useEffect } from 'react';
 
-const Counter = ({ target, duration }) => {
+const Counter = ({ target, totalDuration }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    let start = 0;
     const end = parseInt(target);
-    const incrementTime = Math.max(1, Math.floor(duration / end)); // avoid 0ms
+
+    // Calculate start value so big numbers don't take too long
+    let startValue;
+    if (end > 50000) startValue = end - 200;      // e.g., 100000 → starts at 99800
+    else if (end > 5000) startValue = end - 200;  // e.g., 10000 → starts at 9800
+    else startValue = 0;                          // small numbers start from 0
+
+    let current = startValue;
+    setCount(startValue);
+
+    const totalSteps = end - startValue;
+    const incrementTime = Math.max(1, Math.floor(totalDuration / totalSteps));
+
     const timer = setInterval(() => {
-      start += 1;
-      setCount(start);
-      if (start >= end) clearInterval(timer);
+      current += 1;
+      setCount(current);
+      if (current >= end) clearInterval(timer);
     }, incrementTime);
+
     return () => clearInterval(timer);
-  }, [target, duration]);
+  }, [target, totalDuration]);
 
   return <>{count.toLocaleString()}</>;
 };
 
 const CommunityEventsStats = () => {
+  const totalAnimationTime = 3000; // 3 seconds for all
+
   return (
     <div className="relative w-full py-16 bg-[#002626]">
       {/* Top Blur */}
-      {/* <div
+      <div
         className="absolute"
         style={{
           width: '100%',
@@ -35,16 +49,12 @@ const CommunityEventsStats = () => {
           filter: 'blur(100px)',
           zIndex: 1,
         }}
-      /> */}
+      />
 
-      
-  
       {/* Main content container */}
       <div
         className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 py-10 rounded-lg w-full"
-        style={{
-          backgroundColor: '#001F1F',
-        }}
+        style={{ backgroundColor: '#001F1F' }}
       >
         {/* Mosque Icon */}
         <div className="flex justify-center mb-8">
@@ -72,15 +82,8 @@ const CommunityEventsStats = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           {/* 1st Stat */}
           <div>
-            <div
-              className="mb-4"
-              style={{
-                fontFamily: 'Times New Roman, serif',
-                fontSize: '48px',
-                color: '#F1E8DA',
-              }}
-            >
-              <Counter target={100000} duration={5000000} /> {/* Faster */}
+            <div className="mb-4" style={{ fontFamily: 'Times New Roman, serif', fontSize: '48px', color: '#F1E8DA' }}>
+              <Counter target={100000} totalDuration={totalAnimationTime} />
               <span style={{ fontSize: '32px' }}>+</span>
             </div>
             <div className="text-sm text-gray-300 leading-relaxed">
@@ -92,15 +95,8 @@ const CommunityEventsStats = () => {
 
           {/* 2nd Stat */}
           <div>
-            <div
-              className="mb-4"
-              style={{
-                fontFamily: 'Times New Roman, serif',
-                fontSize: '48px',
-                color: '#F1E8DA',
-              }}
-            >
-              <Counter target={10000} duration={600} /> {/* Faster */}
+            <div className="mb-4" style={{ fontFamily: 'Times New Roman, serif', fontSize: '48px', color: '#F1E8DA' }}>
+              <Counter target={10000} totalDuration={totalAnimationTime} />
               <span style={{ fontSize: '32px' }}>+</span>
             </div>
             <div className="text-sm text-gray-300 leading-relaxed">
@@ -112,15 +108,8 @@ const CommunityEventsStats = () => {
 
           {/* 3rd Stat */}
           <div>
-            <div
-              className="mb-4"
-              style={{
-                fontFamily: 'Times New Roman, serif',
-                fontSize: '48px',
-                color: '#F1E8DA',
-              }}
-            >
-              <Counter target={600} duration={300} /> {/* Faster */}
+            <div className="mb-4" style={{ fontFamily: 'Times New Roman, serif', fontSize: '48px', color: '#F1E8DA' }}>
+              <Counter target={600} totalDuration={totalAnimationTime} />
               <span style={{ fontSize: '32px' }}>+</span>
             </div>
             <div className="text-sm text-gray-300 leading-relaxed">

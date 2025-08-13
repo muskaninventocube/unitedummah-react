@@ -23,7 +23,6 @@ const y3 = useTransform(scrollYProgress, [0.5, 0.6], [0, moveDistance]);
 
   return (
     <div className="relative min-h-screen">
-    
       <div ref={sectionRef} className="sticky top-0 sm:h-[1500px] h-[1200px]  overflow-hidden z-10">
         {/* Background */}
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url("/grid/home-backk.png")' }}>
