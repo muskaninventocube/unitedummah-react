@@ -65,7 +65,7 @@ const CommunityEventsStats = () => {
             color: '#F1E8DA',
           }}
         >
-          <span className="text-[32px] md:text-[56px]">Community Events</span>
+          <span className="text-[32px] md:text-[50px]">Community Events</span>
         </h2>
 
         {/* Statistics */}
@@ -80,7 +80,7 @@ const CommunityEventsStats = () => {
                 color: '#F1E8DA',
               }}
             >
-              <Counter target={100000} duration={20000} /> {/* Faster */}
+              <Counter target={100000} duration={100000} /> {/* Faster */}
               <span style={{ fontSize: '32px' }}>+</span>
             </div>
             <div className="text-sm text-gray-300 leading-relaxed">

@@ -25,56 +25,53 @@ const PrologueGallery = () => {
     <div className="relative w-full min-h-screen sm:min-h-[2000px] px-4 sm:px-8">
 
       {/* Top Blur */}
-   {/* Start Blur (fading downward over images) */}
-<div
-  className="absolute"
-  style={{
-    width: '100%',
-    maxWidth: '100vw',
-    height: '250px',          // fade area height
-    top: '0',                 // component start
-    left: '50%',
-    transform: 'translateX(-50%)',
-    backgroundColor: '#041a10ff',
-    filter: 'blur(100px)',
-    zIndex: 5,                 // higher than images
-    pointerEvents: 'none',     // so it doesn’t block clicks
-  }}
-/>
-
+      <div
+        className="absolute"
+        style={{
+          width: '100%',
+          maxWidth: '100vw',
+          height: '250px',
+          top: '0',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          backgroundColor: '#041a10ff',
+          filter: 'blur(100px)',
+          zIndex: 5,
+          pointerEvents: 'none',
+        }}
+      />
 
       {/* Hover logic */}
-     <style >{`
-  .image-container {
-    position: relative;
-    overflow: hidden;
-    transition: transform 300ms ease;
-  }
-  .image-container:hover {
-    transform: scale(1.03);
-    z-index: 5;
-  }
-  .image-container img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: opacity 0.3s ease;
-  }
-  .hover-image {
-    opacity: 0;
-  }
-  .image-container:hover .hover-image {
-    opacity: 1;
-  }
-  .image-container:hover .main-image {
-    opacity: 0;
-  }
-`}</style>
-
+      <style>{`
+        .image-container {
+          position: relative;
+          overflow: hidden;
+          transition: transform 300ms ease;
+        }
+        .image-container:hover {
+          transform: scale(1.03);
+          z-index: 5;
+        }
+        .image-container img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          transition: opacity 0.3s ease;
+        }
+        .hover-image {
+          opacity: 0;
+        }
+        .image-container:hover .hover-image {
+          opacity: 1;
+        }
+        .image-container:hover .main-image {
+          opacity: 0;
+        }
+      `}</style>
 
       {/* Image Gallery Columns */}
       <div className="flex absolute inset-0 z-0">
@@ -109,30 +106,56 @@ const PrologueGallery = () => {
           <div
             className="w-[90%] sm:w-[500px] md:w-[650px] lg:w-[800px] h-[600px] sm:h-[700px] md:h-[800px] bg-[#001F1F] pointer-events-auto flex items-center justify-center"
           >
-            <div className="text-center px-4 sm:px-8 md:px-14 py-6 sm:py-8 md:py-10 text-white">
+            <div className="text-center px-4 sm:px-8 md:px-14 py-6 sm:py-8 md:py-10">
+              
+              {/* Heading */}
               <h1
-                className="text-green-400 text-2xl sm:text-3xl md:text-4xl mb-6 sm:mb-8 tracking-wider"
                 style={{
-                  fontFamily: 'styreneB, serif',
-                  fontWeight: 400,
-                  letterSpacing: '0.1em',
+                  color: '#90BC5D',
+                  fontFamily: 'Orpheus Pro, serif',
+                  fontWeight: 300,
+                  fontStyle: 'normal',
+                  lineHeight: '47.99px',
+                  letterSpacing: '1.01px',
+                  textAlign: 'center',
+                  verticalAlign: 'middle',
                 }}
+                className="text-2xl sm:text-4xl md:text-4xl mb-8 sm:mb-12"
               >
                 PROLOGUE
               </h1>
 
-              <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-xl leading-relaxed">
+              {/* Paragraphs */}
+              <div className="space-y-4 sm:space-y-6 text-sm sm:text-6xl md:text-xl">
                 <p
-                  className="text-white"
-                  style={{ fontFamily: 'styreneB, serif', fontWeight: 400 }}
+                  style={{
+                    color: '#F1E8DA',
+                    fontFamily: 'Times New Roman, serif',
+                    fontWeight: 300,
+                    fontStyle: 'normal',
+                    lineHeight: '100%',
+                    letterSpacing: '1.01px',
+                    textAlign: 'center',
+                    verticalAlign: 'middle',
+                       fontSize: window.innerWidth >= 640 ? '1.5rem' : '0.9rem',
+                  }}
                 >
                   United Ummah is more than just a community centre it is a 
                   sanctuary for Muslims from every walk of life, a place where 
                   hearts meet, hands join, and faith flourishes.
                 </p>
                 <p
-                  className="text-white"
-                  style={{ fontFamily: 'styreneB, serif', fontWeight: 400 }}
+                  style={{
+                    color: '#F1E8DA',
+                    fontFamily: 'Times New Roman, serif',
+                    fontWeight: 300,
+                    fontStyle: 'normal',
+                    lineHeight: '100%',
+                    letterSpacing: '1.01px',
+                    textAlign: 'center',
+                    verticalAlign: 'middle',
+                     fontSize: window.innerWidth >= 640 ? '1.5rem' : '0.9rem',
+                  }}
                 >
                   Here, every soul is valued, every story is honoured, and 
                   every gathering feels like a homecoming minus the awkward
@@ -144,16 +167,23 @@ const PrologueGallery = () => {
                 </p>
               </div>
 
+              {/* Button */}
               <button
-                className="mt-6 sm:mt-8 bg-white text-black px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium tracking-wide hover:bg-gray-100 transition-colors duration-300"
+                className="mt-6 sm:mt-8 px-6 sm:px-8 py-2 sm:py-3 text-bold text-sm sm:text-base font-medium tracking-wide transition-colors duration-300"
                 style={{
-                  fontFamily: 'styreneB, serif',
+                  backgroundColor: '#F1E8DA',
+                  color: 'black',
+                  borderRadius: '0',
+                  fontFamily: 'Times New Roman, serif',
                   fontWeight: 500,
                   letterSpacing: '0.05em',
                 }}
+                onMouseEnter={(e) => e.target.style.backgroundColor = '#bf8c4b'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = '#F1E8DA'}
               >
                 KNOW MORE ABOUT US
               </button>
+
             </div>
           </div>
         </div>

@@ -64,7 +64,7 @@ const UmmahHeroSection = () => {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/images/home-back.png')" }}
+          style={{ backgroundImage: "url('/grid/home-backk.png')" }}
         >
           <div className="absolute inset-0 bg-white bg-opacity-30"></div>
         </div>
