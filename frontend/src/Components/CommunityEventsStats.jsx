@@ -37,8 +37,25 @@ const CommunityEventsStats = () => {
         }}
       />
 
+<<<<<<< Updated upstream
       
   
+=======
+{/* Bottom Shadow going into next section */}
+<div
+  className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
+  style={{
+    width: '1920px',
+    height: '250px',
+    bottom: '-250px', // thoda neeche push taaki agle section me jaye
+    background: 'linear-gradient(to top, rgba(1, 41, 41, 0.6), transparent)',
+    filter: 'blur(100px)',
+    zIndex: 1,
+  }}
+/>
+
+
+>>>>>>> Stashed changes
       {/* Main content container */}
       <div
         className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 py-10 rounded-lg w-full"
