@@ -151,8 +151,8 @@ const UmmahHeroSection = () => {
           </div>
         
 
-        {/* Events Section */}
-        <div className="relative z-20 flex flex-col items-start -ml-0 -mt-16">
+        {/* Events Section   changed from -mt-16 */}
+        <div className="relative z-20 flex flex-col items-start -ml-0 -mt-50"> 
           <div className="w-[810px] max-[1200px]:w-full py-4 px-2">
             {/* Header */}
             <div className="flex items-center justify-between p-2 border-b border-black text-white bg-black pb-2 px-4 rounded-t">
@@ -205,17 +205,17 @@ const UmmahHeroSection = () => {
                   </div>
                   <div className="flex-1 flex justify-between items-start">
                     <div>
-                      <div className="text-xs uppercase tracking-wide mb-1 text-black font-medium">
+                      <div className="text-xs text-black">
                         {event.subtitle}
                       </div>
-                      <div className="text-sm font-bold mb-1 text-black">
+                      <div className="text-xs  mb-1 text-black">
                         {event.title}
                       </div>
-                      <div className="text-sm text-black">{event.speaker}</div>
+                      <div className="text-xs text-black">{event.speaker}</div>
                     </div>
                     <button
-                      className="ml-4 px-5 py-3 mt-2 text-xs font-bold text-white rounded hover:opacity-90 transition-opacity uppercase"
-                      style={{ backgroundColor: '#041b06ff' }}
+                      className="ml-4 px-4 py-3 mt-2 text-xs font-semibold text-white rounded hover:opacity-90 transition-opacity uppercase"
+                      style={{ backgroundColor: '#001F1F' }}
                     >
                       LEARN MORE
                     </button>
