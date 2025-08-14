@@ -13,7 +13,7 @@ import UmmahBuild from './Components/ummahBuild';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <div className="relative w-full overflow-x-hidden overflow-y-hidden  ">
+    <div className="relative w-full overflow-x-hidden overflow-y-hidden">
    <div className="fixed top-8 z-40 w-full px-5 md:px-8">
   <div className="full-rounded overflow-hidden mx-auto max-w-[1800px] ">
     <Header />
@@ -26,7 +26,7 @@ root.render(
     </div>
     <Static />
     <UpcomingEvents />  
-    <div className="relative w-full overflow-x-hidden overflow-y-hidden  ">
+    <div className="relative w-full  ">
     
     <CommunityServices />
     <UmmahBuild />

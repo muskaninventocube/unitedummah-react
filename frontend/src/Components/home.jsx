@@ -139,7 +139,7 @@ const UmmahHeroSection = () => {
   />
 </div>
 
-<div className="absolute -bottom-12 -left-10 max-[500px]:bottom-2">
+<div className="absolute -bottom-12 -left-10 max-[500px]:bottom-20 max-[500px]:left-0">
   <img
     src="/images/left.png"
     alt="Left corner"
