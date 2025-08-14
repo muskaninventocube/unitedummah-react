@@ -34,7 +34,7 @@ const CommunityEventsStats = () => {
   const totalAnimationTime = 3000; // 3 seconds for all
 
   return (
-    <div className="relative w-full py-16 bg-[#002626]">
+    <div className="relative w-full pl-2 py-16 bg-[#002626]">
       {/* Top Blur */}
       <div
         className="absolute"

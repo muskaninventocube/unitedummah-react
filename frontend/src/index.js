@@ -26,7 +26,7 @@ root.render(
     </div>
     <Static />
     <UpcomingEvents />  
-    <div className="relative w-full  ">
+    <div className="relative w-full">
     
     <CommunityServices />
     <UmmahBuild />

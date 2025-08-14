@@ -284,7 +284,7 @@ export default function UpcomingEvents() {
           </div>
         </div>
 {/* MOBILE Stacked Scroll Animation */}
-<div className="block sm:hidden px-4">
+<div className="block sm:hidden px-4 pl-10">
   <div ref={mobileRef} className="relative h-[150vh]"> {/* Reduced from 200vh */}
     <div className="sticky top-0 h-screen flex flex-col items-center justify-center">
       {/* First Card */}
@@ -299,7 +299,7 @@ export default function UpcomingEvents() {
           }}
         ></div>
         <div className="mt-4 px-3 bg-[#F1E8DA]">
-          <h2 className="text-gray-800 mb-1 text-[28px] font-bold">
+          <h2 className="text-gray-800 mb-1 text-[24px] font-bold">
             {events[0].title}
           </h2>
           <p className="text-gray-600 text-right mb-2 text-[20px]">
@@ -321,7 +321,7 @@ export default function UpcomingEvents() {
           }}
         ></div>
         <div className="mt-4 px-3 bg-[#F1E8DA]">
-          <h2 className="text-gray-800 mb-1 text-[25px] font-bold">
+          <h2 className="text-gray-800 mb-1 text-[24px] font-bold">
             {events[1].title}
           </h2>
           <p className="text-gray-600 text-right mb-2 text-[20px]">
@@ -343,7 +343,7 @@ export default function UpcomingEvents() {
           }}
         ></div>
         <div className="mt-4 px-3 bg-[#F1E8DA] pb-8"> {/* Added pb-8 for bottom padding */}
-          <h2 className="text-gray-800 mb-1 text-[28px] font-bold">
+          <h2 className="text-gray-800 mb-1 text-[24px] font-bold">
             {events[2].title}
           </h2>
           <p className="text-gray-600 text-right mb-2 text-[20px]">

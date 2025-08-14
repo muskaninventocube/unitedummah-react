@@ -48,7 +48,7 @@ const UmmahHeroSection = () => {
     <>
       <div className="relative min-h-[120vh] w-full overflow-hidden">
         {/* Right Corner Image */}
-    <div className="absolute top-0 right-0 z-30 max-[450px]:mt-[120px]">
+    <div className="absolute top-0 right-0 z-30 max-[500px]:mt-[100px]">
   <img
     src="/images/right-corner.png"
     alt="Community gathering"
@@ -77,7 +77,9 @@ const UmmahHeroSection = () => {
   max-[600px]:min-h-[250px] max-[600px]:max-h-[250px] 
   sm:min-h-[250px] md:min-h-[500px] 
   [@media(max-width:1200px)]:min-h-[300px] [@media(max-width:1200px)]:max-h-[300px] 
-  [@media(min-width:1600px)]:min-h-[400px] [@media(min-width:1600px)]:max-w-[85rem]"
+  [@media(min-width:1600px)]:min-h-[400px] [@media(min-width:1600px)]:max-w-[85rem]
+  max-[500px]:ml-7
+  "
   style={{ backgroundColor: '#DED7CE' }}
 >
 
@@ -101,9 +103,9 @@ const UmmahHeroSection = () => {
   className="
     absolute top-16 right-4 
     sm:top-12 sm:right-8 
-    text-xl sm:text-2xl md:text-3xl 
+    text-sm sm:text-2xl md:text-3xl 
     uppercase tracking-widest text-[#272625] 
-    max-[500px]:top-8
+    max-[500px]:top-20
   "
   style={{ fontFamily: "'Inter', sans-serif" , fontWeight: 300}}
 >
@@ -113,7 +115,7 @@ const UmmahHeroSection = () => {
 {/* Main Heading */}
 <h1
   className="
-    text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
+    text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
     text-[#272625] leading-tight text-start px-4 
     -ml-5 sm:-ml-20 md:-ml-14 lg:-ml-20 
     [@media(min-width:1600px)]:-ml-[400px]  /* more left on big screens */
@@ -139,7 +141,7 @@ const UmmahHeroSection = () => {
   />
 </div>
 
-<div className="absolute -bottom-12 -left-10 max-[500px]:bottom-20 max-[500px]:left-0">
+<div className="absolute -bottom-12 -left-10 max-[500px]:bottom-[15px] max-[500px]:left-0">
   <img
     src="/images/left.png"
     alt="Left corner"

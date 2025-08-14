@@ -98,13 +98,13 @@ const UmmahSection = () => {
 
           {/* Become a Member Button */}
           <button
-            className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-black font-semibold font-medium  transition z-10
-                       px-4 py-2 text-sm md:px-8 md:py-3 md:text-lg"
+            className="absolute bottom-4 left-1/2 -translate-x-1/2 text-black font-semibold font-medium  z-10
+                       px-4 py-2 text-xs md:px-8 md:py-3 md:text-lg"
             style={{
               backgroundColor: '#90BC5D',
             }}
-            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#bf8c4b')}
-            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#90BC5D')}
+            // onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#bf8c4b')}
+            // onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#90BC5D')}
           >
             Become a Member
           </button>

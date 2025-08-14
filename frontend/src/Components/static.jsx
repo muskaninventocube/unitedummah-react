@@ -96,7 +96,7 @@ const PrologueGallery = () => {
       </div>
 
       {/* Scroll container for PROLOGUE */}
-      <div className="pointer-events-none relative z-10 flex flex-col items-center pb-20 sm:pb-40" style={{ height: '2900px' }}>
+      <div className="pointer-events-none relative z-10 pl-10 flex flex-col items-center pb-20 sm:pb-40" style={{ height: '2900px' }}>
 
         {/* Top Spacer */}
         <div className="h-[150px] sm:h-[100px] md:h-[250px]" />
@@ -126,7 +126,7 @@ const PrologueGallery = () => {
               </h1>
 
               {/* Paragraphs */}
-              <div className="space-y-4 sm:space-y-6 text-sm sm:text-6xl md:text-xl">
+              <div className="space-y-4 sm:space-y-6 text-xs sm:text-6xl md:text-xl">
                 <p
                   style={{
                     color: '#F1E8DA',
